@@ -1,0 +1,1878 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemata.jklnet.org/Reko/v5">
+  <arch>x86-real-16</arch>
+  <platform>ms-dos</platform>
+  <input>
+    <filename>BTECH.EXE</filename>
+    <asmDir>BTECH.reko</asmDir>
+    <srcDir>BTECH.reko</srcDir>
+    <includeDir>BTECH.reko</includeDir>
+    <resources>BTECH.reko\resources</resources>
+    <user>
+      <processor />
+      <procedure name="Graphical_Operations_051B">
+        <address>0800:051B</address>
+        <CSignature>void Graphical_Operations_051B()</CSignature>
+      </procedure>
+      <procedure name="Graphical_Operations_0E4B">
+        <address>0800:0E4B</address>
+        <CSignature>void Graphical_Operations_0E4B()</CSignature>
+      </procedure>
+      <procedure name="Return_Double_Palette_RCL_19DD">
+        <address>0800:19DD</address>
+      </procedure>
+      <procedure name="Keyboard_space_key_pressed_1A13">
+        <address>0800:1A13</address>
+      </procedure>
+      <procedure name="Create_Struct_From_Memory_29F5">
+        <address>0800:29F5</address>
+      </procedure>
+      <procedure name="DOS_Load_Multiple_Files">
+        <address>0800:2DA8</address>
+      </procedure>
+      <procedure name="Load_Game">
+        <address>0800:32B3</address>
+      </procedure>
+      <procedure name="A_fn0800_3FAE">
+        <address>0800:3FAE</address>
+        <CSignature>void A_fn0800_3FAE(int wArg04, int wArg06)</CSignature>
+      </procedure>
+      <procedure name="A_fn0800_45C2">
+        <address>0800:45C2</address>
+        <CSignature>void A_fn0800_45C2(int wArg04)</CSignature>
+      </procedure>
+      <procedure name="Scene_Mech_Startup">
+        <address>0800:48B7</address>
+        <CSignature>void Scene_Mech_Startup(int wArg04, int wArg06)</CSignature>
+      </procedure>
+      <procedure name="Attract_Mode">
+        <address>0800:4DC7</address>
+      </procedure>
+      <procedure name="Salvage_Armour_Dialog_0002">
+        <address>0DAB:0002</address>
+      </procedure>
+      <procedure name="Salvage_Mechs_Dialog_04F9">
+        <address>0DAB:04F9</address>
+      </procedure>
+      <procedure name="Loot_Enemy_Soldiers_Dialog_094B">
+        <address>0DAB:094B</address>
+      </procedure>
+      <procedure name="Allow_Computer_Control_Dialog_0B5E">
+        <address>0DAB:0B5E</address>
+      </procedure>
+      <procedure name="Set_Video_Mode">
+        <address>0DAB:0C8F</address>
+      </procedure>
+      <procedure name="Set_Video_Mode_to_Text_Mode">
+        <address>0DAB:0D12</address>
+      </procedure>
+      <procedure name="Scan_Humans_1467">
+        <address>0DAB:1467</address>
+      </procedure>
+      <procedure name="Teammate_suspicious_18E8">
+        <address>0DAB:18E8</address>
+      </procedure>
+      <procedure name="Examine_Screen_BTSTATS_CMP">
+        <address>0DAB:1AFE</address>
+      </procedure>
+      <procedure name="Fathers_Holodisk_0008">
+        <address>0FDC:0008</address>
+      </procedure>
+      <procedure name="Large_Switch_Statement_01C0">
+        <address>0FDC:01C0</address>
+      </procedure>
+      <procedure name="Mech_Mission_0629">
+        <address>0FDC:0629</address>
+      </procedure>
+      <procedure name="Weapon_inventory_13DE">
+        <address>0FDC:13DE</address>
+      </procedure>
+      <procedure name="Weapon_inventory_2_15E6">
+        <address>0FDC:15E6</address>
+      </procedure>
+      <procedure name="Increment_ptrArg04_by_1_19F6">
+        <address>0FDC:19F6</address>
+      </procedure>
+      <procedure name="Load_Indexed_Files">
+        <address>0FDC:1D30</address>
+      </procedure>
+      <procedure name="Mechlube_Repair_Mech_0002">
+        <address>11B8:0002</address>
+      </procedure>
+      <procedure name="Mechlube_Modify_Mech_080A">
+        <address>11B8:080A</address>
+      </procedure>
+      <procedure name="Mechlube_Upgrade_Mech_0925">
+        <address>11B8:0925</address>
+      </procedure>
+      <procedure name="Teammate_Mech_Assign_0D58">
+        <address>11B8:0D58</address>
+      </procedure>
+      <procedure name="Scene_Mech_Refuse_To_Start">
+        <address>11B8:16B2</address>
+      </procedure>
+      <procedure name="Mechlube_Buy_Ammo_1762">
+        <address>11B8:1762</address>
+      </procedure>
+      <procedure name="Draw_STARLEAG_ICN_Game_Logic_0004">
+        <address>135D:0004</address>
+      </procedure>
+      <procedure name="StarLeague_Secret_Passageway_Discovered">
+        <address>135D:01E9</address>
+        <CSignature>void StarLeague_Secret_Passageway_Discovered()</CSignature>
+      </procedure>
+      <procedure name="OverHead_Map_Function">
+        <address>135D:0327</address>
+        <CSignature>void OverHead_Map_Function()</CSignature>
+      </procedure>
+      <procedure name="StarLeague_Security_Terminal_03AA">
+        <address>135D:03AA</address>
+      </procedure>
+      <procedure name="Game_Progression_Flags_04AB">
+        <address>135D:04AB</address>
+      </procedure>
+      <procedure name="StarLeague_Map_Room_055A">
+        <address>135D:055A</address>
+      </procedure>
+      <procedure name="Draw_STARLEAG_ICN_Scene_079C">
+        <address>135D:079C</address>
+      </procedure>
+      <procedure name="Map_Interactable_Play_Sound">
+        <address>135D:0913</address>
+      </procedure>
+      <procedure name="Map_Interactable_Menu_And_Sound">
+        <address>135D:0980</address>
+        <CSignature>void Map_Interactable_Menu_And_Sound()</CSignature>
+      </procedure>
+      <procedure name="StarLeague_Key_Codes_0AB6">
+        <address>135D:0AB6</address>
+      </procedure>
+      <procedure name="Assign_Pilot_and_rider_to_Mechs_0002">
+        <address>1467:0002</address>
+      </procedure>
+      <procedure name="Load_BTSTATS_CMP_Keyboard_and_Graphics_08A8">
+        <address>1467:08A8</address>
+      </procedure>
+      <procedure name="Display_Text_Mech_Names_0B98">
+        <address>1467:0B98</address>
+      </procedure>
+      <procedure name="fn1467_0D7E">
+        <address>1467:0D7E</address>
+      </procedure>
+      <procedure name="Combat_Weapon_UI_0004">
+        <address>1543:0004</address>
+      </procedure>
+      <procedure name="Combat_Target_UI_07CB">
+        <address>1543:07CB</address>
+      </procedure>
+      <procedure name="Combat_Mech_Eject_0A35">
+        <address>1543:0A35</address>
+      </procedure>
+      <procedure name="Display_Text_Human_02E4">
+        <address>1631:02E4</address>
+      </procedure>
+      <procedure name="Menu_Graphical_Operations_032F">
+        <address>1631:032F</address>
+      </procedure>
+      <procedure name="Case_Statement_11AB">
+        <address>1631:11AB</address>
+      </procedure>
+      <procedure name="Countdown_or_Keyboard_Input_1DCC">
+        <address>1631:1DCC</address>
+      </procedure>
+      <procedure name="Graphical_Operation_1F09">
+        <address>1631:1F09</address>
+      </procedure>
+      <procedure name="Graphical_Operation_1F73">
+        <address>1631:1F73</address>
+      </procedure>
+      <procedure name="Combat_Parent_000A">
+        <address>183B:000A</address>
+      </procedure>
+      <procedure name="Combat_UI_14C3">
+        <address>183B:14C3</address>
+      </procedure>
+      <procedure name="fn183B_193B">
+        <address>183B:193B</address>
+      </procedure>
+      <procedure name="Combat_Movement_1C1F">
+        <address>183B:1C1F</address>
+      </procedure>
+      <procedure name="Combat_Kick_2231">
+        <address>183B:2231</address>
+      </procedure>
+      <procedure name="Options_Combat_Messages_24F0">
+        <address>183B:24F0</address>
+      </procedure>
+      <procedure name="Options_See_Combat_Graphics_2556">
+        <address>183B:2556</address>
+      </procedure>
+      <procedure name="Combat_Mechanics">
+        <address>1AE8:000C</address>
+        <CSignature>void Combat_Mechanics(int IsCombat)</CSignature>
+      </procedure>
+      <procedure name="Combat_Mechanics_2_12C7">
+        <address>1AE8:12C7</address>
+      </procedure>
+      <procedure name="Draw_Menu_CGA_VGA_Graphical_Operation_0004">
+        <address>1E56:0004</address>
+      </procedure>
+      <procedure name="CGA_VGA_Graphical_Operation_01E7">
+        <address>1E56:01E7</address>
+      </procedure>
+      <procedure name="EGA_operations_03EB">
+        <address>1F3D:03EB</address>
+      </procedure>
+      <procedure name="Video_operations_handler">
+        <address>1F3D:0525</address>
+      </procedure>
+      <procedure name="Return_to_Game_Graphics_Operation_06C3">
+        <address>1F3D:06C3</address>
+      </procedure>
+      <procedure name="DOS_Load_File_to_memory">
+        <address>1F3D:0814</address>
+      </procedure>
+      <procedure name="Vertical_Retrace_And_Input_Check_086A">
+        <address>1F3D:086A</address>
+      </procedure>
+      <procedure name="Sound_Operation_02A3">
+        <address>1FC5:02A3</address>
+      </procedure>
+      <procedure name="Sound_Operation_02EB">
+        <address>1FC5:02EB</address>
+      </procedure>
+      <procedure name="Sound_Operation_0345">
+        <address>1FC5:0345</address>
+      </procedure>
+      <procedure name="Sound_Operation_03A8">
+        <address>1FC5:03A8</address>
+      </procedure>
+      <procedure name="Sound_Operation_040B">
+        <address>1FC5:040B</address>
+      </procedure>
+      <procedure name="Sound_Ptr_Operation_047B">
+        <address>1FC5:047B</address>
+      </procedure>
+      <procedure name="Sound_Freq_Loop_04F1">
+        <address>1FC5:04F1</address>
+      </procedure>
+      <procedure name="Sound_Operation_059A">
+        <address>1FC5:059A</address>
+      </procedure>
+      <procedure name="Sound_Operation_0643">
+        <address>1FC5:0643</address>
+      </procedure>
+      <procedure name="Sound_Ptr_Multiply_06F6">
+        <address>1FC5:06F6</address>
+      </procedure>
+      <procedure name="Sound_Streaming_1_0747">
+        <address>1FC5:0747</address>
+      </procedure>
+      <procedure name="Sound_Streaming_2_07DA">
+        <address>1FC5:07DA</address>
+      </procedure>
+      <procedure name="seg204B_001E_ROR_Set_Var_00F5">
+        <address>204B:00F5</address>
+      </procedure>
+      <procedure name="Tandy_SoundCard_Output">
+        <address>204B:0160</address>
+      </procedure>
+      <procedure name="PC_Speaker_Set_Value_0179">
+        <address>204B:0179</address>
+      </procedure>
+      <procedure name="Tandy_Soundcard_Operations_01B8">
+        <address>204B:01B8</address>
+      </procedure>
+      <procedure name="Timer_8253_5">
+        <address>207F:001C</address>
+      </procedure>
+      <procedure name="PC_Speaker_ON_ptr_freq">
+        <address>207F:0030</address>
+      </procedure>
+      <procedure name="Sound_Freq_Countdown_Loop_00A9">
+        <address>207F:00A9</address>
+      </procedure>
+      <procedure name="CGA_Do_While_Operations">
+        <address>207F:00D1</address>
+      </procedure>
+      <procedure name="CGA_Struct_Operations_0163">
+        <address>207F:0163</address>
+      </procedure>
+      <procedure name="Video_Operations_in_out">
+        <address>207F:022A</address>
+      </procedure>
+      <procedure name="VGA_Bit_Mask_0313">
+        <address>207F:0313</address>
+      </procedure>
+      <procedure name="EGA_VGA_Registers_0377">
+        <address>207F:0377</address>
+      </procedure>
+      <procedure name="VGA_Carry_Left_Operations_0572">
+        <address>207F:0572</address>
+      </procedure>
+      <procedure name="Carry_Left_Four_times_SHL_RCL">
+        <address>207F:05BF</address>
+      </procedure>
+      <procedure name="EGA_register_05D0">
+        <address>207F:05D0</address>
+      </procedure>
+      <procedure name="EGA_registers_0780">
+        <address>207F:0780</address>
+      </procedure>
+      <procedure name="Tandy_1000_Graphics_Operation_08A1">
+        <address>207F:08A1</address>
+      </procedure>
+      <procedure name="Get_Target_Compass_Direction">
+        <address>207F:0971</address>
+      </procedure>
+      <procedure name="CGA_Screen_Resolutions_Operations_0A26">
+        <address>207F:0A26</address>
+      </procedure>
+      <procedure name="Copy_From__Memory_A_to_B_0A76">
+        <address>207F:0A76</address>
+      </procedure>
+      <procedure name="EGA_registers_0A9F">
+        <address>207F:0A9F</address>
+      </procedure>
+      <procedure name="CGA_Vertical_Retrace_Status_Check">
+        <address>207F:0B26</address>
+      </procedure>
+      <procedure name="EGA_RGB_Palette_RCL_operations">
+        <address>207F:0BC0</address>
+      </procedure>
+      <procedure name="Struct_Loop_Operations_0BFB">
+        <address>207F:0BFB</address>
+      </procedure>
+      <procedure name="BIOS_VGA_Set_Palette_Registers">
+        <address>207F:0FEE</address>
+      </procedure>
+      <procedure name="data_structure">
+        <address>207F:104E</address>
+      </procedure>
+      <procedure name="Struct_internal_Ops_12D9">
+        <address>207F:12D9</address>
+      </procedure>
+      <procedure name="Struct_Internal_Ops_2_12F2">
+        <address>207F:12F2</address>
+      </procedure>
+      <procedure name="Struct_Internal_Ops_3_1303">
+        <address>207F:1303</address>
+      </procedure>
+      <procedure name="fn207F_163B">
+        <address>207F:163B</address>
+      </procedure>
+      <procedure name="Struct_Copy_Operation_18D8">
+        <address>207F:18D8</address>
+      </procedure>
+      <procedure name="VGA_CGA_Graphics_Operations_18EF">
+        <address>207F:18EF</address>
+      </procedure>
+      <procedure name="Graphical_Operation_1AA8">
+        <address>207F:1AA8</address>
+      </procedure>
+      <procedure name="Struct_Copy_Operation_1B1A">
+        <address>207F:1B1A</address>
+      </procedure>
+      <procedure name="Struct_Copy_Operation_1B94">
+        <address>207F:1B94</address>
+      </procedure>
+      <procedure name="VGA_8_loop_1BDF">
+        <address>207F:1BDF</address>
+      </procedure>
+      <procedure name="Non_VGA_Operation_1BFC">
+        <address>207F:1BFC</address>
+      </procedure>
+      <procedure name="VGA_Do_While_1C83">
+        <address>207F:1C83</address>
+      </procedure>
+      <procedure name="NON_MCGA_Graphics_1CB8">
+        <address>207F:1CB8</address>
+      </procedure>
+      <procedure name="MCGA_1D3A">
+        <address>207F:1D3A</address>
+      </procedure>
+      <procedure name="A_fn207F_1DA8">
+        <address>207F:1DA8</address>
+        <CSignature>void A_fn207F_1DA8()</CSignature>
+      </procedure>
+      <procedure name="VGA_Sequencer_Clocking_Mode_1E37">
+        <address>207F:1E37</address>
+      </procedure>
+      <procedure name="Interrupt_flag_sti">
+        <address>207F:1F9C</address>
+      </procedure>
+      <procedure name="Interrupt_flag_cli">
+        <address>207F:1FAD</address>
+      </procedure>
+      <procedure name="VGA_Graphic_Address_Register_1FBE_F7H">
+        <address>207F:1FBE</address>
+      </procedure>
+      <procedure name="Video_CGA_Variable_Operations_200E">
+        <address>207F:200E</address>
+      </procedure>
+      <procedure name="Tandy_1000_Operation_21A8">
+        <address>207F:21A8</address>
+      </procedure>
+      <procedure name="CGA_Operation_2209">
+        <address>207F:2209</address>
+      </procedure>
+      <procedure name="VGA_Graphics_Address_Register_2251">
+        <address>207F:2251</address>
+      </procedure>
+      <procedure name="MCGA_Operation_22A5">
+        <address>207F:22A5</address>
+      </procedure>
+      <procedure name="Video_struct_logic">
+        <address>207F:22F8</address>
+      </procedure>
+      <procedure name="VGA_Operation">
+        <address>207F:245C</address>
+        <CSignature>int VGA_Operation(int wArg04, int wArg06, int wArg05, int wArg0A, int wArg0C, unsigned wArg0E, int wArg10, unsigned wArg12)</CSignature>
+      </procedure>
+      <procedure name="CGA_VGA_Graphics_Register_275C">
+        <address>207F:275C</address>
+      </procedure>
+      <procedure name="CopyStructAToStructB">
+        <address>207F:28A8</address>
+      </procedure>
+      <procedure name="Non_EGA_VGA_Operations_28EB">
+        <address>207F:28EB</address>
+      </procedure>
+      <procedure name="Tandy_Video_Mode">
+        <address>207F:2B45</address>
+      </procedure>
+      <procedure name="Video_MultiMode_func">
+        <address>207F:2B87</address>
+      </procedure>
+      <procedure name="Video_Operation_CGA_palettes">
+        <address>207F:2CF7</address>
+      </procedure>
+      <procedure name="Palette_Bitshifting">
+        <address>207F:2D64</address>
+      </procedure>
+      <procedure name="DOS_Interrupts_Preamble_2E3B">
+        <address>207F:2E3B</address>
+        <CSignature>void DOS_Interrupts_Preamble_2E3B()</CSignature>
+      </procedure>
+      <procedure name="DOS_Interrupt_Vector_Post_2E76">
+        <address>207F:2E76</address>
+        <CSignature>void DOS_Interrupt_Vector_Post_2E76()</CSignature>
+      </procedure>
+      <procedure name="DOS_write_file_if_Func_Ptr">
+        <address>207F:2FB2</address>
+      </procedure>
+      <procedure name="DOS_memory_resize_perhaps">
+        <address>207F:32A0</address>
+      </procedure>
+      <procedure name="CWD_If_Carry_32F5">
+        <address>207F:32F5</address>
+      </procedure>
+      <procedure name="CWD_3308">
+        <address>207F:3308</address>
+      </procedure>
+      <procedure name="DOS_Load_File_Check_356F">
+        <address>207F:356F</address>
+      </procedure>
+      <procedure name="DOS_write_memory_to_save_file">
+        <address>207F:366A</address>
+      </procedure>
+      <procedure name="DOS_write_save_file">
+        <address>207F:371E</address>
+      </procedure>
+      <procedure name="Request_DOS_write">
+        <address>207F:376F</address>
+      </procedure>
+      <procedure name="DOS_set_file_position_self_references">
+        <address>207F:3777</address>
+      </procedure>
+      <procedure name="DOS_Return_file_write_ptr_377A">
+        <address>207F:377A</address>
+      </procedure>
+      <procedure name="Unused_Function_3CD8">
+        <address>207F:3CD8</address>
+      </procedure>
+      <procedure name="If_Arg_multiplication_parent">
+        <address>207F:3D1C</address>
+      </procedure>
+      <procedure name="rotate_with_carry_do_while_parent">
+        <address>207F:3D44</address>
+      </procedure>
+      <procedure name="rotate_with_carry_loop_parent">
+        <address>207F:3D6C</address>
+      </procedure>
+      <procedure name="Arg_less_than_zero_else_do_while_rotate_with_carry">
+        <address>207F:3D92</address>
+      </procedure>
+      <procedure name="If_Arg_multiplication_return_func">
+        <address>207F:3E2E</address>
+      </procedure>
+      <procedure name="rotate_with_carry_do_while">
+        <address>207F:3E62</address>
+      </procedure>
+      <procedure name="rotate_with_carry_loop_and_return">
+        <address>207F:3EC4</address>
+      </procedure>
+      <global>
+        <Address>207F:3255</Address>
+        <prim domain="Pointer" size="2" />
+        <Name>g_23A45</Name>
+      </global>
+      <global>
+        <Address>246C:0252</Address>
+        <prim domain="UnsignedInt" size="2" />
+        <Name>XORFreq</Name>
+      </global>
+      <global>
+        <Address>246C:B764</Address>
+        <prim domain="UnsignedInt" size="2" />
+        <Name>Video_Mode</Name>
+      </global>
+      <global>
+        <Address>2FE8:02F0</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>LOCUST</Name>
+      </global>
+      <global>
+        <Address>2FE8:036D</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>WASP</Name>
+      </global>
+      <global>
+        <Address>2FE8:03EA</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>STINGER</Name>
+      </global>
+      <global>
+        <Address>2FE8:0467</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>COMMANDO</Name>
+      </global>
+      <global>
+        <Address>2FE8:04E4</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>CHAMELEON</Name>
+      </global>
+      <global>
+        <Address>2FE8:0561</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>JENNER</Name>
+      </global>
+      <global>
+        <Address>2FE8:065B</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>URBANMECH</Name>
+      </global>
+      <global>
+        <Address>3EDB:0042</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_3EDF2</Name>
+      </global>
+      <global>
+        <Address>3EDB:004C</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_3EDFC</Name>
+      </global>
+      <global>
+        <Address>3EDB:0054</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_3EE04</Name>
+      </global>
+      <global>
+        <Address>3EDB:0062</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_3EE12</Name>
+      </global>
+      <global>
+        <Address>3EDB:006D</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_3EE1D</Name>
+      </global>
+      <global>
+        <Address>3EDB:0074</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_3EE24</Name>
+      </global>
+      <global>
+        <Address>3EDB:0085</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_3EE35</Name>
+      </global>
+      <global>
+        <Address>3EDB:0090</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_3EE40</Name>
+      </global>
+      <global>
+        <Address>3EDB:0097</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_3EE47</Name>
+      </global>
+      <global>
+        <Address>3EDB:00A8</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_3EE58</Name>
+      </global>
+      <global>
+        <Address>3EDB:00B2</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_3EE62</Name>
+      </global>
+      <global>
+        <Address>3EDB:00BC</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_3EE6C</Name>
+      </global>
+      <global>
+        <Address>3EDB:00D2</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_3EE82</Name>
+      </global>
+      <global>
+        <Address>3EDB:00D9</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_3EE89</Name>
+      </global>
+      <global>
+        <Address>3EDB:00DF</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_3EE8F</Name>
+      </global>
+      <global>
+        <Address>3EDB:00E5</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_3EE95</Name>
+      </global>
+      <global>
+        <Address>3EDB:00F1</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_3EEA1</Name>
+      </global>
+      <global>
+        <Address>3EDB:012F</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_3EEDF</Name>
+      </global>
+      <global>
+        <Address>3EDB:0410</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_3F1C0</Name>
+      </global>
+      <global>
+        <Address>3EDB:0588</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_3F338</Name>
+      </global>
+      <global>
+        <Address>3EDB:0593</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_3F343</Name>
+      </global>
+      <global>
+        <Address>3EDB:05AE</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_3F35E</Name>
+      </global>
+      <global>
+        <Address>3EDB:05BB</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_3F36B</Name>
+      </global>
+      <global>
+        <Address>3EDB:05F5</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_3F3A5</Name>
+      </global>
+      <global>
+        <Address>3EDB:0601</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_3F3B1</Name>
+      </global>
+      <global>
+        <Address>3EDB:06A1</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_3F451</Name>
+      </global>
+      <global>
+        <Address>3EDB:0A9A</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_3F84A</Name>
+      </global>
+      <global>
+        <Address>3EDB:0AA7</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_3F857</Name>
+      </global>
+      <global>
+        <Address>3EDB:0AB3</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_3F863</Name>
+      </global>
+      <global>
+        <Address>3EDB:0C0D</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_3F9BD</Name>
+      </global>
+      <global>
+        <Address>3EDB:0C3B</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_3F9EB</Name>
+      </global>
+      <global>
+        <Address>3EDB:0C98</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_3FA48</Name>
+      </global>
+      <global>
+        <Address>3EDB:0CA2</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_3FA52</Name>
+      </global>
+      <global>
+        <Address>3EDB:0CAE</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_3FA5E</Name>
+      </global>
+      <global>
+        <Address>3EDB:0CBB</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_3FA6B</Name>
+      </global>
+      <global>
+        <Address>3EDB:0CC8</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_3FA78</Name>
+      </global>
+      <global>
+        <Address>3EDB:0CD6</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_BattleTech_Copyright</Name>
+      </global>
+      <global>
+        <Address>3EDB:0D2A</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_Graphics_Adapter</Name>
+      </global>
+      <global>
+        <Address>3EDB:0D88</Address>
+        <prim domain="Character" size="4" />
+        <Name>g_3FB38</Name>
+      </global>
+      <global>
+        <Address>3EDB:0E2C</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_3FBDE</Name>
+      </global>
+      <global>
+        <Address>3EDB:0E7A</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_3FC2A</Name>
+      </global>
+      <global>
+        <Address>3EDB:1272</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_40022</Name>
+      </global>
+      <global>
+        <Address>3EDB:1A77</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_40827</Name>
+      </global>
+      <global>
+        <Address>3EDB:1E92</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_40C42</Name>
+      </global>
+      <global>
+        <Address>3EDB:2068</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_40E18</Name>
+      </global>
+      <global>
+        <Address>3EDB:2355</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_41105</Name>
+      </global>
+      <global>
+        <Address>3EDB:235D</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_4110D</Name>
+      </global>
+      <global>
+        <Address>3EDB:23A5</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_41155</Name>
+      </global>
+      <global>
+        <Address>3EDB:24B6</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_41266</Name>
+      </global>
+      <global>
+        <Address>3EDB:24C0</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_41270</Name>
+      </global>
+      <global>
+        <Address>3EDB:24CF</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_4127F</Name>
+      </global>
+      <global>
+        <Address>3EDB:24DD</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_4128D</Name>
+      </global>
+      <global>
+        <Address>3EDB:27E6</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_41596</Name>
+      </global>
+      <global>
+        <Address>3EDB:2B6E</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_4191E</Name>
+      </global>
+      <global>
+        <Address>3EDB:2B82</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_41932</Name>
+      </global>
+      <global>
+        <Address>3EDB:2ED8</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_41C88</Name>
+      </global>
+      <global>
+        <Address>3EDB:2EE9</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_41C99</Name>
+      </global>
+      <global>
+        <Address>3EDB:2EFA</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_41CAA</Name>
+      </global>
+      <global>
+        <Address>3EDB:2F0B</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_41CBB</Name>
+      </global>
+      <global>
+        <Address>3EDB:2F1C</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_41CCC</Name>
+      </global>
+      <global>
+        <Address>3EDB:2F2D</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_41CDD</Name>
+      </global>
+      <global>
+        <Address>3EDB:2F3E</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_41CEE</Name>
+      </global>
+      <global>
+        <Address>3EDB:2F4F</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_41CFF</Name>
+      </global>
+      <global>
+        <Address>3EDB:2F60</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_41D10</Name>
+      </global>
+      <global>
+        <Address>3EDB:2F71</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_41D21</Name>
+      </global>
+      <global>
+        <Address>3EDB:2F82</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_41D32</Name>
+      </global>
+      <global>
+        <Address>3EDB:2F93</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_41D43</Name>
+      </global>
+      <global>
+        <Address>3EDB:2FD7</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_41D87</Name>
+      </global>
+      <global>
+        <Address>3EDB:2FE8</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_41D98</Name>
+      </global>
+      <global>
+        <Address>3EDB:2FF9</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_41DA9</Name>
+      </global>
+      <global>
+        <Address>3EDB:305F</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_41E0F</Name>
+      </global>
+      <global>
+        <Address>3EDB:315F</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_41F0F</Name>
+      </global>
+      <global>
+        <Address>3EDB:31BE</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_41F6E</Name>
+      </global>
+      <global>
+        <Address>3EDB:31C9</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_41F79</Name>
+      </global>
+      <global>
+        <Address>3EDB:31D2</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_41F82</Name>
+      </global>
+      <global>
+        <Address>3EDB:31DB</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_41F8B</Name>
+      </global>
+      <global>
+        <Address>3EDB:31EB</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_41F9B</Name>
+      </global>
+      <global>
+        <Address>3EDB:31F7</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_41FA7</Name>
+      </global>
+      <global>
+        <Address>3EDB:3201</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_41FB1</Name>
+      </global>
+      <global>
+        <Address>3EDB:320B</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_41FBB</Name>
+      </global>
+      <global>
+        <Address>3EDB:321C</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_41FCC</Name>
+      </global>
+      <global>
+        <Address>3EDB:322E</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_41FDE</Name>
+      </global>
+      <global>
+        <Address>3EDB:3AB0</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_42860</Name>
+      </global>
+      <global>
+        <Address>3EDB:3AFA</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_428AA</Name>
+      </global>
+      <global>
+        <Address>3EDB:3D56</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_42B06</Name>
+      </global>
+      <global>
+        <Address>3EDB:3D5E</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_42B0E</Name>
+      </global>
+      <global>
+        <Address>3EDB:478A</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_4353A</Name>
+      </global>
+      <global>
+        <Address>3EDB:4797</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_43547</Name>
+      </global>
+      <global>
+        <Address>3EDB:47A3</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_43553</Name>
+      </global>
+      <global>
+        <Address>3EDB:47AF</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_4355F</Name>
+      </global>
+      <global>
+        <Address>3EDB:47BA</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_4356A</Name>
+      </global>
+      <global>
+        <Address>3EDB:47C4</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_43574</Name>
+      </global>
+      <global>
+        <Address>3EDB:47CF</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_4357F</Name>
+      </global>
+      <global>
+        <Address>3EDB:47DC</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_4358C</Name>
+      </global>
+      <global>
+        <Address>3EDB:47E7</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_43597</Name>
+      </global>
+      <global>
+        <Address>3EDB:47F2</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_435A2</Name>
+      </global>
+      <global>
+        <Address>3EDB:47FF</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_435AF</Name>
+      </global>
+      <global>
+        <Address>3EDB:4809</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_435B9</Name>
+      </global>
+      <global>
+        <Address>3EDB:4813</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_435C3</Name>
+      </global>
+      <global>
+        <Address>3EDB:481F</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_435CF</Name>
+      </global>
+      <global>
+        <Address>3EDB:4828</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_435D8</Name>
+      </global>
+      <global>
+        <Address>3EDB:4832</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_435E2</Name>
+      </global>
+      <global>
+        <Address>3EDB:483E</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_435EE</Name>
+      </global>
+      <global>
+        <Address>3EDB:484A</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_435FA</Name>
+      </global>
+      <global>
+        <Address>3EDB:4853</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_43603</Name>
+      </global>
+      <global>
+        <Address>3EDB:4860</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_43610</Name>
+      </global>
+      <global>
+        <Address>3EDB:486D</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_4361D</Name>
+      </global>
+      <global>
+        <Address>3EDB:487A</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_4362A</Name>
+      </global>
+      <global>
+        <Address>3EDB:4882</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_43632</Name>
+      </global>
+      <global>
+        <Address>3EDB:488E</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_4363E</Name>
+      </global>
+      <global>
+        <Address>3EDB:489B</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_4364B</Name>
+      </global>
+      <global>
+        <Address>3EDB:48A6</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_43656</Name>
+      </global>
+      <global>
+        <Address>3EDB:4DBF</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_43B6F</Name>
+      </global>
+      <global>
+        <Address>3EDB:4DCB</Address>
+        <str term="z">
+          <prim domain="Character" size="1" />
+        </str>
+        <Name>g_43B7B</Name>
+      </global>
+      <global>
+        <Address>3EDB:4FBA</Address>
+        <prim domain="SignedInt UnsignedInt Integer Real Pointer SegPointer" size="2" />
+        <Name>GraphicsMode</Name>
+      </global>
+      <global>
+        <Address>3EDB:5286</Address>
+        <prim domain="SignedInt UnsignedInt Integer Real Pointer SegPointer" size="2" />
+        <Name>FP_Main_Value</Name>
+      </global>
+      <global>
+        <Address>3EDB:52E5</Address>
+        <prim domain="SignedInt UnsignedInt Integer Real Pointer SegPointer" size="2" />
+        <Name>DOS_Interrupt</Name>
+      </global>
+      <global>
+        <Address>3EDB:52F9</Address>
+        <prim domain="UnsignedInt" size="2" />
+        <Name>DOS_Version</Name>
+      </global>
+      <heuristic name="shingle" />
+      <onLoad Enabled="false" />
+      <annotation addr="207F:2D8C">Set DI to 3EDB, data / string memory location</annotation>
+      <annotation addr="1CD3:0027">Locust string</annotation>
+      <annotation addr="1CD3:0051">Wasp string</annotation>
+      <annotation addr="1CD3:0067">Chameleon string</annotation>
+      <annotation addr="207F:0A40">16,000 = CGA 160 x 100?</annotation>
+      <annotation addr="0D27:020A">Infocom presents screen already loaded</annotation>
+      <annotation addr="0D27:0044">DOSBox debugger 06C9 segment</annotation>
+      <annotation addr="207F:02DE">Infocom intro bp</annotation>
+      <annotation addr="207F:2355">Btech cresent hawks logo</annotation>
+      <annotation addr="207F:1228">Game load in</annotation>
+      <annotation addr="207F:3406">Load CMP and ICN files - one at a time - variable based</annotation>
+      <annotation addr="0FDC:0D56">Locust string</annotation>
+      <annotation addr="0D27:00A6">0x33h ASCII '3' : Hard drive value in IF statement</annotation>
+      <annotation addr="0D27:00EE">ES:[3FFE]=0000 = (*((word32) ds_129 + 21516))-&gt;w3FFE = ES</annotation>
+      <annotation addr="0D27:0112">Adding to ES, [5408]: DS[5408] = 3EDB       </annotation>
+      <annotation addr="0D27:0116">Reducing [3EDB:4FBA]/[VideoMode] by -31
+									
+								   New Values:
+								   0. CGA or 64K EGA
+								   1. Tandy 1000
+								   2. 256K EGA/VGA
+                                   3. MCGA	  
+	  
+	  </annotation>
+      <annotation addr="0D27:0131">IF [3EDB:4FBA]/[VideoMode] CGA or 64K EGA</annotation>
+      <annotation addr="0D27:0185">IF [3EDB:4FBA]/[VideoMode] 256K EGA/VGA</annotation>
+      <annotation addr="0D27:01A5">IF [3EDB:4FBA]/[VideoMode] NOT MCGA</annotation>
+      <annotation addr="0D27:025C">IF [3EDB:4FBA]/[VideoMode] 256K EGA/VGA</annotation>
+      <annotation addr="0800:46B2">IF [3EDB:4FBA]/[VideoMode] NOT MCGA</annotation>
+      <annotation addr="0800:4729">IF [3EDB:4FBA]/[VideoMode] 256K EGA/VGA</annotation>
+      <annotation addr="1F3D:0531">IF [3EDB:4FBA]/[VideoMode] NOT Tandy 1000</annotation>
+      <annotation addr="1F3D:0556">IF [3EDB:4FBA]/[VideoMode] NOT 256K EGA/VGA</annotation>
+      <annotation addr="1F3D:05A2">IF [3EDB:4FBA]/[VideoMode] NOT MCGA</annotation>
+      <annotation addr="0800:467F">IF [3EDB:4FBA]/[VideoMode] NOT MCGA</annotation>
+      <annotation addr="1F3D:06CA">IF [3EDB:4FBA]/[VideoMode] 256K EGA/VGA</annotation>
+      <annotation addr="1F3D:06F6">IF [3EDB:4FBA]/[VideoMode] MCGA</annotation>
+      <annotation addr="0800:481C">IF [3EDB:4FBA]/[VideoMode] Tandy 1000</annotation>
+      <annotation addr="0800:4891">IF [3EDB:4FBA]/[VideoMode] Tandy 1000</annotation>
+      <annotation addr="207F:2B95">IF [246C:B764] Video Mode != 2</annotation>
+      <annotation addr="207F:2B9E">IF [246C:B764] Video Mode != 0</annotation>
+      <annotation addr="207F:2BA7">IF [246C:B764] Video Mode != 1</annotation>
+      <annotation addr="207F:1AAD">IF [246C:B764] Video Mode = 2</annotation>
+      <annotation addr="207F:1AD3">IF [246C:B764] Video Mode = 2</annotation>
+      <annotation addr="207F:1AF9">IF [246C:B764] Video Mode = 2</annotation>
+      <annotation addr="207F:204E">IF [246C:B764] Video Mode != 1</annotation>
+      <annotation addr="207F:2055">IF [246C:B764] Video Mode &gt;= 1</annotation>
+      <annotation addr="207F:2D08">IF [246C:B764] Video Mode less than 2</annotation>
+      <annotation addr="207F:2D19">IF [246C:B764] Video Mode != 0 or NULL</annotation>
+      <annotation addr="207F:00DC">IF [246C:B764] Video Mode = 0</annotation>
+      <annotation addr="0D27:01F9">fn1F3D_002F : if any input received then loop broken</annotation>
+      <annotation addr="0D27:02BA">called DOS read file - infocom.cmp parent</annotation>
+      <annotation addr="0D27:033C">called DOS read file - infocom.cmp parent</annotation>
+      <annotation addr="0D27:0425">called fn1F3D_070A. This loops 0x10 (16) times. fn1F3D_070A called a second time after 0x0C times</annotation>
+      <annotation addr="207F:3308">Store [DS:52FC], al </annotation>
+      <annotation addr="207F:330F">If [DS:52F9] &gt;=  0x03</annotation>
+      <annotation addr="207F:332E">store [DS:52F1h],ax</annotation>
+      <annotation addr="207F:3329">Set bx to [DS:533A]</annotation>
+      <annotation addr="207F:340B">If ms_dos_open_files fail do the following:</annotation>
+      <annotation addr="207F:341A">Otherwise file has loaded. ax is Ms_dos file handler output</annotation>
+      <annotation addr="207F:2D8F">0002 in PSP header? Check header to reset Interrupts. 
+													The word at offset 0002H in the PSP contains the segment address of the
+													top of the transient program's allocated memory block. The program can use
+													this value to determine whether it should request more memory to do its
+													job or whether it has extra memory that it can release for use by other
+													processes.</annotation>
+      <annotation addr="207F:2F9F">IF di less than si then cycles backwards though di by 4 Bytes calling dword pointers
+SI 	Source Index 	used by string operations as source
+DI 	Destination Index 	used by string operations as destination</annotation>
+      <annotation addr="207F:2D93">16091 = [3EDB] or _Data</annotation>
+      <annotation addr="0D27:0067">Wait for keyboard input ax = 0x31 to 0x34</annotation>
+      <annotation addr="207F:2DBC">fp &gt;= 22574</annotation>
+      <annotation addr="207F:2DCF">Multiply (4^2) - 1. If 0x1000 then 65535</annotation>
+      <annotation addr="207F:2D20">46685 = [B65D]</annotation>
+      <annotation addr="207F:0048">Enable speaker </annotation>
+      <annotation addr="204B:00BE">What you need to do is to enable the speaker to PIT counter 2 by switching on bit 1 and 2 in the system control port (0x61). We do this by reading what is there already and ORing with 3 (11b </annotation>
+      <annotation addr="0DAB:0D19">Video Mode 02  80x25 16 shades of gray text (CGA,EGA,MCGA,VGA)</annotation>
+      <annotation addr="207F:103F">INT 10,10 - Set/Get Palette Registers (EGA/VGA)</annotation>
+      <annotation addr="207F:0AAA">port address of the graphics oont. addr. reg</annotation>
+      <annotation addr="207F:0AAD">read mode 0, write mode 0 </annotation>
+      <annotation addr="207F:0BA7">VIDEO - SET PALETTE
+
+									AH = 0Bh
+									BH = 01h
+									BL = palette ID
+									00h background, green, red, and brown/yellow
+									01h background, cyan, magenta, and white</annotation>
+      <annotation addr="207F:0FEE">VIDEO - SET INDIVIDUAL DAC REGISTER (VGA/MCGA)
+
+									AX = 1010h
+									BX = register number
+									CH = new value for green (0-63)
+									CL = new value for blue (0-63)
+									DH = new value for red (0-63)</annotation>
+      <annotation addr="207F:2E54">[3EDB:52F9] = DOS_Version</annotation>
+      <annotation addr="207F:2E5C">[3EDB:52E5] = DOS_Interrupt_Vector</annotation>
+      <annotation addr="207F:2E60">[3EDB:52E7] = SLICE(es_bx_12, selector, 16);</annotation>
+      <annotation addr="1F3D:038D">0x013 = 319 = X</annotation>
+      <annotation addr="1F3D:03A5">0x0C7 = 199 = Y</annotation>
+      <annotation addr="207F:0B40">CGA - PORTS
+	  
+								   Ports 3D0 - 3DF. 
+								   In the CGA, port 3D9 sets the different colors. The 8086 writes
+								   to it, but can't read it. 
+								   
+								   Port 3DA, it's neighbor, tells certain status information and is read only. 
+								   
+								   All control information for the video cards is passed back and
+								   forth through the ports. However, the video card comes into
+								   memory 50 times a second to see what it should write to the
+								   screen. The characters on the screen don't pass through the
+								   ports. The mountain comes to Mohammed.
+								   
+								   Bit 0 - horizontal retrace in progress
+								   Bit 3 - in vertical retrace</annotation>
+      <annotation addr="207F:2275">read mode 0, write mode 2</annotation>
+      <annotation addr="1E56:0D2A">41h letter A in ASCII</annotation>
+      <annotation addr="207F:0BAD">Segment [246C]</annotation>
+      <annotation addr="207F:0BB0">Switch DS to [246C]</annotation>
+      <annotation addr="207F:0BB5">1 = 4 palette mode</annotation>
+      <annotation addr="207F:0BB7">B = Set colour palette</annotation>
+      <annotation addr="207F:0BB9">BIOS int</annotation>
+      <annotation addr="207F:00D7">Segment [246C]</annotation>
+      <annotation addr="207F:00DA">Switch DS to [246C]</annotation>
+      <annotation addr="207F:0A2C">Segment [246C]</annotation>
+      <annotation addr="207F:0A2F">Switch DS to [246C]</annotation>
+      <annotation addr="207F:0B2C">Segment [246C]</annotation>
+      <annotation addr="207F:0B2F">Switch DS to [246C]</annotation>
+      <annotation addr="207F:0B46">Segment [246C]</annotation>
+      <annotation addr="207F:0B49">Switch DS to [246C]</annotation>
+      <annotation addr="207F:18F5">Segment [246C]</annotation>
+      <annotation addr="207F:18F8">Switch DS to [246C]</annotation>
+      <annotation addr="207F:2014">Segment [246C]</annotation>
+      <annotation addr="207F:2017">Switch DS to [246C]</annotation>
+      <annotation addr="207F:2762">Segment [246C]</annotation>
+      <annotation addr="207F:2765">Switch DS to [246C]</annotation>
+      <annotation addr="207F:2CFD">Segment [246C]</annotation>
+      <annotation addr="207F:2D00">Switch DS to [246C]</annotation>
+      <annotation addr="207F:037D">Segment [246C]</annotation>
+      <annotation addr="207F:0380">Switch DS to [246C]</annotation>
+      <annotation addr="207F:05D6">Segment [246C]</annotation>
+      <annotation addr="207F:05D9">Switch DS to [246C]</annotation>
+      <annotation addr="207F:0786">Segment [246C]</annotation>
+      <annotation addr="207F:0789">Switch DS to [246C]</annotation>
+      <annotation addr="207F:0AA5">Segment [246C]</annotation>
+      <annotation addr="207F:0AA8">Switch DS to [246C]</annotation>
+      <annotation addr="207F:0BC6">Segment [246C]</annotation>
+      <annotation addr="207F:0BC9">Switch DS to [246C]</annotation>
+      <annotation addr="207F:0266">Segment [246C]</annotation>
+      <annotation addr="207F:0269">Switch DS to [246C]</annotation>
+      <annotation addr="207F:0319">Segment [246C]</annotation>
+      <annotation addr="207F:031C">Switch DS to [246C]</annotation>
+      <annotation addr="207F:0578">Segment [246C]</annotation>
+      <annotation addr="207F:057B">Switch DS to [246C]</annotation>
+      <annotation addr="207F:0FF4">Segment [246C]</annotation>
+      <annotation addr="207F:0FF7">Switch DS to [246C]</annotation>
+      <annotation addr="207F:1FC4">Segment [246C]</annotation>
+      <annotation addr="207F:1FC7">Switch DS to [246C]</annotation>
+      <annotation addr="207F:2257">Segment [246C]</annotation>
+      <annotation addr="207F:225A">Switch DS to [246C]</annotation>
+      <annotation addr="207F:1BEE">[0A400h] VGA Graphics Register?</annotation>
+      <annotation addr="207F:1BF1">Switch DS to [0A400h]</annotation>
+      <annotation addr="207F:1CAA">[0A400h] VGA Graphics Register?</annotation>
+      <annotation addr="207F:1CAD">Switch DS to [0A400h]</annotation>
+      <annotation addr="207F:1FE5">point to VGA memory [0A000h]</annotation>
+      <annotation addr="207F:226D">point to VGA memory [0A000h]</annotation>
+      <annotation addr="207F:2791">point to VGA memory [0A000h]</annotation>
+      <annotation addr="207F:1E43">point to VGA memory [0A000h]</annotation>
+      <annotation addr="207F:1E46">Switch ES to [0A000h]</annotation>
+      <annotation addr="207F:1FCA">[0B800h] Screen Base</annotation>
+      <annotation addr="207F:2768">[0B800h] Screen Base</annotation>
+      <annotation addr="207F:0605">EGA Screen Base [0A000h]</annotation>
+      <annotation addr="207F:0BCC">Switch DS to [3EDB]</annotation>
+      <annotation addr="207F:0BCF">Switch DS to [3EDB]</annotation>
+      <annotation addr="207F:3401">function 3dh = open</annotation>
+      <annotation addr="207F:33FA">address of ASCIIZ</annotation>
+      <annotation addr="207F:3403">request open from DOS</annotation>
+      <annotation addr="0800:1A76">0x20 = Space Keycode</annotation>
+      <annotation addr="0D27:004F">Battletech Copyright [3EDB:0CD6]</annotation>
+      <annotation addr="0D27:005B">Which graphics adapter do you have? [3EDB:0D2A]</annotation>
+      <annotation addr="0D27:007E">How many disk drives? [3EDB:0D92]</annotation>
+      <annotation addr="0D27:00F6">Always keep the game disk in A: and your copy of disk 2 in B: to save games onto [3EDB:0DD0]</annotation>
+      <annotation addr="207F:32FD">Convert the 16 bit word in AX into a 32 bit doubleword in DX.AX. This 'Sign Extends' AX </annotation>
+      <annotation addr="0800:32D0">Memory ref: "Load Game"</annotation>
+      <annotation addr="0800:336E">Memory ref: "Game saved is invalid"</annotation>
+      <annotation addr="0800:3C02">Memory ref: "Change Outake Frequency"</annotation>
+      <annotation addr="0800:3D25">Memory Ref: "Are you sure you want to quit?"</annotation>
+      <annotation addr="0800:3CF0">Memory ref: "Show Outakes"</annotation>
+      <annotation addr="0800:3D18">Memory ref: "Quiting will exit the game and return you to system. Are you sure you want to quit?"</annotation>
+      <annotation addr="0800:3BDC">Memory ref: "Change Movement Rate"</annotation>
+      <annotation addr="0800:3CBB">Memory ref: "Fastest"</annotation>
+      <annotation addr="0800:35FE">Memory ref: "Save Game"</annotation>
+      <annotation addr="0800:3748">Memory ref: "Saving game failed. Check your disk"</annotation>
+      <annotation addr="0800:37F3">Memory ref: "Examine which mech?"</annotation>
+      <annotation addr="1CD3:02A5">Memory ref: "By looking at your transcripts there is nothing more we can teach you"</annotation>
+      <annotation addr="1CD3:0367">Memory ref: "I'm afraid you don't have enough C_Bills for tutition"</annotation>
+      <annotation addr="1CD3:04B9">Memory ref: "You have no stock to sell"</annotation>
+      <annotation addr="1CD3:051E">Memory ref: "Sell how much?"</annotation>
+      <annotation addr="1CD3:05F7">Memory ref: "You don't have that much but you sell all you have"</annotation>
+      <annotation addr="1CD3:060F">Memory ref: "You have a total of "</annotation>
+      <annotation addr="1CD3:0668">Memory ref: "of  "</annotation>
+      <annotation addr="1CD3:068C">Memory ref: " stock bring your amount to "</annotation>
+      <annotation addr="1CD3:070A">Memory ref: " You sell "</annotation>
+      <annotation addr="1CD3:0780">Memory ref: "Invest how much?"</annotation>
+      <annotation addr="1CD3:085F">Memory ref: "You have invested a total of "</annotation>
+      <annotation addr="1CD3:08DC">Memory ref: " bring your balance up to a total of "</annotation>
+      <annotation addr="1CD3:1459">Memory ref: "Do you want us to drop your "</annotation>
+      <annotation addr="1CD3:1484">Memory ref: " and take the laser rifle"</annotation>
+      <annotation addr="1CD3:0FB3">Memory ref: "Do you want it repaired?"</annotation>
+      <annotation addr="1CD3:0F9B">Memory ref: " C-bills to repair it and you have "</annotation>
+      <annotation addr="1CD3:0F27">Memory ref: "This armour looks brand new. It doesn't need repairs"</annotation>
+      <annotation addr="1CD3:0F6D">Memory ref: " all "</annotation>
+      <annotation addr="1CD3:0F7A">Memory ref: " of its protective Capacity"</annotation>
+      <annotation addr="1CD3:0F3C">Memory ref: "This armour has lost "</annotation>
+      <annotation addr="1CD3:0F5D">Memory ref: " all "</annotation>
+      <annotation addr="11B8:0FB7">Memory ref: "His name is "</annotation>
+      <annotation addr="11B8:0FF2">Memory ref: " and he will be "</annotation>
+      <annotation addr="11B8:0DB9">Memory ref: " 's mech "</annotation>
+      <annotation addr="11B8:0D6C">Memory ref: " riding as a passenger in "</annotation>
+      <annotation addr="11B8:0D41">Memory ref: "Your mech is done. It is waiting for you outside."</annotation>
+      <annotation addr="11B8:094F">Memory ref: " C-bills "</annotation>
+      <annotation addr="11B8:0931">Memory ref: "All for the incredibly low price of "</annotation>
+      <annotation addr="11B8:0889">Memory ref: "  C-bills: "</annotation>
+      <annotation addr="11B8:084E">Memory ref: "Hey that thing is already pretty powerful. We cannot modify that any further"</annotation>
+      <annotation addr="11B8:081A">Memory ref: "Modify which mech?"</annotation>
+      <annotation addr="11B8:07F3">Memory ref: "However you don't have the 200 C-bills it takes to get them fixed"</annotation>
+      <annotation addr="11B8:07A7">Memory ref: "They are already patched up good as new"</annotation>
+      <annotation addr="11B8:078A">Memory ref: "Is it a deal?"</annotation>
+      <annotation addr="11B8:075B">Memory ref: "You've got some damaged actuators"</annotation>
+      <annotation addr="11B8:077D">Memory ref: "For 200 C-bills we'll patch them all"</annotation>
+      <annotation addr="11B8:063C">Memory ref: "C-bills: "</annotation>
+      <annotation addr="11B8:0619">Memory ref: "Nothing"</annotation>
+      <annotation addr="11B8:056F">Memory ref: "Here's you weapons estimate"</annotation>
+      <annotation addr="11B8:0555">Memory ref: "The jobs not complete"</annotation>
+      <annotation addr="11B8:04B8">Memory ref: "Want to fix some heat sinks?"</annotation>
+      <annotation addr="11B8:049F">Memory ref: " damaged"</annotation>
+      <annotation addr="11B8:0492">Memory ref: " s "</annotation>
+      <annotation addr="11B8:047F">Memory ref: " heat sink"</annotation>
+      <annotation addr="11B8:0467">Memory ref: "You've had "</annotation>
+      <annotation addr="11B8:0447">Memory ref: "We've fixed as much as you could afford, but you ran out of cash before the job was done</annotation>
+      <annotation addr="11B8:038C">Memory ref: " want it fixed?"</annotation>
+      <annotation addr="11B8:0373">Memory ref: " C-bills"</annotation>
+      <annotation addr="11B8:0357">Memory ref: "If you want the structure fixed it's going to cost "</annotation>
+      <annotation addr="11B8:034A">Memory ref: "If you want to fix any weapons or heat sinks you need structure to mount hem on"</annotation>
+      <annotation addr="11B8:033D">Memory ref: "This mech has had some of its internal structure damaged</annotation>
+      <annotation addr="11B8:031D">Memory ref: "We fixed as much as you could afford, nut you ran out of cash before the job was done"</annotation>
+      <annotation addr="11B8:0262">Memory ref: "Want it fixed?"</annotation>
+      <annotation addr="11B8:0249">Memory ref: " C-bills. You got "</annotation>
+      <annotation addr="11B8:022C">Memory ref: " pieces of armour"</annotation>
+      <annotation addr="11B8:0214">Memory ref: "Looks like this mech has lost about "</annotation>
+      <annotation addr="11B8:01F1">Memory ref: "You don't have any C-bills"</annotation>
+      <annotation addr="0800:51A4">Memory ref: "Is this your first time playing Battletech</annotation>
+      <annotation addr="0800:5197">Memory ref: "Computer program by westwood associates</annotation>
+      <annotation addr="0800:518A">Memory ref: "characters and universe (C) 1988 FASA</annotation>
+      <annotation addr="0800:517D">Memory ref: "(C) 1988 and is used under exclusive license</annotation>
+      <annotation addr="0800:5170">Memory ref: "Battletech" is a registers tade mark of FASA corporation</annotation>
+      <annotation addr="0800:04E5">Memory ref: "Do you want to play again?</annotation>
+      <annotation addr="0800:04C1">Memory ref: "Rex</annotation>
+      <annotation addr="0800:359B">Memory ref: "not found. Press a key</annotation>
+      <annotation addr="0800:358E">Memory ref: "Game0</annotation>
+      <annotation addr="0800:3576">Memory ref: "Load game failed!</annotation>
+      <annotation addr="0800:3C47">Memory ref: "Set movement rate to "</annotation>
+      <annotation addr="0800:3BF0">Memory ref: "Sound Off"</annotation>
+      <annotation addr="0800:3BF5">Memory ref: "Sound On"</annotation>
+      <annotation addr="0800:2CFE">Memory ref: "Inspect Character"</annotation>
+      <annotation addr="0800:2CF1">Memory ref: "Allocate Men in mechs"</annotation>
+      <annotation addr="0800:2CDE">Memory ref: "Return to game"</annotation>
+      <annotation addr="0800:3AA8">Memory ref: " of its "</annotation>
+      <annotation addr="0800:3A7F">Memory ref: " all "</annotation>
+      <annotation addr="0800:3A5E">Memory ref: " has lost "</annotation>
+      <annotation addr="0800:3ADC">Memory ref: " protective points"</annotation>
+      <annotation addr="0800:389F">Memory ref: "Bow and Blade"</annotation>
+      <annotation addr="0800:3892">Memory ref: "Name "</annotation>
+      <annotation addr="0800:3864">Memory ref: "Examine which Character?"</annotation>
+      <annotation addr="0800:37D2">Memory ref: "You can inspect a man or a mech"</annotation>
+      <annotation addr="0FDC:19E8">Memory ref: " nothing this time"</annotation>
+      <annotation addr="1CD3:0301">Memory ref: "I'm afraid that we here can't possibly</annotation>
+      <annotation addr="1CD3:04C4">Memory ref: "Sell which stock?"</annotation>
+      <annotation addr="1CD3:073F">Memory ref: "Invest in which stock?"</annotation>
+      <annotation addr="0FDC:1513">Memory ref: "Drop it"</annotation>
+      <annotation addr="0FDC:1473">Memory ref: " to "</annotation>
+      <annotation addr="0FDC:1449">Memory ref: "Give "</annotation>
+      <annotation addr="0FDC:193F">Memory ref: " After I'm done here, I'm going over to the "</annotation>
+      <annotation addr="0FDC:190D">Memory ref: "Hi, Jason, how are you? I just stopped in here to "</annotation>
+      <annotation addr="0FDC:1893">Memory ref: "Done"</annotation>
+      <annotation addr="0FDC:1853">Memory ref: "You look around and see: "</annotation>
+      <annotation addr="11B8:01A1">Memory ref: "Our facility doesn't have the equipment to fix your damaged "</annotation>
+      <annotation addr="11B8:0013">Memory ref: "Fix which Mech?"</annotation>
+      <annotation addr="1CD3:1810">Memory ref: "Come back when you can afford it"</annotation>
+      <annotation addr="0FDC:1A77">Memory ref: "Which mech will you take into combat?"</annotation>
+      <annotation addr="0FDC:0BA6">Memory ref: "You flip the activation switch.."</annotation>
+      <annotation addr="0FDC:0B8F">Memory ref: " hoping that it will function when you get to the cockpit"</annotation>
+      <annotation addr="0FDC:0B82">Memory ref: "You quickly scramble up the boarding ladders of this Mech"</annotation>
+      <annotation addr="0FDC:0A84">Memory ref: "You use your 'Mech's hands to retrieve the rubble"</annotation>
+      <annotation addr="0FDC:0A75">Memory ref: "You realise your Locust has no hands and can't pick it up"</annotation>
+      <annotation addr="0FDC:08E2">Memory ref: "Don't Come back here until you complete your mission!"</annotation>
+      <annotation addr="135D:0411">Memory ref: " on your code key?"</annotation>
+      <annotation addr="135D:03F7">Memory ref: " code "</annotation>
+      <annotation addr="135D:03CC">Memory ref: "Security Terminal"</annotation>
+      <annotation addr="0800:20A3">Memory ref: "?"</annotation>
+      <annotation addr="0800:207E">Memory ref: "Will you enter the ?"</annotation>
+      <annotation addr="135D:0BA3">Memory ref: "Incorrect YELLOW code"</annotation>
+      <annotation addr="135D:0B88">Memory ref: "Incorrect BLUE code"</annotation>
+      <annotation addr="135D:0B6D">Memory ref: "Incorrect RED code"</annotation>
+      <annotation addr="0FDC:0102">Memory ref: "When you get outside, you decide to use your new holoviewer to watch your father's holodisk"</annotation>
+      <annotation addr="0800:1E37">Memory ref: "Will you enter the ?"</annotation>
+      <annotation addr="0800:1E12">Memory ref: "Will you enter the ?"</annotation>
+      <annotation addr="1CD3:01A5">Memory ref: "Chameleon"</annotation>
+      <annotation addr="11B8:18E7">Memory ref: " c-bills each."</annotation>
+      <annotation addr="11B8:18AE">Memory ref: " rounds    Reloads cost   c-bills each" </annotation>
+      <annotation addr="11B8:1869">Memory ref: " could use some ammunition. You've expended "</annotation>
+      <annotation addr="11B8:19BD">Memory ref: "Your "</annotation>
+      <annotation addr="1467:0CDA">Memory ref: " 's "</annotation>
+      <annotation addr="11B8:1774">Memory ref: "Buy ammo for: "</annotation>
+      <annotation addr="1467:03D5">Memory ref: "Not all of your 'Mechs have pilots"</annotation>
+      <annotation addr="1467:07DB">Memory ref: "Something about "</annotation>
+      <annotation addr="1467:0734">Memory ref: "Assign  to this 'Mech as the pilot?"</annotation>
+      <annotation addr="1467:0661">Memory ref: "None"</annotation>
+      <annotation addr="1467:02B4">Memory ref: "None"</annotation>
+      <annotation addr="1467:05B3">Memory ref: "Assign to which vehicle?"</annotation>
+      <annotation addr="1467:0595">Memory ref: " a qualified 'Mech pilot"</annotation>
+      <annotation addr="1467:026C">Memory ref: "  Rider:  "</annotation>
+      <annotation addr="1467:025F">Memory ref: "None"</annotation>
+      <annotation addr="1467:0588">Memory ref: " not "</annotation>
+      <annotation addr="1467:0558">Memory ref: " is "</annotation>
+      <annotation addr="1467:0321">Memory ref: "  Pilot:  "</annotation>
+      <annotation addr="1467:0234">Memory ref: "Done"</annotation>
+      <annotation addr="1467:01B6">Memory ref: " rider"</annotation>
+      <annotation addr="1467:00FB">Memory ref: "Assign pilots and passengers:  "</annotation>
+      <annotation addr="183B:0A84">Memory ref: " cockpit"</annotation>
+      <annotation addr="183B:0A77">Memory ref: " was able to stop him, but in the process he destroyed the Mech's cockpit"</annotation>
+      <annotation addr="183B:0A39">Memory ref: " was piloting also "</annotation>
+      <annotation addr="183B:0A2C">Memory ref: "You were able to stop him, but it involved destroying the Mech he was piloting"</annotation>
+      <annotation addr="183B:0B88">Memory ref: " jolted the controls, because the mech stepped on the doublecrosser"</annotation>
+      <annotation addr="183B:0B7B">Memory ref: " Then he took command of the Mech, but in the process he must have "</annotation>
+      <annotation addr="183B:0B6E">Memory ref: " was able to overcome him and throw him out of the cockpit" </annotation>
+      <annotation addr="183B:0961">Memory ref: " double agent! You put an end to that situation, to say the least"</annotation>
+      <annotation addr="183B:0954">Memory ref: " which involved fists, it turns out he was a kurita"</annotation>
+      <annotation addr="183B:0947">Memory ref: " the Dracos didn't shoot at him at all. Under Rex's interrogation, "</annotation>
+      <annotation addr="183B:093A">Memory ref: " carefully and saw that "</annotation>
+      <annotation addr="183B:08FF">Memory ref: "You watched  carefully, and saw that " </annotation>
+      <annotation addr="183B:09FA">Memory ref: " tried to turn and kire on you! He's a Kurita double agent! "</annotation>
+      <annotation addr="183B:0C94">Memory ref: "Then he "accidentally" stepped on him, to rid you of the problem"</annotation>
+      <annotation addr="183B:0C87">Memory ref: " was able to overcome him, and threw the doublecrosser out the cockpit "</annotation>
+      <annotation addr="183B:0C43">Memory ref: " he was riding in. He was a Kurita double agent!"</annotation>
+      <annotation addr="183B:0C36">Memory ref: " knew you were suspicious of him, and he tried to sabotage the Mech"</annotation>
+      <annotation addr="1543:0B71">Memory ref: "Men eject!"</annotation>
+      <annotation addr="183B:06BC">Memory ref: "You do not escape! The enemies engage in combat"</annotation>
+      <annotation addr="183B:069D">Memory ref: "You cannot escape these Jenners!"</annotation>
+      <annotation addr="183B:266B">Memory ref: "Because your sensors are destroyed you can't scan enemy mechs"</annotation>
+      <annotation addr="0DAB:1563">Memory ref: "Weapon: "</annotation>
+      <annotation addr="0DAB:152C">Memory ref: "Enemy human"</annotation>
+      <annotation addr="0DAB:1682">Memory ref: "Done"</annotation>
+      <annotation addr="0DAB:15B1">Memory ref: "Direction: "</annotation>
+      <annotation addr="0DAB:1665">Memory ref: "Detail Scan"</annotation>
+      <annotation addr="0DAB:163B">Memory ref: " Scan "</annotation>
+      <annotation addr="0DAB:150E">Memory ref: "Enemy"</annotation>
+      <annotation addr="183B:26D6">Memory ref: "There are no enemy humans in this battle"</annotation>
+      <annotation addr="183B:263B">Memory ref: "you can only see and describe enemy humans"</annotation>
+      <annotation addr="183B:25B3">Memory ref: " Scan "</annotation>
+      <annotation addr="1543:05AA">Memory ref: "Choose the eneemy to shoot at: "</annotation>
+      <annotation addr="1543:02D9">Memory ref: " (value) "</annotation>
+      <annotation addr="1543:03DC">Memory ref: "None"</annotation>
+      <annotation addr="1543:0551">Memory ref: "That weapon is already going to be fired. Override?"</annotation>
+      <annotation addr="1543:0229">Memory ref: "Destroyed"</annotation>
+      <annotation addr="1543:047E">Memory ref: " Done"</annotation>
+      <annotation addr="1543:01B2">Memory ref: "Weapon   Ammo Target  Range."</annotation>
+      <annotation addr="1543:0144">Memory ref: "Select the weapon to fire"</annotation>
+      <annotation addr="1543:012A">Memory ref: "This Mech's sensors are destroyed. It cannot fire its weapons"</annotation>
+      <annotation addr="1543:00FF">Memory ref: "This Mech's sensors are damaged. Accuracy is impaired"</annotation>
+      <annotation addr="1543:00AF">Memory ref: "This 'Mech has overheated and shut down"</annotation>
+      <annotation addr="1543:06E4">Memory ref: " range already"</annotation>
+      <annotation addr="1543:06AD">Memory ref: " at range already"</annotation>
+      <annotation addr="1543:067B">Memory ref: " against a "</annotation>
+      <annotation addr="1543:0655">Memory ref: "You are using your "</annotation>
+      <annotation addr="1543:073E">Memory ref: " against: "</annotation>
+      <annotation addr="1543:070B">Memory ref: "Use your "</annotation>
+      <annotation addr="183B:229A">Memory ref: "This mech can't kick because it has damaged hips. Press a key"</annotation>
+      <annotation addr="1543:09AC">Memory ref: " Mech is destrpyed!"</annotation>
+      <annotation addr="1543:08BA">Memory ref: "Human "</annotation>
+      <annotation addr="1543:0876">Memory ref: "Weapon: "</annotation>
+      <annotation addr="1543:082B">Memory ref: "Target here Next enemy Cancel"</annotation>
+      <annotation addr="1543:07DC">Memory ref: "Target: "</annotation>
+      <annotation addr="183B:2278">Memory ref: "Choose the enemy to kick: "</annotation>
+      <annotation addr="183B:1F47">Memory ref: "move"</annotation>
+      <annotation addr="183B:1F1E">Memory ref: "this 'Mechs heat level"</annotation>
+      <annotation addr="183B:1F6D">Memory ref: "You might move farther if you tried running"</annotation>
+      <annotation addr="183B:1EF4">Memory ref: "Movement is inhibited by "</annotation>
+      <annotation addr="183B:1E94">Memory ref: "This 'Mech has no jump jets"</annotation>
+      <annotation addr="183B:1DA8">Memory ref: "Press a key to enter new moves"</annotation>
+      <annotation addr="183B:1D9B">Memory ref: "all your current movement orders have been deleted"</annotation>
+      <annotation addr="183B:1D76">Memory ref: " instead?"</annotation>
+      <annotation addr="183B:1D52">Memory ref: "Do you wish to "</annotation>
+      <annotation addr="183B:1FB2">Memory ref: " movment points left. Move the cursor to where tou want to go"</annotation>
+      <annotation addr="183B:1F94">Memory ref: "You have "</annotation>
+      <annotation addr="183B:1CE6">Memory ref: "This mech is now "</annotation>
+      <annotation addr="183B:15BE">Memory ref: "Move"</annotation>
+      <annotation addr="183B:15A4">Memory ref: "Walk.Run.Jump.Use Weapons.Kick.Computer.Scan unit.Nexy Unit.Flee.Begin Fight"</annotation>
+      <annotation addr="183B:1559">Memory ref: "The computer is currently moving this unit"</annotation>
+      <annotation addr="0DAB:1A03">Memory ref: "Weapon:  Armour:  "</annotation>
+      <annotation addr="0DAB:19B8">Memory ref: " looks very suspicious to you"</annotation>
+      <annotation addr="0DAB:1AEC">Memory ref: "None"</annotation>
+      <annotation addr="0DAB:193C">Memory ref: " 's "</annotation>
+      <annotation addr="183B:2572">Memory ref: "See combat graphics:"</annotation>
+      <annotation addr="183B:250C">Memory ref: "Combat mesages: None Brief Verbose"</annotation>
+      <annotation addr="0DAB:0908">Memory ref: " is inspecting the wrecks"</annotation>
+      <annotation addr="0DAB:0836">Memory ref: "There are no more salvageable 'Mechs on the battlefield."</annotation>
+      <annotation addr="0DAB:08B5">Memory ref: " is a qualified pilot without a 'Mech. Do you want to salvage one of the wrecks?"</annotation>
+      <annotation addr="0DAB:0B76">Memory ref: "Do you want the computer to fight for you?"</annotation>
+      <annotation addr="1431:00DC">Memory ref: "The doctor  uses his "</annotation>
+      <annotation addr="1431:026F">Memory ref: "healing"</annotation>
+      <annotation addr="1431:0170">Memory ref: " skill and his "</annotation>
+      <annotation addr="1431:019B">Memory ref: " to assist the wounded"</annotation>
+      <annotation addr="1431:018E">Memory ref: " fumbles with some bandages"</annotation>
+      <annotation addr="1431:0125">Memory ref: " uses his "</annotation>
+      <annotation addr="1431:02E7">Memory ref: "Nobody is wounded"</annotation>
+      <annotation addr="0DAB:0AF0">Memory ref: "?"</annotation>
+      <annotation addr="0DAB:0ACA">Memory ref: " in exchange for a   ?"</annotation>
+      <annotation addr="0DAB:0AA4">Memory ref: "Do you want to drop your "</annotation>
+      <annotation addr="0FDC:170D">Memory ref: "Drop it"</annotation>
+      <annotation addr="0FDC:1676">Memory ref: " to: "</annotation>
+      <annotation addr="0FDC:1650">Memory ref: "Give "</annotation>
+      <annotation addr="0DAB:0A51">Memory ref: " and confiscate their weapons."</annotation>
+      <annotation addr="0DAB:0A2C">Memory ref: " C-bills in cash"</annotation>
+      <annotation addr="0DAB:09DF">Memory ref: "You dig through the soldiers' pockets and find "</annotation>
+      <annotation addr="183B:04A7">Memory ref: "You did not evade them!"</annotation>
+      <annotation addr="0DAB:046A">Memory ref: " You are able to scrounge together "</annotation>
+      <annotation addr="0DAB:00B5">Memory ref: " from the enemy 'Mechs"</annotation>
+      <annotation addr="0DAB:008B">Memory ref: " uses his tech training to scavenge armour"</annotation>
+      <annotation addr="0DAB:0050">Memory ref: " (value) "</annotation>
+      <annotation addr="183B:1322">Memory ref: "You return to where you were before combat took place"</annotation>
+      <annotation addr="1631:2017">Memory ref: " C-Bills: "</annotation>
+      <annotation addr="183B:10CD">Memory ref: "After an invigorating scuffle, you defeated the Kuritans"</annotation>
+      <annotation addr="183B:0453">Memory ref: "Engage in combat?"</annotation>
+      <annotation addr="183B:0425">Memory ref: " human"</annotation>
+      <annotation addr="183B:13F9">Memory ref: "You have eluded your enemies!"</annotation>
+      <annotation addr="0800:2A56">Memory ref: "Press a key"</annotation>
+      <annotation addr="183B:12D0">Memory ref: "You have eluded your enemies!"</annotation>
+      <annotation addr="183B:03BA">Memory ref: " and "</annotation>
+      <annotation addr="0800:2A70">Memory ref: " s"</annotation>
+      <annotation addr="183B:03A2">Memory ref: "(value) 'Mech and (value) human"</annotation>
+      <annotation addr="183B:035F">Memory ref: "Attacking force: "</annotation>
+      <annotation addr="0800:29C8">Memory ref: " and press a key"</annotation>
+      <annotation addr="0800:29BB">Memory ref: "drive A:"</annotation>
+      <annotation addr="0800:298C">Memory ref: " in "</annotation>
+      <annotation addr="0800:297F">Memory ref: "Disk 2"</annotation>
+      <annotation addr="0800:2966">Memory ref: "Put the Battletech "</annotation>
+      <annotation addr="0800:51C0">Memory ref: "You can load a previous saved game, or start a new game. Do you want to load an old game?"</annotation>
+      <annotation addr="0800:04BC">Memory ref: "Jason"</annotation>
+      <annotation addr="0800:1CB4">Memory ref: "The water is too deep that way"</annotation>
+      <annotation addr="135D:02B4">Memory ref: "These boxes are full of 'Mech gyros! The cache must be around here!"</annotation>
+      <annotation addr="135D:0300">Memory ref: "You have turned on the power to the Hyperpulse Generator."</annotation>
+      <annotation addr="0FDC:15B4">Memory ref: "He already has that type of armor"</annotation>
+      <annotation addr="0FDC:178E">Memory ref: "He already has that weapon"</annotation>
+      <annotation addr="135D:0266">Memory ref: "Part of the hallway here crumbles away, revealing a secret passageway!"</annotation>
+      <annotation addr="0800:297A">Memory ref: "Game Disk"</annotation>
+      <annotation addr="0800:29A5">Memory ref: " the drive "</annotation>
+      <annotation addr="1543:0B5B">Memory ref: "Mech is destroyed!"</annotation>
+      <annotation addr="0800:2E58">Memory ref: "DESTRUCT.ICN"</annotation>
+      <annotation addr="0800:4656">Memory ref: "BTTLTECH.ICN"</annotation>
+      <annotation addr="0D27:015C">Memory ref: "INFOCOM.CMP"</annotation>
+      <annotation addr="0800:46F5">Memory ref: "BTTITLE.CMP"</annotation>
+      <annotation addr="0D27:0233">Memory ref: "BTBORDER.CMP"</annotation>
+      <annotation addr="0D27:02B5">Memory ref: "TINYLAND.CMP"</annotation>
+      <annotation addr="0D27:0337">Memory ref: "MECHSNAP.CMP"</annotation>
+      <annotation addr="0800:3240">Memory ref: "ANIMATE.ICN"</annotation>
+      <annotation addr="0DAB:1B71">Memory ref: "BTSTATS.CMP"</annotation>
+      <annotation addr="1CD3:1624">Memory ref: "ENDMECH.CMP"</annotation>
+      <annotation addr="1CD3:16CC">Memory ref: "STARLEAG.ICN"</annotation>
+      <annotation addr="0FDC:1D6A">Memory ref: [indexed] Map or Saved game File?</annotation>
+      <annotation addr="135D:00F8">Memory ref: "STARLEAG.ICN"</annotation>
+      <annotation addr="135D:084B">Memory ref: "STARLEAG.ICN"</annotation>
+      <annotation addr="135D:0675">Memory ref: "MAP.ICN"</annotation>
+      <annotation addr="1467:08D5">Memory ref: "BTSTATS.CMP"</annotation>
+      <registerValues />
+      <extractResources>false</extractResources>
+      <outputFilePolicy>Segment</outputFilePolicy>
+    </user>
+  </input>
+  <metadata>
+    <filename>Btech.inc</filename>
+  </metadata>
+</project>
