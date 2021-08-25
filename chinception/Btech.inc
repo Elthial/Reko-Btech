@@ -98,7 +98,7 @@
 [[reko::address("207F:3C82")]] void DOS_Set_Interrupt_Vector( int * __far PtrOffset ); //previously long, is int better?
 
 // Data functions
-[[reko::address("0800:29F5")]] int Create_Struct_From_Memory_29F5();
+[[reko::address("0800:29F5")]] int Create_Struct_From_Memory(); //previously unsigned. Better?
 [[reko::address("207F:1D8C")]] void Set_Vars_026E_0270(int v026E, int v0270);
 
 // Math functions
@@ -140,7 +140,6 @@
 [[reko::address("0800:17BB")]] void Memory_CMP_17BB(int wArg04, int wArg06);
 [[reko::address("0800:186F")]] void Arg_While_186F(int wArg04, int wArg06);
 [[reko::address("0800:191B")]] void Arg_CMP_191B(unsigned wArg04, unsigned wArg06);
-[[reko::address("0800:320B")]] void fn0800_320B(int A);
 [[reko::address("204B:033C")]] int If_XOR_0x0186_Is_ZERO();      
 [[reko::address("207F:37B4")]] int Memory_Operation_37B4();    
 [[reko::address("207F:3BDC")]] short If_ds_5367_then_get_stdin_status();
@@ -155,7 +154,7 @@
 [[reko::address("0800:1A13")]] unsigned Return_Bool_Keyboard_space_key_pressed_Display_Yes_No(int Display_03EE);
 [[reko::address("0800:218F")]] int A_fn0800_218F(unsigned KeyPress);
 [[reko::address("0800:231D")]] void A_fn0800_231D(unsigned KeyPress);
-[[reko::address("0800:29F5")]] unsigned Create_Struct_From_Memory();
+
 [[reko::address("0800:3FAE")]] void A_fn0800_3FAE(int wArg04, int wArg06);
 [[reko::address("0800:45C2")]] void A_fn0800_45C2(int wArg04);
 [[reko::address("0800:48B7")]] void Scene_Mech_Startup(int wArg04, int wArg06);

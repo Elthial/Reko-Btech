@@ -33,9 +33,33 @@
         <address>0DAB:0D12</address>
         <CSignature>void Set_Video_Mode_to_Text_Mode()</CSignature>
       </procedure>
+      <procedure name="Combat_engaged">
+        <address>0DAB:0D3D</address>
+        <CSignature>void Combat_engaged()</CSignature>
+      </procedure>
+      <procedure name="Examine_Screen_Graphics">
+        <address>0DAB:174C</address>
+        <CSignature>void Examine_Screen_Graphics(int wArg04, int wArg06, int wArg08, int wArg0A)</CSignature>
+      </procedure>
+      <procedure name="Examine_Screen_Graphics_2">
+        <address>0DAB:1858</address>
+        <CSignature>void Examine_Screen_Graphics_2(int wArg04, int wArg06, int wArg08, int wArg0A)</CSignature>
+      </procedure>
+      <procedure name="A_fn0FDC_05F7">
+        <address>0FDC:05F7</address>
+        <CSignature>unsigned A_fn0FDC_05F7(int *ptrArg04)</CSignature>
+      </procedure>
       <procedure name="Mech_Mission_0629">
         <address>0FDC:0629</address>
         <CSignature>void Mech_Mission_0629(int wArg04)</CSignature>
+      </procedure>
+      <procedure name="Palette_Operations">
+        <address>0FDC:0D49</address>
+        <CSignature>void Palette_Operations(int wArg04, int wArg06)</CSignature>
+      </procedure>
+      <procedure name="Graphical_Operations__134B">
+        <address>0FDC:134B</address>
+        <CSignature>void Graphical_Operations__134B()</CSignature>
       </procedure>
       <procedure name="Weapon_inventory_13DE">
         <address>0FDC:13DE</address>
@@ -47,6 +71,14 @@
       </procedure>
       <procedure name="Increment_ptrArg04_by_1_19F6">
         <address>0FDC:19F6</address>
+      </procedure>
+      <procedure name="Mech_Mission_Function">
+        <address>0FDC:1B41</address>
+        <CSignature>void Mech_Mission_Function()</CSignature>
+      </procedure>
+      <procedure name="Mech_Mission_function_2">
+        <address>0FDC:1C9B</address>
+        <CSignature>void Mech_Mission_function_2()</CSignature>
       </procedure>
       <procedure name="Scene_Mech_Refuse_To_Start">
         <address>11B8:16B2</address>
