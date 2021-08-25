@@ -9,45 +9,56 @@
     <includeDir>BTECH.reko</includeDir>
     <resources>BTECH.reko\resources</resources>
     <user>
-      <processor />  
+      <processor />
       <procedure name="Return_Double_Palette_RCL_19DD">
         <address>0800:19DD</address>
       </procedure>
       <procedure name="DOS_Load_Multiple_Files">
         <address>0800:2DA8</address>
+        <CSignature>void DOS_Load_Multiple_Files(int wArg04, int wArg06)</CSignature>
       </procedure>
       <procedure name="Load_Game">
         <address>0800:32B3</address>
-      </procedure>      
+        <CSignature>void Load_Game()</CSignature>
+      </procedure>
       <procedure name="Attract_Mode">
         <address>0800:4DC7</address>
-      </procedure>     
+        <CSignature>void Attract_Mode()</CSignature>
+      </procedure>
       <procedure name="Set_Video_Mode">
         <address>0DAB:0C8F</address>
+        <CSignature>void Set_Video_Mode()</CSignature>
       </procedure>
       <procedure name="Set_Video_Mode_to_Text_Mode">
         <address>0DAB:0D12</address>
-      </procedure>      
+        <CSignature>void Set_Video_Mode_to_Text_Mode()</CSignature>
+      </procedure>
       <procedure name="Mech_Mission_0629">
         <address>0FDC:0629</address>
+        <CSignature>void Mech_Mission_0629(int wArg04)</CSignature>
       </procedure>
       <procedure name="Weapon_inventory_13DE">
         <address>0FDC:13DE</address>
+        <CSignature>void Weapon_inventory_13DE(int wArg04, int wArg06)</CSignature>
       </procedure>
       <procedure name="Weapon_inventory_2_15E6">
         <address>0FDC:15E6</address>
+        <CSignature>void Weapon_inventory_2_15E6(int wArg04)</CSignature>
       </procedure>
       <procedure name="Increment_ptrArg04_by_1_19F6">
         <address>0FDC:19F6</address>
-      </procedure>      
+      </procedure>
       <procedure name="Scene_Mech_Refuse_To_Start">
         <address>11B8:16B2</address>
-      </procedure>     
+        <CSignature>void Scene_Mech_Refuse_To_Start()</CSignature>
+      </procedure>
       <procedure name="Map_Interactable_Play_Sound">
         <address>135D:0913</address>
-      </procedure>      
-      <procedure name="fn1467_0D7E">
+        <CSignature>void Map_Interactable_Play_Sound(int wArg04, int wArg06)</CSignature>
+      </procedure>
+      <procedure name="A_fn1467_0D7E">
         <address>1467:0D7E</address>
+        <CSignature>void A_fn1467_0D7E()</CSignature>
       </procedure>
       <procedure name="Combat_Weapon_UI_0004">
         <address>1543:0004</address>
@@ -58,6 +69,14 @@
       <procedure name="Combat_Mech_Eject_0A35">
         <address>1543:0A35</address>
       </procedure>
+      <procedure name="While_Less_Than_26_Function">
+        <address>1543:0C72</address>
+        <CSignature>void While_Less_Than_26_Function(int bool_Arg)</CSignature>
+      </procedure>
+      <procedure name="Money_Balance_Function">
+        <address>1543:0CDE</address>
+        <CSignature>unsigned Money_Balance_Function()</CSignature>
+      </procedure>
       <procedure name="Display_Text_Human_02E4">
         <address>1631:02E4</address>
       </procedure>
@@ -66,7 +85,7 @@
       </procedure>
       <procedure name="Case_Statement_11AB">
         <address>1631:11AB</address>
-      </procedure>      
+      </procedure>
       <procedure name="Graphical_Operation_1F09">
         <address>1631:1F09</address>
       </procedure>
@@ -87,16 +106,19 @@
       </procedure>
       <procedure name="Combat_Kick_2231">
         <address>183B:2231</address>
-      </procedure>      
+      </procedure>
       <procedure name="Combat_Mechanics_2_12C7">
         <address>1AE8:12C7</address>
-      </procedure>     
+      </procedure>
       <procedure name="EGA_operations_03EB">
         <address>1F3D:03EB</address>
       </procedure>
       <procedure name="Video_operations_handler">
         <address>1F3D:0525</address>
-      </procedure>      
+      </procedure>
+      <procedure name="DOS_Load_File_to_memory">
+        <address>1F3D:0814</address>
+      </procedure>
       <procedure name="Sound_Operation_02A3">
         <address>1FC5:02A3</address>
       </procedure>
@@ -144,10 +166,10 @@
       </procedure>
       <procedure name="Tandy_Soundcard_Operations_01B8">
         <address>204B:01B8</address>
-      </procedure>      
+      </procedure>
       <procedure name="Timer_8253_5">
         <address>207F:001C</address>
-      </procedure>     
+      </procedure>
       <procedure name="Sound_Freq_Countdown_Loop_00A9">
         <address>207F:00A9</address>
       </procedure>
@@ -193,8 +215,9 @@
       <procedure name="EGA_registers_0A9F">
         <address>207F:0A9F</address>
       </procedure>
-      <procedure name="CGA_Vertical_Retrace_Status_Check">
+      <procedure name="CGA_Return_Vertical_Retrace_Status">
         <address>207F:0B26</address>
+        <CSignature>unsigned CGA_Return_Vertical_Retrace_Status()</CSignature>
       </procedure>
       <procedure name="EGA_RGB_Palette_RCL_operations">
         <address>207F:0BC0</address>
@@ -249,7 +272,7 @@
       </procedure>
       <procedure name="MCGA_1D3A">
         <address>207F:1D3A</address>
-      </procedure>      
+      </procedure>
       <procedure name="VGA_Sequencer_Clocking_Mode_1E37">
         <address>207F:1E37</address>
       </procedure>
@@ -258,9 +281,6 @@
       </procedure>
       <procedure name="Interrupt_flag_cli">
         <address>207F:1FAD</address>
-      </procedure>
-	  <procedure name="DOS_Load_File_to_memory">
-        <address>1F3D:0814</address>
       </procedure>
       <procedure name="VGA_Graphic_Address_Register_1FBE_F7H">
         <address>207F:1FBE</address>
@@ -282,7 +302,7 @@
       </procedure>
       <procedure name="Video_struct_logic">
         <address>207F:22F8</address>
-      </procedure>      
+      </procedure>
       <procedure name="CGA_VGA_Graphics_Register_275C">
         <address>207F:275C</address>
       </procedure>
@@ -311,9 +331,14 @@
       <procedure name="DOS_Interrupt_Vector_Post_2E76">
         <address>207F:2E76</address>
         <CSignature>void DOS_Interrupt_Vector_Post_2E76()</CSignature>
-      </procedure>      
+      </procedure>
+      <procedure name="A_Memory_Function_31CE">
+        <address>207F:31CE</address>
+        <CSignature>int A_Memory_Function_31CE(int bp)</CSignature>
+      </procedure>
       <procedure name="DOS_memory_resize_perhaps">
         <address>207F:32A0</address>
+        <CSignature>int DOS_memory_resize_perhaps(int *ax)</CSignature>
       </procedure>
       <procedure name="CWD_If_Carry_32F5">
         <address>207F:32F5</address>
@@ -326,6 +351,7 @@
       </procedure>
       <procedure name="DOS_write_memory_to_save_file">
         <address>207F:366A</address>
+        <CSignature>int DOS_write_memory_to_save_file(int wArg04, int *ptrArg05, int wArg0A)</CSignature>
       </procedure>
       <procedure name="DOS_write_save_file">
         <address>207F:371E</address>
@@ -335,9 +361,15 @@
       </procedure>
       <procedure name="DOS_Return_file_write_ptr_377A">
         <address>207F:377A</address>
+        <CSignature>int DOS_Return_file_write_ptr_377A(int ds_bx)</CSignature>
+      </procedure>
+      <procedure name="If_ds_5367_then_check_for_stdin_input">
+        <address>207F:3BDC</address>
+        <CSignature>int If_ds_5367_then_check_for_stdin_input()</CSignature>
       </procedure>
       <procedure name="Unused_Function_3CD8">
         <address>207F:3CD8</address>
+        <CSignature>void Unused_Function_3CD8()</CSignature>
       </procedure>
       <procedure name="If_Arg_multiplication_parent">
         <address>207F:3D1C</address>
@@ -356,6 +388,7 @@
       </procedure>
       <procedure name="rotate_with_carry_do_while">
         <address>207F:3E62</address>
+        <CSignature>unsigned rotate_with_carry_do_while(unsigned wArg04, unsigned wArg06, unsigned wArg08, unsigned wArg0A)</CSignature>
       </procedure>
       <procedure name="rotate_with_carry_loop_and_return">
         <address>207F:3EC4</address>
@@ -1340,22 +1373,6 @@ DI 	Destination Index 	used by string operations as destination</annotation>
       <annotation addr="207F:2E60">[3EDB:52E7] = SLICE(es_bx_12, selector, 16);</annotation>
       <annotation addr="1F3D:038D">0x013 = 319 = X</annotation>
       <annotation addr="1F3D:03A5">0x0C7 = 199 = Y</annotation>
-      <annotation addr="207F:0B40">CGA - PORTS
-	  
-								   Ports 3D0 - 3DF. 
-								   In the CGA, port 3D9 sets the different colors. The 8086 writes
-								   to it, but can't read it. 
-								   
-								   Port 3DA, it's neighbor, tells certain status information and is read only. 
-								   
-								   All control information for the video cards is passed back and
-								   forth through the ports. However, the video card comes into
-								   memory 50 times a second to see what it should write to the
-								   screen. The characters on the screen don't pass through the
-								   ports. The mountain comes to Mohammed.
-								   
-								   Bit 0 - horizontal retrace in progress
-								   Bit 3 - in vertical retrace</annotation>
       <annotation addr="207F:2275">read mode 0, write mode 2</annotation>
       <annotation addr="1E56:0D2A">41h letter A in ASCII</annotation>
       <annotation addr="207F:0BAD">Segment [246C]</annotation>
@@ -1696,8 +1713,8 @@ DI 	Destination Index 	used by string operations as destination</annotation>
       <annotation addr="0FDC:15B4">Memory ref: "He already has that type of armor"</annotation>
       <annotation addr="0FDC:178E">Memory ref: "He already has that weapon"</annotation>
       <annotation addr="135D:0266">Memory ref: "Part of the hallway here crumbles away, revealing a secret passageway!"</annotation>
-	  <annotation addr="1467:0AD7">Memory ref: "Identify this 'Mech part"</annotation>
-	  <annotation addr="1467:0951">Memory ref: "Before you can fo on a training mission, you will have to pass the written quiz. Hopefully you have studied your books"</annotation>
+      <annotation addr="1467:0AD7">Memory ref: "Identify this 'Mech part"</annotation>
+      <annotation addr="1467:0951">Memory ref: "Before you can fo on a training mission, you will have to pass the written quiz. Hopefully you have studied your books"</annotation>
       <annotation addr="0800:297A">Memory ref: "Game Disk"</annotation>
       <annotation addr="0800:29A5">Memory ref: " the drive "</annotation>
       <annotation addr="1543:0B5B">Memory ref: "Mech is destroyed!"</annotation>
@@ -1717,6 +1734,62 @@ DI 	Destination Index 	used by string operations as destination</annotation>
       <annotation addr="135D:084B">Memory ref: "STARLEAG.ICN"</annotation>
       <annotation addr="135D:0675">Memory ref: "MAP.ICN"</annotation>
       <annotation addr="1467:08D5">Memory ref: "BTSTATS.CMP"</annotation>
+      <annotation addr="207F:0B58">while ((__inb(INPUT_STATUS) AND VRETRACE))
+							 /* wait until done with vertical retrace */</annotation>
+      <annotation addr="207F:0B5D">while ((INPUT_STATUS AND VRETRACE))
+							 /* wait until done refreshing */</annotation>
+      <annotation addr="207F:0B61">if ((INPUT_STATUS AND VRETRACE))
+							 /* Continue during Vertical Trace */</annotation>
+      <annotation addr="207F:0B64">while ((__inb(INPUT_STATUS) AND VRETRACE))
+							 /* wait until done refreshing */</annotation>
+      <annotation addr="207F:0B69">while ((__inb(INPUT_STATUS) AND VRETRACE))
+							 /* wait until done with vertical retrace */</annotation>
+      <annotation addr="207F:0B32">Return (__inb(INPUT_STATUS) AND VRETRACE)
+							 /* Return Status of vertical retrace */</annotation>
+      <annotation addr="207F:0B40">CGA - PORTS
+	  
+								   Ports 3D0 - 3DF. 
+								   In the CGA, port 3D9 sets the different colors. The 8086 writes
+								   to it, but can't read it. 
+								   
+								   Port 3DA, it's neighbor, tells certain status information and is read only. 
+								   
+								   All control information for the video cards is passed back and
+								   forth through the ports. However, the video card comes into
+								   memory 50 times a second to see what it should write to the
+								   screen. The characters on the screen don't pass through the
+								   ports. The mountain comes to Mohammed.
+								   
+								   Bit 0 - horizontal retrace in progress
+								   Bit 3 - in vertical retrace
+								   
+								   #define VRETRACE 0x08
+								   #define INPUT_STATUS 0x03da							   
+								   </annotation>
+      <annotation addr="1F3D:086A">50Hz? - The video card comes into memory 50 times a second to see what it should write to the screen?</annotation>
+      <annotation addr="207F:0B97">	KEYBOARD - GET KEYSTROKE
+									
+									AH = 00h
+									
+									Return:
+									AH = BIOS scan code
+									AL = ASCII character</annotation>
+      <annotation addr="1F3D:0270">Returns ASCII character</annotation>
+      <annotation addr="0800:0101">if (Keypress == SPACE)
+								   ASCII SPACE 0x20h 32d</annotation>
+      <annotation addr="0800:0070">if (Keypress != SPACE)
+								   ASCII SPACE 0x20h 32d</annotation>
+      <annotation addr="1E56:0C2E">if (Keypress != CARRIAGE_RETURN AND Keypress != SPACE)
+								   ASCII CARRIAGE_RETURN 0x0Dh
+								   ASCII SPACE 0x20h 32d</annotation>
+      <annotation addr="1E56:0CF4">if (Keypress != ESC)
+								   ASCII ESC 0x1Bh </annotation>
+      <annotation addr="0800:3DC4">if (Keypress == SPACE)
+	  				 			   ASCII SPACE 0x20h 32d</annotation>
+      <annotation addr="0800:3DF9">BitFlag operation against Keypress</annotation>
+      <annotation addr="0800:3D64">[0A44Dh] has Keyboard Keypress value</annotation>
+      <annotation addr="0800:3D4C">[014Ch] Game exit or pause? bool</annotation>
+      <annotation addr="0800:32EC">if (MENU_OPTION != CANCEL)</annotation>
       <registerValues />
       <extractResources>false</extractResources>
       <outputFilePolicy>Segment</outputFilePolicy>
