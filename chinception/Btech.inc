@@ -5,7 +5,7 @@
 [[reko::address("0800:0000")]] void Main_Game_Loop(int AttractMode);
 [[reko::address("0800:476D")]] void DOS_Disk_IO_Play_Music();
 
-[[reko::address("0800:2C50")]] void Game_Pause_Menu(int wArg02, int wArg06);
+[[reko::address("0800:2C50")]] void Game_Pause_Menu(int wArg02);
 [[reko::address("1431:000A")]] void Heal_Characters(int Bool_HealedByParty);
 [[reko::address("0800:378D")]] void Inspect_Characters();
 [[reko::address("0800:3BD0")]] void Menu_Change_Game_Settings();

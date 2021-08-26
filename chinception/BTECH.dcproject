@@ -208,6 +208,14 @@
       <procedure name="Combat_Kick_2231">
         <address>183B:2231</address>
       </procedure>
+      <procedure name="A_fn183B_22BC">
+        <address>183B:22BC</address>
+        <CSignature>void A_fn183B_22BC(int wArg04, int wArg06)</CSignature>
+      </procedure>
+      <procedure name="A_fn183B_2474">
+        <address>183B:2474</address>
+        <CSignature>void A_fn183B_2474(int wArg04)</CSignature>
+      </procedure>
       <procedure name="A_fn183B_27C9">
         <address>183B:27C9</address>
         <CSignature>void A_fn183B_27C9(unsigned char bARg04, unsigned char bArg06, unsigned char bArg08)</CSignature>
@@ -359,6 +367,7 @@
       </procedure>
       <procedure name="Struct_Loop_Operations_0BFB">
         <address>207F:0BFB</address>
+        <CSignature>unsigned char Struct_Loop_Operations_0BFB(int di)</CSignature>
       </procedure>
       <procedure name="BIOS_VGA_Set_Palette_Registers">
         <address>207F:0FEE</address>
@@ -377,6 +386,10 @@
       </procedure>
       <procedure name="fn207F_163B">
         <address>207F:163B</address>
+      </procedure>
+      <procedure name="A_fn207F_1886">
+        <address>207F:1886</address>
+        <CSignature>void A_fn207F_1886(unsigned char al)</CSignature>
       </procedure>
       <procedure name="Struct_Copy_Operation_18D8">
         <address>207F:18D8</address>
@@ -506,9 +519,21 @@
         <address>207F:377A</address>
         <CSignature>int DOS_Return_file_write_ptr_377A(int ds_bx)</CSignature>
       </procedure>
+      <procedure name="A_fn207F_37DA">
+        <address>207F:37DA</address>
+        <CSignature>int A_fn207F_37DA(int wArg04)</CSignature>
+      </procedure>
+      <procedure name="Return_bool_fn207F_3835">
+        <address>207F:3835</address>
+        <CSignature>int Return_bool_fn207F_3835(int wArg04)</CSignature>
+      </procedure>
       <procedure name="fn207F_38E2">
         <address>207F:38E2</address>
         <CSignature>bool fn207F_38E2()</CSignature>
+      </procedure>
+      <procedure name="A_fn207F_3A3C">
+        <address>207F:3A3C</address>
+        <CSignature>bool A_fn207F_3A3C(int *ax, int *es)</CSignature>
       </procedure>
       <procedure name="If_ds_5367_then_check_for_stdin_input">
         <address>207F:3BDC</address>
