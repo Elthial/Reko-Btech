@@ -1,7 +1,7 @@
 // Main functions
 [[reko::address("207F:2D82")]] void Main();
-[[reko::address("0D27:0044")]] int Intro_sequence(int A, int B, int C, int D, int E);
-[[reko::address("0800:50C8")]] void Start_Game_Screen();
+[[reko::address("0D27:0044")]] unsigned char Setup_Game(); //int A, int B, int C, int D, int E
+[[reko::address("0800:50C8")]] void Start_Game();
 [[reko::address("0800:0000")]] void Main_Game_Loop(int AttractMode);
 [[reko::address("0800:476D")]] void DOS_Disk_IO_Play_Music();
 
@@ -70,7 +70,7 @@
 [[reko::address("204B:00C6")]] void PC_Speaker_00C6();
 [[reko::address("207F:007D")]] void PC_Speaker_XOR_ptr_freq(int Freq);
 [[reko::address("1FC5:0002")]] void Sound_Operations_0002(int wArg04);
-[[reko::address("0800:19BF")]] void Play_Sound_Toggle_On_ds_w015C(int Sound);
+[[reko::address("0800:19BF")]] void Play_Sound_Toggle_On_ds_w015C(unsigned Sound);
 
 // Input functions
 [[reko::address("1E56:0D1D")]] int Keyboard_Big_Switch_statement(int keypress);
@@ -94,7 +94,7 @@
 [[reko::address("207F:2F72")]] void DOS_set_interrupt_vector();
 [[reko::address("207F:3336")]] void DOS_close_file(int FileHandle);
 [[reko::address("207F:3356")]] void DOS_set_file_position(int A, int B, int C);
-[[reko::address("207F:3580")]] void DOS_read_file_handler(int FileHandle, long * __far PtrOffset, unsigned BytesToRead, int D);
+[[reko::address("207F:3580")]] void DOS_read_file_handler(int FileHandle, long * __far BufferForData, unsigned BytesToRead, int D); //Seems to have an extra push?
 [[reko::address("207F:3C82")]] void DOS_Set_Interrupt_Vector( int * __far PtrOffset ); //previously long, is int better?
 
 // Data functions
@@ -118,12 +118,12 @@
 
 // Image
 // void fn1F3D_049D(Eq_21 ds, int32 * ptrArg04, Eq_21 wArg08, Eq_21 wArg0A)
-[[reko::address("1F3D:049D")]] void Process_Graphics_File_In_Memory(int ds, long * __far ptrMemory, int wArg08, int wArg0A);
+[[reko::address("1F3D:049D")]] void Process_Graphics_File_In_Memory(int ptrMemory, int wArg08, int wArg0A, int wArg0C); //dx, ax - dx, ax
 
 // Confirm valid
 [[reko::address("0800:2A4F")]] void Press_A_Key();
 [[reko::address("207F:0213")]] void DOS_DirectConsoleOutput(char Character);    
-[[reko::address("0800:2913")]] void Request_Diskette_In_Drive(char Drive);
+[[reko::address("0800:2913")]] void Request_Diskette_In_Drive(unsigned Drive);
 [[reko::address("207F:014C")]] void DOS_SetDrive(char Drive);      
 [[reko::address("0800:28CC")]] void Set_Default_Disk_Drive(int Drive);
 [[reko::address("207F:3275")]] int DOS_write_file(int wArg04);    
