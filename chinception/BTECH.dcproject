@@ -34,9 +34,6 @@
       <procedure name="Graphical_Operation_1F73">
         <address>1631:1F73</address>
       </procedure>
-      <procedure name="Combat_Parent_000A">
-        <address>183B:000A</address>
-      </procedure>
       <procedure name="Combat_UI_14C3">
         <address>183B:14C3</address>
       </procedure>
@@ -99,10 +96,7 @@
       </procedure>
       <procedure name="EGA_VGA_Registers_0377">
         <address>207F:0377</address>
-      </procedure>
-      <procedure name="VGA_Carry_Left_Operations_0572">
-        <address>207F:0572</address>
-      </procedure>
+      </procedure>  
       <procedure name="Carry_Left_Four_times_SHL_RCL">
         <address>207F:05BF</address>
       </procedure>
@@ -120,10 +114,7 @@
       </procedure>
       <procedure name="CGA_Screen_Resolutions_Operations_0A26">
         <address>207F:0A26</address>
-      </procedure>
-      <procedure name="Copy_From__Memory_A_to_B_0A76">
-        <address>207F:0A76</address>
-      </procedure>
+      </procedure>  
       <procedure name="EGA_registers_0A9F">
         <address>207F:0A9F</address>
       </procedure>

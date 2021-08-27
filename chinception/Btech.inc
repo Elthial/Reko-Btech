@@ -5,7 +5,7 @@
 [[reko::address("0800:0000")]] void Main_Game_Loop(int AttractMode);
 [[reko::address("0800:476D")]] void DOS_Disk_IO_Play_Music();
 
-[[reko::address("0800:2C50")]] void Game_Pause_Menu(int wArg02);
+[[reko::address("0800:2C50")]] void Game_Pause_Menu();
 [[reko::address("1431:000A")]] void Heal_Characters(int Bool_HealedByParty);
 [[reko::address("0800:378D")]] void Inspect_Characters();
 [[reko::address("0800:3BD0")]] void Menu_Change_Game_Settings();
@@ -28,6 +28,7 @@
 [[reko::address("1CD3:17EA")]] void Display_Text_From_Memory_ScreenRetrace_KeyboardInput(int TextPtr);
 [[reko::address("1E56:0B5E")]] int Display_Menu_Chocies_And_Check(int wArg04);
 [[reko::address("1631:02E4")]] void Display_Text_Human(int wArg04);
+[[reko::address("1467:0B98")]] void Display_Text_Mech_Names();
 [[reko::address("1631:1FDF")]] void Display_Text_CBill_Balance();
 [[reko::address("0D27:000A")]] static void Print(char *string);
 
@@ -107,24 +108,31 @@
 [[reko::address("207F:2E3B")]] void DOS_Interrupts_Preamble_2E3B();
 [[reko::address("207F:2E76")]] void DOS_Interrupt_Vector_Post_2E76();
 [[reko::address("207F:32A0")]] int DOS_memory_resize_perhaps(int *ax);
-
+[[reko::address("207F:0213")]] void DOS_DirectConsoleOutput(char Character);    
+[[reko::address("0800:2913")]] void Request_Diskette_In_Drive(unsigned Drive);
+[[reko::address("207F:014C")]] void DOS_SetDrive(char Drive);      
+[[reko::address("0800:28CC")]] void Set_Default_Disk_Drive(int Drive);
+// DOS Write
 [[reko::address("207F:2FB2")]] void DOS_write_file_if_Func_Ptr();
 [[reko::address("207F:366A")]] int DOS_write_memory_to_save_file(int wArg04, int *ptrArg05, int wArg0A);
 [[reko::address("207F:377A")]] int DOS_Return_file_write_ptr_377A(int ds_bx);
-
 [[reko::address("207F:3000")]] bool Return_Bool_DOS_Write_function();
-
-[[reko::address("207F:33D0")]] unsigned DOS_Load_File(int FileName, unsigned short Bitflag);//, unsigned BytesToRead);
-[[reko::address("1F3D:0814")]] void DOS_Load_File_to_memory(int * __far FileHandle, int * __far BufferForData, unsigned short Bitflag);
+[[reko::address("207F:3275")]] int DOS_write_file(int wArg04);    
+[[reko::address("207F:324A")]] int DOS_write_struct(int wArg04);
+// DOS Load
+[[reko::address("207F:33D0")]] unsigned DOS_Load_File(int * __far FileName, unsigned char Bitflag);
+[[reko::address("0800:2DA8")]] void DOS_Load_Multiple_Files(int wArg04, int wArg06);
+[[reko::address("1F3D:0814")]] void DOS_Load_File_to_memory(int * __far FileHandle, int * __far BufferForData, unsigned char Bitflag);
 [[reko::address("1F3D:063B")]] void Load_File_To_Memory(int * __far FileName, int * __far Memory);
 [[reko::address("207F:356F")]] int DOS_Load_File_Check(int cx);
-
-[[reko::address("207F:3356")]] void DOS_set_file_position(int FileHandle, int SegOffset, unsigned short OriginOffset);
+[[reko::address("0FDC:1D30")]] void Load_Indexed_Files(int wArg04);
+// DOS File Read
+[[reko::address("207F:3356")]] void DOS_set_file_position(int FileHandle, int B, int C, int D); // Needs work
 [[reko::address("207F:3580")]] void DOS_read_file_handler(int FileHandle, int * __far BufferForData, unsigned BytesToRead);
-
-
+// DOS Close / Terminate
 [[reko::address("207F:3336")]] void DOS_close_file(int FileHandle);
 [[reko::address("207F:2F14")]] void DOS_Terminate(unsigned char wArg04); 
+
 
 
 
@@ -136,6 +144,8 @@
 // Data functions
 [[reko::address("0800:29F5")]] int Create_Struct_From_Memory(); //previously unsigned. Better?
 [[reko::address("207F:1D8C")]] void Set_Vars_026E_0270(int v026E, int v0270);
+[[reko::address("207F:0572")]] void VGA_Carry_Left_Operations(int * __far PtrSource, int * __far PtrDestination, unsigned BytesToRead);
+[[reko::address("207F:0A76")]] void Copy_From__Memory_Source_to_Dest(int * __far PtrSource, int * __far PtrDestination, unsigned BytesToRead);
 
 // Math functions
 [[reko::address("207F:3C6C")]] static char abs(unsigned char x);
@@ -151,16 +161,12 @@
 [[reko::address("135D:0288")]] void Holodisk_Flag_Zero_0288();
 [[reko::address("183B:2591")]] void Scan_Enemies(int PtrScanningMech);
 [[reko::address("183B:273D")]] void Salvage_If_wArg06(int wArg04, int wArg06);
-
+[[reko::address("1AE8:000C")]] void Combat_Mechanics(int IsCombat);
+[[reko::address("183B:000A")]] void Combat_Parent_000A(int wArg04);
 
 // Confirm valid
 [[reko::address("0800:2A4F")]] void Press_A_Key();
-[[reko::address("207F:0213")]] void DOS_DirectConsoleOutput(char Character);    
-[[reko::address("0800:2913")]] void Request_Diskette_In_Drive(unsigned Drive);
-[[reko::address("207F:014C")]] void DOS_SetDrive(char Drive);      
-[[reko::address("0800:28CC")]] void Set_Default_Disk_Drive(int Drive);
-[[reko::address("207F:3275")]] int DOS_write_file(int wArg04);    
-[[reko::address("207F:324A")]] int DOS_write_struct(int wArg04);
+
 
 
 // Problem functions - Not translated correctly
@@ -200,7 +206,7 @@
 [[reko::address("0DAB:1AFE")]] void Examine_Screen_BTSTATS_CMP(int wArg04);
 [[reko::address("0FDC:0008")]] void Fathers_Holodisk(int wArg04);
 [[reko::address("0FDC:01C0")]] void Large_Switch_Statement(int ptrArg04);
-[[reko::address("0FDC:1D30")]] void Load_Indexed_Files(int wArg04);
+
 [[reko::address("11B8:0002")]] void Mechlube_Repair_Mech();
 [[reko::address("11B8:080A")]] void Mechlube_Modify_Mech();
 [[reko::address("11B8:0925")]] void Mechlube_Upgrade_Mech(unsigned bx);
@@ -217,11 +223,11 @@
 [[reko::address("135D:0AB6")]] void StarLeague_Key_Codes(int wArg04, int wArg06, int wArg08);
 [[reko::address("1467:0002")]] void Assign_Pilot_and_rider_to_Mechs(int wArg04);
 [[reko::address("1467:08A8")]] void Copyright_Check_Mech_Quiz();
-[[reko::address("1467:0B98")]] void Display_Text_Mech_Names();
+
 [[reko::address("1631:1DCC")]] void Countdown_or_Keyboard_Input();
 [[reko::address("183B:24F0")]] unsigned Return_Bool_Options_Combat_Messages();
 [[reko::address("183B:2556")]] unsigned Return_Bool_Options_See_Combat_Graphics();
-[[reko::address("1AE8:000C")]] void Combat_Mechanics(int IsCombat);
+
 [[reko::address("1E56:0004")]] void Draw_Menu_CGA_VGA_Graphical_Operation(int wArg04);
 [[reko::address("1E56:01E7")]] void CGA_VGA_Graphical_Operation(int ptrArg04, int wArg08, int wArg0A, int wArg0C, int wArg0E, int wArg10);
 [[reko::address("1F3D:002F")]] unsigned Return_Bool_stdin_status();
@@ -251,7 +257,7 @@
 [[reko::address("11B8:16B2")]] void Scene_Mech_Refuse_To_Start();
 [[reko::address("135D:0913")]] void Map_Interactable_Play_Sound(int wArg04, int wArg06);
 [[reko::address("1467:0D7E")]] void A_fn1467_0D7E();
-[[reko::address("0800:2DA8")]] void DOS_Load_Multiple_Files(int wArg04, int wArg06);
+
 
 [[reko::address("0800:4AA6")]] void EGA_Operations_4AA6(int wArg04, int wArg06);
 [[reko::address("0800:4BC1")]] void EGA_Operation_4BC1(int wArg04, unsigned wArg06, int wArg08);
