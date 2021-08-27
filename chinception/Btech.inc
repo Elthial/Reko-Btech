@@ -16,16 +16,16 @@
 [[reko::address("0800:32B3")]] void Load_Game();
 
 // Text functions
-[[reko::address("1E56:03F5")]] void Display_Text_From_Memory(long * __far TextPtr);
-[[reko::address("0800:2867")]] void Display_Text_Assign_Item(long TextPtr, int wArg08, int wArg0A);
+[[reko::address("1E56:03F5")]] void Display_Text_From_Memory(int * __far TextPtr);
+[[reko::address("0800:2867")]] void Display_Text_Assign_Item(int TextPtr, int wArg08, int wArg0A);
 [[reko::address("0800:2A69")]] void Display_Text_Add_Plural();
 [[reko::address("0800:2A7E")]] void Display_Text_051D_Variable(); 
 [[reko::address("1F3D:0053")]] void Display_Text_Dynamic_Value(int Value);
 [[reko::address("1CD3:1809")]] void Display_Text_Shop_Cannot_Afford_Text();
 [[reko::address("1CD3:181E")]] void Display_Text_4FA0_Value();
 [[reko::address("0FDC:19E1")]] void Display_nothing_this_time_Text();
-[[reko::address("1631:1DAB")]] void Display_Text_From_Memory_IF_11832(long TextPtr);
-[[reko::address("1CD3:17EA")]] void Display_Text_From_Memory_ScreenRetrace_KeyboardInput(long TextPtr);
+[[reko::address("1631:1DAB")]] void Display_Text_From_Memory_IF_11832(int TextPtr);
+[[reko::address("1CD3:17EA")]] void Display_Text_From_Memory_ScreenRetrace_KeyboardInput(int TextPtr);
 [[reko::address("1E56:0B5E")]] int Display_Menu_Chocies_And_Check(int wArg04);
 [[reko::address("1631:02E4")]] void Display_Text_Human(int wArg04);
 [[reko::address("1631:1FDF")]] void Display_Text_CBill_Balance();
@@ -50,13 +50,17 @@
 [[reko::address("1F3D:0006")]] void Wait_For_N_Vertical_Retraces(unsigned NumberOfRetraces);
 [[reko::address("207F:0BA7")]] void BIOS_Set_CGA_Palette(char Palette);
 [[reko::address("207F:2CE1")]] void SaveVideoMode_246C_B764(int ptr);
-[[reko::address("207F:0260")]] char VGA_Output_Register_03CE(unsigned Index, int GraphicsData, int *VGA_Register);         
+[[reko::address("207F:0260")]] char VGA_Output_Register_03CE(int * __far Ptr, int *VGA_Register);         
 [[reko::address("207F:0B40")]] void Wait_For_Retrace(unsigned char ContinueDuringVertical);
 [[reko::address("207F:0B73")]] char BIOS_Set_Video_Mode(char VideoMode);  
 [[reko::address("0800:2A93")]] void Graphics_Operations_2A93();
-[[reko::address("1F3D:0086")]] void Graphics_Operations_0086(int wArg04, int wArg06, int wArg08, unsigned wArg0A, int wArg0c, unsigned wArg0E);	   
-[[reko::address("1F3D:01FB")]] void Graphic_Operations_01FB(unsigned char wArg04, long wArg06, char wArg08, int wArg0A, int wArg0C);	  
+[[reko::address("1F3D:0086")]] void Graphics_Operations_0086(int * __far Ptr, int wArg08, unsigned wArg0A, int wArg0c, unsigned wArg0E);	   
+[[reko::address("1F3D:01FB")]] void Graphic_Operations_01FB(unsigned char wArg04, int wArg06, char wArg08, int wArg0A, int wArg0C);	  
 [[reko::address("0800:19F3")]] int Do_Palette_RCL_19F3();
+[[reko::address("1F3D:0525")]] void Video_operations_0525(int * __far Ptr);
+[[reko::address("207F:00D1")]] void CGA_Copy_To_Memory(int * __far Ptr);
+
+[[reko::address("1F3D:049D")]] void Process_Graphics_File_In_Memory(int * __far PtrSource, int * __far PtrDestination); //dx, ax - dx, ax 
 
 // Sound functions
 [[reko::address("1FC5:046E")]] void A_Timer();
@@ -97,24 +101,37 @@
 
 // DOS functions
 [[reko::address("207F:2EA4")]] void DOS_IOCTL_GET_DEVICE_INFO();
-[[reko::address("207F:2FB2")]] void DOS_write_file_if_Func_Ptr();
-[[reko::address("1F3D:0814")]] void DOS_Load_File_to_memory(long * __far FileHandle, long * __far BufferForData, unsigned short Bitflag);
-[[reko::address("1F3D:063B")]] void Load_File_To_Memory(int FileHandle, int DestinationOffset, int DestinationSegment);
-[[reko::address("207F:33D0")]] unsigned DOS_Load_File(long * __far FileNamePtr, unsigned short Bitflag, unsigned BytesToRead);
-[[reko::address("207F:2FB2")]] void DOS_write_file_if_Func_Ptr();
+[[reko::address("207F:3C82")]] void DOS_Set_Interrupt_Vector( int * __far PtrOffset ); 
 [[reko::address("207F:2E50")]] void DOS_Set_Interrupt_Vector_Partial_ASM();
-[[reko::address("207F:2F14")]] void DOS_Terminate(unsigned char wArg04); 
 [[reko::address("207F:2F72")]] void DOS_set_interrupt_vector();
-[[reko::address("207F:3336")]] void DOS_close_file(int FileHandle);
-[[reko::address("207F:3356")]] void DOS_set_file_position(int FileHandle, int SegOffset, unsigned short OriginOffset);
-[[reko::address("207F:3580")]] void DOS_read_file_handler(int FileHandle, long * __far BufferForData, unsigned BytesToRead); //Seems to have an extra push?
-[[reko::address("207F:3C82")]] void DOS_Set_Interrupt_Vector( int * __far PtrOffset ); //previously long, is int better?
-[[reko::address("207F:32A0")]] int DOS_memory_resize_perhaps(int *ax);
-[[reko::address("207F:356F")]] int DOS_Load_File_Check(int cx);
-[[reko::address("207F:366A")]] int DOS_write_memory_to_save_file(int wArg04, int *ptrArg05, int wArg0A);
 [[reko::address("207F:2E3B")]] void DOS_Interrupts_Preamble_2E3B();
 [[reko::address("207F:2E76")]] void DOS_Interrupt_Vector_Post_2E76();
+[[reko::address("207F:32A0")]] int DOS_memory_resize_perhaps(int *ax);
+
+[[reko::address("207F:2FB2")]] void DOS_write_file_if_Func_Ptr();
+[[reko::address("207F:366A")]] int DOS_write_memory_to_save_file(int wArg04, int *ptrArg05, int wArg0A);
+[[reko::address("207F:377A")]] int DOS_Return_file_write_ptr_377A(int ds_bx);
+
 [[reko::address("207F:3000")]] bool Return_Bool_DOS_Write_function();
+
+[[reko::address("207F:33D0")]] unsigned DOS_Load_File(int FileName, unsigned short Bitflag);//, unsigned BytesToRead);
+[[reko::address("1F3D:0814")]] void DOS_Load_File_to_memory(int * __far FileHandle, int * __far BufferForData, unsigned short Bitflag);
+[[reko::address("1F3D:063B")]] void Load_File_To_Memory(int * __far FileName, int * __far Memory);
+[[reko::address("207F:356F")]] int DOS_Load_File_Check(int cx);
+
+[[reko::address("207F:3356")]] void DOS_set_file_position(int FileHandle, int SegOffset, unsigned short OriginOffset);
+[[reko::address("207F:3580")]] void DOS_read_file_handler(int FileHandle, int * __far BufferForData, unsigned BytesToRead);
+
+
+[[reko::address("207F:3336")]] void DOS_close_file(int FileHandle);
+[[reko::address("207F:2F14")]] void DOS_Terminate(unsigned char wArg04); 
+
+
+
+
+
+
+
 
 // Data functions
 [[reko::address("0800:29F5")]] int Create_Struct_From_Memory(); //previously unsigned. Better?
@@ -135,9 +152,6 @@
 [[reko::address("183B:2591")]] void Scan_Enemies(int PtrScanningMech);
 [[reko::address("183B:273D")]] void Salvage_If_wArg06(int wArg04, int wArg06);
 
-// Image
-// void fn1F3D_049D(Eq_21 ds, int32 * ptrArg04, Eq_21 wArg08, Eq_21 wArg0A)
-[[reko::address("1F3D:049D")]] void Process_Graphics_File_In_Memory(long * __far ptrMemory, int ptrDest, int prtDestSeg); //dx, ax - dx, ax
 
 // Confirm valid
 [[reko::address("0800:2A4F")]] void Press_A_Key();
@@ -262,7 +276,7 @@
 [[reko::address("1E56:0AE5")]] void A_fn1E56_0AE5(int eSth05, int eStg06, int wArg08, int wArg0A, int wARg0C);
 [[reko::address("1F3D:00D5")]] void Graphical_Operations_00D5(long dwArg04, int wArg08, int wArg0A, char bArg0C, char bArg0E);
 
-[[reko::address("207F:00D1")]] void CGA_Copy_To_Memory(unsigned StartIndex, int * PtrTarget);
+
 [[reko::address("207F:01D7")]] void Copy_Struct_Operation(int WhileEndCond, int SourceStruct);
 [[reko::address("207F:0931")]] void A_fn207F_0931(int wArg04, int wArg06, int wArg08, int wArg0A, unsigned char bArg0C, unsigned char bArg0E, int wArg10);
 [[reko::address("207F:0B26")]] unsigned CGA_Return_Vertical_Retrace_Status();
@@ -277,7 +291,7 @@
 [[reko::address("1F3D:070A")]] void A_fn1F3D_070A(int wArg04, int wArg06, int wArg08, unsigned char bArg0a, unsigned char wArg0C);
 [[reko::address("1631:03AB")]] void A_fn1631_03AB(int wArg04, int wArg06);
 [[reko::address("1631:0BB5")]] unsigned A_fn1631_0BB5(int wArg04, int wArg06);
-[[reko::address("207F:377A")]] int DOS_Return_file_write_ptr_377A(int ds_bx);
+
 [[reko::address("207F:37DA")]] int A_fn207F_37DA(int wArg04);
 [[reko::address("207F:3835")]] int Return_bool_fn207F_3835(int wArg04);
 [[reko::address("207F:3874")]] bool Return_Bool_3874();

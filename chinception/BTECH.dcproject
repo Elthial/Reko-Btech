@@ -52,9 +52,6 @@
       <procedure name="EGA_operations_03EB">
         <address>1F3D:03EB</address>
       </procedure>
-      <procedure name="Video_operations_handler">
-        <address>1F3D:0525</address>
-      </procedure>
       <procedure name="Sound_Operation_02A3">
         <address>1FC5:02A3</address>
       </procedure>
