@@ -45,7 +45,7 @@
 [[reko::address("1F3D:0006")]] void Wait_For_N_Vertical_Retraces(unsigned NumberOfRetraces);
 [[reko::address("207F:0BA7")]] void BIOS_Set_CGA_Palette(char Palette);
 [[reko::address("207F:2CE1")]] void SaveVideoMode_246C_B764(int ptr);
-[[reko::address("207F:0260")]] char VGA_Output_Register_03CE(int A, int B, int VGA_Register);         
+[[reko::address("207F:0260")]] char VGA_Output_Register_03CE(unsigned Index, int GraphicsData, char *VGA_Register);         
 [[reko::address("207F:0B40")]] void Wait_For_Retrace(unsigned char ContinueDuringVertical);
 [[reko::address("207F:0B73")]] char BIOS_Set_Video_Mode(char VideoMode);  
 [[reko::address("0800:2A93")]] void Graphics_Operations_2A93();
@@ -86,7 +86,7 @@
 [[reko::address("207F:2EA4")]] void DOS_IOCTL_GET_DEVICE_INFO();
 [[reko::address("207F:2FB2")]] void DOS_write_file_if_Func_Ptr();
 [[reko::address("1F3D:0814")]] void DOS_Load_File_to_memory(long * __far FileHandle, int ds, long dwArg08, char wArg0C);
-[[reko::address("1F3D:063B")]] void Load_File_To_Memory(long * __far FileHandle, int DestinationOffset, int DestinationSegment);
+[[reko::address("1F3D:063B")]] void Load_File_To_Memory(int FileHandle, int DestinationOffset, int DestinationSegment);
 [[reko::address("207F:33D0")]] unsigned DOS_Load_File(long * __far FileNamePtr, unsigned short Bitflag, unsigned BytesToRead);
 [[reko::address("207F:2FB2")]] void DOS_write_file_if_Func_Ptr();
 [[reko::address("207F:2E50")]] void DOS_Set_Interrupt_Vector_Partial_ASM();
@@ -94,7 +94,7 @@
 [[reko::address("207F:2F72")]] void DOS_set_interrupt_vector();
 [[reko::address("207F:3336")]] void DOS_close_file(int FileHandle);
 [[reko::address("207F:3356")]] void DOS_set_file_position(int A, int B, int C);
-[[reko::address("207F:3580")]] void DOS_read_file_handler(int FileHandle, long * __far BufferForData, unsigned BytesToRead, int D); //Seems to have an extra push?
+[[reko::address("207F:3580")]] void DOS_read_file_handler(int FileHandle, long * __far BufferForData, unsigned BytesToRead); //Seems to have an extra push?
 [[reko::address("207F:3C82")]] void DOS_Set_Interrupt_Vector( int * __far PtrOffset ); //previously long, is int better?
 
 // Data functions
@@ -118,7 +118,7 @@
 
 // Image
 // void fn1F3D_049D(Eq_21 ds, int32 * ptrArg04, Eq_21 wArg08, Eq_21 wArg0A)
-[[reko::address("1F3D:049D")]] void Process_Graphics_File_In_Memory(int ptrMemory, int wArg08, int wArg0A, int wArg0C); //dx, ax - dx, ax
+[[reko::address("1F3D:049D")]] void Process_Graphics_File_In_Memory(int ptrMemory, int ptrSegment, int wArg0A, int wArg0C); //dx, ax - dx, ax
 
 // Confirm valid
 [[reko::address("0800:2A4F")]] void Press_A_Key();

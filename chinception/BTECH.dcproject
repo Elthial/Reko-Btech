@@ -137,8 +137,9 @@
         <address>1631:0006</address>
         <CSignature>void A_fn1631_0006(int wArg04, int wArg06, int wArg08, int wArg0c, int BoolValue)</CSignature>
       </procedure>
-      <procedure name="Display_Text_Human_02E4">
+      <procedure name="Display_Text_Human">
         <address>1631:02E4</address>
+        <CSignature>void Display_Text_Human(int wArg04)</CSignature>
       </procedure>
       <procedure name="Menu_Graphical_Operations_032F">
         <address>1631:032F</address>
@@ -270,24 +271,30 @@
       </procedure>
       <procedure name="Sound_Ptr_Operation_047B">
         <address>1FC5:047B</address>
+        <CSignature>void Sound_Ptr_Operation_047B(int wArg04, int wArg06)</CSignature>
       </procedure>
-      <procedure name="Sound_Freq_Loop_04F1">
+      <procedure name="Sound_Freq_Loop">
         <address>1FC5:04F1</address>
+        <CSignature>void Sound_Freq_Loop(int wArg04, int wArg06, int wArg08)</CSignature>
       </procedure>
       <procedure name="Sound_Operation_059A">
         <address>1FC5:059A</address>
+        <CSignature>void Sound_Operation_059A(int wArg94, int wArg06, int wArg08, int wArg0A)</CSignature>
       </procedure>
       <procedure name="Sound_Operation_0643">
         <address>1FC5:0643</address>
+        <CSignature>void Sound_Operation_0643(int wArg04, int wArg06, int wArg08, int wArg0A, int wArg0C)</CSignature>
       </procedure>
       <procedure name="Sound_Ptr_Multiply_06F6">
         <address>1FC5:06F6</address>
       </procedure>
-      <procedure name="Sound_Streaming_1_0747">
+      <procedure name="Sound_Streaming_1">
         <address>1FC5:0747</address>
+        <CSignature>void Sound_Streaming_1(int wArg04, int wArg06, int wArg08, int wArg0A, int wArg0C)</CSignature>
       </procedure>
-      <procedure name="Sound_Streaming_2_07DA">
+      <procedure name="Sound_Streaming_2">
         <address>1FC5:07DA</address>
+        <CSignature>void Sound_Streaming_2(int wArg04, int wArg06, int wArg08, int wArg0A, int wArg0C)</CSignature>
       </procedure>
       <procedure name="seg204B_001E_ROR_Set_Var_00F5">
         <address>204B:00F5</address>
@@ -484,6 +491,10 @@
         <address>207F:2E76</address>
         <CSignature>void DOS_Interrupt_Vector_Post_2E76()</CSignature>
       </procedure>
+      <procedure name="Return_Bool_DOS_Write_function">
+        <address>207F:3000</address>
+        <CSignature>bool Return_Bool_DOS_Write_function()</CSignature>
+      </procedure>
       <procedure name="A_fn207F_3026">
         <address>207F:3026</address>
         <CSignature>void A_fn207F_3026()</CSignature>
@@ -502,8 +513,9 @@
       <procedure name="CWD_3308">
         <address>207F:3308</address>
       </procedure>
-      <procedure name="DOS_Load_File_Check_356F">
+      <procedure name="DOS_Load_File_Check">
         <address>207F:356F</address>
+        <CSignature>int DOS_Load_File_Check(int cx)</CSignature>
       </procedure>
       <procedure name="DOS_write_memory_to_save_file">
         <address>207F:366A</address>
@@ -527,9 +539,17 @@
         <address>207F:3835</address>
         <CSignature>int Return_bool_fn207F_3835(int wArg04)</CSignature>
       </procedure>
+      <procedure name="Return_Bool_3874">
+        <address>207F:3874</address>
+        <CSignature>bool Return_Bool_3874()</CSignature>
+      </procedure>
       <procedure name="fn207F_38E2">
         <address>207F:38E2</address>
         <CSignature>bool fn207F_38E2()</CSignature>
+      </procedure>
+      <procedure name="A_fn207F_38FD">
+        <address>207F:38FD</address>
+        <CSignature>bool A_fn207F_38FD(int *ptrArg00)</CSignature>
       </procedure>
       <procedure name="A_fn207F_3A3C">
         <address>207F:3A3C</address>
@@ -754,6 +774,11 @@
           <prim domain="Character" size="1" />
         </str>
         <Name>g_3EEDF</Name>
+      </global>
+      <global>
+        <Address>3EDB:0334</Address>
+        <prim domain="SignedInt" size="2" />
+        <Name>Disk</Name>
       </global>
       <global>
         <Address>3EDB:0410</Address>
