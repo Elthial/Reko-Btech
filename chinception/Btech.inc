@@ -51,7 +51,7 @@
 [[reko::address("1F3D:0006")]] void Wait_For_N_Vertical_Retraces(unsigned NumberOfRetraces);
 [[reko::address("207F:0BA7")]] void BIOS_Set_CGA_Palette(char Palette);
 [[reko::address("207F:2CE1")]] void SaveVideoMode_246C_B764(int ptr);
-[[reko::address("207F:0260")]] char VGA_Output_Register_03CE(int * __far Ptr, int *VGA_Register);         
+[[reko::address("207F:0260")]] void Write_Image_To_VGA_Memory(int * __far Image, int VGA_Memory);         
 [[reko::address("207F:0B40")]] void Wait_For_Retrace(unsigned char ContinueDuringVertical);
 [[reko::address("207F:0B73")]] char BIOS_Set_Video_Mode(char VideoMode);  
 [[reko::address("0800:2A93")]] void Graphics_Operations_2A93();
@@ -61,7 +61,7 @@
 [[reko::address("1F3D:0525")]] void Video_operations_0525(int * __far Ptr);
 [[reko::address("207F:00D1")]] void CGA_Copy_To_Memory(int * __far Ptr);
 
-[[reko::address("1F3D:049D")]] void Process_Graphics_File_In_Memory(int * __far PtrSource, int * __far PtrDestination); //dx, ax - dx, ax 
+[[reko::address("1F3D:049D")]] void Process_Graphics_File_In_Memory(int * __far PtrSource, int * __far PtrDestination); 
 
 // Sound functions
 [[reko::address("1FC5:046E")]] void A_Timer();
@@ -257,14 +257,11 @@
 [[reko::address("11B8:16B2")]] void Scene_Mech_Refuse_To_Start();
 [[reko::address("135D:0913")]] void Map_Interactable_Play_Sound(int wArg04, int wArg06);
 [[reko::address("1467:0D7E")]] void A_fn1467_0D7E();
-
-
 [[reko::address("0800:4AA6")]] void EGA_Operations_4AA6(int wArg04, int wArg06);
 [[reko::address("0800:4BC1")]] void EGA_Operation_4BC1(int wArg04, unsigned wArg06, int wArg08);
 [[reko::address("1543:0C72")]] void While_Less_Than_26_Function(int bool_Arg);
 [[reko::address("1543:0CDE")]] unsigned Money_Balance_Function();
 [[reko::address("1631:0006")]] void A_fn1631_0006(int wArg04, int wArg06, int wArg08, int wArg0c, int BoolValue);
-
 [[reko::address("1631:0C63")]] void A_fn1631_0C63(long * __far ptrArg04);
 [[reko::address("1631:11AB")]] int Case_Statement_11AB(int wArg04, int wArg06);
 [[reko::address("1631:15FA")]] int Return_bool_fn1631_15FA(int *ptrArg04, int LessThanCond);
@@ -281,8 +278,6 @@
 [[reko::address("1E56:0A3B")]] void A_fn1E56_0A3B(int wArg04, int wArg06, int *ptrArg08, int *ptrArg0A, int wArg0C, int wArg0E);
 [[reko::address("1E56:0AE5")]] void A_fn1E56_0AE5(int eSth05, int eStg06, int wArg08, int wArg0A, int wARg0C);
 [[reko::address("1F3D:00D5")]] void Graphical_Operations_00D5(long dwArg04, int wArg08, int wArg0A, char bArg0C, char bArg0E);
-
-
 [[reko::address("207F:01D7")]] void Copy_Struct_Operation(int WhileEndCond, int SourceStruct);
 [[reko::address("207F:0931")]] void A_fn207F_0931(int wArg04, int wArg06, int wArg08, int wArg0A, unsigned char bArg0C, unsigned char bArg0E, int wArg10);
 [[reko::address("207F:0B26")]] unsigned CGA_Return_Vertical_Retrace_Status();
@@ -290,14 +285,11 @@
 [[reko::address("207F:1886")]] void A_fn207F_1886(unsigned char al);
 [[reko::address("207F:1B71")]] void A_fn207F_1B71();
 [[reko::address("207F:24D7")]] int VGA_24D7();
-
 [[reko::address("207F:3026")]] void A_fn207F_3026();
 [[reko::address("207F:31CE")]] int A_Memory_Function_31CE();
-
 [[reko::address("1F3D:070A")]] void A_fn1F3D_070A(int wArg04, int wArg06, int wArg08, unsigned char bArg0a, unsigned char wArg0C);
 [[reko::address("1631:03AB")]] void A_fn1631_03AB(int wArg04, int wArg06);
 [[reko::address("1631:0BB5")]] unsigned A_fn1631_0BB5(int wArg04, int wArg06);
-
 [[reko::address("207F:37DA")]] int A_fn207F_37DA(int wArg04);
 [[reko::address("207F:3835")]] int Return_bool_fn207F_3835(int wArg04);
 [[reko::address("207F:3874")]] bool Return_Bool_3874();
@@ -307,4 +299,23 @@
 [[reko::address("207F:3BDC")]] int If_ds_5367_then_check_for_stdin_input();
 [[reko::address("207F:3CD8")]] void Unused_Function_3CD8();
 [[reko::address("207F:3E62")]] unsigned rotate_with_carry_do_while(unsigned wArg04, unsigned wArg06, unsigned wArg08, unsigned wArg0A);
-      
+[[reko::address("207F:1ECE")]] void a_fn207F_1ECE(int * __far ptr, int B);
+[[reko::address("207F:1F04")]] void A_fn207F_1F04(int wArg04);
+[[reko::address("207F:1F51")]] void A_fn207F_1F51(int wArg04);
+[[reko::address("207F:1AF4")]] void A_fn207F_1AF4();
+[[reko::address("207F:1B1A")]] void Struct_Copy_Operation_1B1A();
+[[reko::address("207F:1B94")]] void Struct_Copy_Operation_1B94();
+[[reko::address("207F:1BDF")]] void VGA_8_loop_1BDF();
+[[reko::address("207F:00A9")]] void Sound_Freq_Countdown_Loop(int wArg04, int wArg06);
+[[reko::address("1631:1057")]] void Display_Text_And_Menu_Options(int * __far Ptr);
+[[reko::address("207F:1ACE")]] void A_fn207F_1ACE();
+[[reko::address("207F:104E")]] void data_structure(int wArg04);
+[[reko::address("207F:23EC")]] int fn207F_23EC(int wArg04, int wArg06, int * __far ptr);
+[[reko::address("207F:39E0")]] void A_fn207F_39E0();
+[[reko::address("207F:3A1A")]] void A_fn207F_3A1A();
+[[reko::address("207F:3ACC")]] bool A_fn207F_3ACC();
+[[reko::address("207F:3B22")]] void A_fn207F_3B22(int * __far ptr, int * __far ptr2);
+[[reko::address("207F:3B68")]] void A_fn207F_3B68(int * __far ptr, int * __far ptr2);
+[[reko::address("207F:3B9E")]] void A_fn207F_3B9E(int * __far ptr);
+[[reko::address("207F:3BB6")]] void A_fn207F_3BB6(int wArg04, int * __far ptr, int wArg08);
+[[reko::address("207F:3BD2")]] void CBill_Function(int A, int B, int * __far ptr); 
