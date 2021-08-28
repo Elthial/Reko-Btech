@@ -16,21 +16,21 @@
 [[reko::address("0800:32B3")]] void Load_Game();
 
 // Text functions
-[[reko::address("1E56:03F5")]] void Display_Text_From_Memory(int * __far TextPtr);
-[[reko::address("0800:2867")]] void Display_Text_Assign_Item(int TextPtr, int wArg08, int wArg0A);
+[[reko::address("1E56:03F5")]] void Display_Text_From_Memory(char * __far TextPtr);
+[[reko::address("0800:2867")]] void Display_Text_Assign_Item(char * __far TextPtr, int wArg08, int wArg0A);
 [[reko::address("0800:2A69")]] void Display_Text_Add_Plural();
 [[reko::address("0800:2A7E")]] void Display_Text_051D_Variable(); 
 [[reko::address("1F3D:0053")]] void Display_Text_Dynamic_Value(int Value);
 [[reko::address("1CD3:1809")]] void Display_Text_Shop_Cannot_Afford_Text();
 [[reko::address("1CD3:181E")]] void Display_Text_4FA0_Value();
 [[reko::address("0FDC:19E1")]] void Display_nothing_this_time_Text();
-[[reko::address("1631:1DAB")]] void Display_Text_From_Memory_IF_11832(int TextPtr);
-[[reko::address("1CD3:17EA")]] void Display_Text_From_Memory_ScreenRetrace_KeyboardInput(int TextPtr);
+[[reko::address("1631:1DAB")]] void Display_Text_From_Memory_IF_11832(char * __far TextPtr);
+[[reko::address("1CD3:17EA")]] void Display_Text_From_Memory_ScreenRetrace_KeyboardInput(int * __far TextPtr);
 [[reko::address("1E56:0B5E")]] int Display_Menu_Chocies_And_Check(int wArg04);
 [[reko::address("1631:02E4")]] void Display_Text_Human(int wArg04);
 [[reko::address("1467:0B98")]] void Display_Text_Mech_Names();
 [[reko::address("1631:1FDF")]] void Display_Text_CBill_Balance();
-[[reko::address("0D27:000A")]] static void Print(char *string);
+[[reko::address("0D27:000A")]] static void Print(char * __far Text);
 
 // Graphics functions
 [[reko::address("0DAB:0C8F")]] void Set_Video_Mode();
@@ -125,7 +125,7 @@
 [[reko::address("1F3D:0814")]] void DOS_Load_File_to_memory(int * __far FileHandle, int * __far BufferForData, unsigned char Bitflag);
 [[reko::address("1F3D:063B")]] void Load_File_To_Memory(int * __far FileName, int * __far Memory);
 [[reko::address("207F:356F")]] int DOS_Load_File_Check(int cx);
-[[reko::address("0FDC:1D30")]] void Load_Indexed_Files(int wArg04);
+[[reko::address("0FDC:1D30")]] void Load_Indexed_Files(int Index);
 // DOS File Read
 [[reko::address("207F:3356")]] void DOS_set_file_position(int FileHandle, int B, int C, int D); // Needs work
 [[reko::address("207F:3580")]] void DOS_read_file_handler(int FileHandle, int * __far BufferForData, unsigned BytesToRead);
@@ -143,7 +143,7 @@
 
 // Data functions
 [[reko::address("0800:29F5")]] int Create_Struct_From_Memory(); //previously unsigned. Better?
-[[reko::address("207F:1D8C")]] void Set_Vars_026E_0270(int v026E, int v0270);
+[[reko::address("207F:1D8C")]] void Set_Vars_026E_0270(int * __far Ptr);
 [[reko::address("207F:0572")]] void VGA_Carry_Left_Operations(int * __far PtrSource, int * __far PtrDestination, unsigned BytesToRead);
 [[reko::address("207F:0A76")]] void Copy_From__Memory_Source_to_Dest(int * __far PtrSource, int * __far PtrDestination, unsigned BytesToRead);
 
@@ -187,7 +187,7 @@
 [[reko::address("0800:1732")]] void A_fn0800_1732(int wArg04);
 [[reko::address("0800:240B")]] void A_fn0800_240B();
 [[reko::address("0800:24C2")]] int A_fn0800_24C2();
-[[reko::address("207F:3BB6")]] void fn207F_3BB6(int wArg04, int *ptrArg, int wArg0A);
+[[reko::address("207F:3BB6")]] void fn207F_3BB6(int * __far Ptr, char * __far TextPtr);
 [[reko::address("0800:051B")]] void Graphical_Operations_051B();
 [[reko::address("0800:0E4B")]] void Graphical_Operations_0E4B();
 [[reko::address("0800:1A13")]] unsigned Return_Bool_Keyboard_space_key_pressed_Display_Yes_No(int Display_03EE);
@@ -268,7 +268,7 @@
 [[reko::address("1631:0C63")]] void A_fn1631_0C63(long * __far ptrArg04);
 [[reko::address("1631:11AB")]] int Case_Statement_11AB(int wArg04, int wArg06);
 [[reko::address("1631:15FA")]] int Return_bool_fn1631_15FA(int *ptrArg04, int LessThanCond);
-[[reko::address("1631:163E")]] int A_fn1631_163E(int *ptrArg04, int wArg08);
+[[reko::address("1631:163E")]] int A_fn1631_163E(int * __far ptr, int wArg08);
 [[reko::address("1631:16AB")]] int Return_bool_fn1631_16AB(int wARg04, int wArg0A);
 [[reko::address("1631:1B44")]] int A_fn1631_1B44(int wArg04, int wArg06);
 [[reko::address("1631:1B8F")]] void A_fn1631_1B8F(int eqCond);
