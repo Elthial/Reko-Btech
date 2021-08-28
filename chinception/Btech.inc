@@ -98,7 +98,7 @@
 [[reko::address("207F:0B8A")]] int Keyboard_GetKey();
 [[reko::address("0800:2A2B")]] void Check_For_Input();
 [[reko::address("0DAB:0B95")]] void Interrupts_And_Retrace();
-[[reko::address("0800:1A13")]] unsigned Keyboard_space_key_pressed_Display_Yes_No(int Display_03EE); //int as bool? 0x00 and 0x01 03FE 03EE
+[[reko::address("0800:1A13")]] bool Keyboard_space_key_pressed_Display_Yes_No(int Display_03EE); //bool or unsigned?
 
 // DOS functions
 [[reko::address("207F:2EA4")]] void DOS_IOCTL_GET_DEVICE_INFO();
@@ -122,7 +122,7 @@
 // DOS Load
 [[reko::address("207F:33D0")]] unsigned DOS_Load_File(int * __far FileName, unsigned char Bitflag);
 [[reko::address("0800:2DA8")]] void DOS_Load_Multiple_Files(int wArg04, int wArg06);
-[[reko::address("1F3D:0814")]] void DOS_Load_File_to_memory(int * __far FileHandle, int * __far BufferForData, unsigned char Bitflag);
+[[reko::address("1F3D:0814")]] void DOS_Load_File_to_memory(int * __far Filename, int * __far BufferForData, int FileHandle);
 [[reko::address("1F3D:063B")]] void Load_File_To_Memory(int * __far FileName, int * __far Memory);
 [[reko::address("207F:356F")]] int DOS_Load_File_Check(int cx);
 [[reko::address("0FDC:1D30")]] void Load_Indexed_Files(int Index);
@@ -190,7 +190,7 @@
 [[reko::address("207F:3BB6")]] void fn207F_3BB6(int * __far Ptr, char * __far TextPtr);
 [[reko::address("0800:051B")]] void Graphical_Operations_051B();
 [[reko::address("0800:0E4B")]] void Graphical_Operations_0E4B();
-[[reko::address("0800:1A13")]] unsigned Return_Bool_Keyboard_space_key_pressed_Display_Yes_No(int Display_03EE);
+
 [[reko::address("0800:218F")]] int A_fn0800_218F(unsigned KeyPress);
 [[reko::address("0800:231D")]] void A_fn0800_231D(unsigned KeyPress);
 
@@ -275,8 +275,8 @@
 [[reko::address("183B:2474")]] void A_fn183B_2474(int wArg04);
 [[reko::address("183B:27C9")]] void A_fn183B_27C9(unsigned char bARg04, unsigned char bArg06, unsigned char bArg08);
 [[reko::address("1E56:07CB")]] void A_fn1E56_07CB(int ptrArg04, int wArg08);
-[[reko::address("1E56:0A3B")]] void A_fn1E56_0A3B(int wArg04, int wArg06, int *ptrArg08, int *ptrArg0A, int wArg0C, int wArg0E);
-[[reko::address("1E56:0AE5")]] void A_fn1E56_0AE5(int eSth05, int eStg06, int wArg08, int wArg0A, int wARg0C);
+[[reko::address("1E56:0A3B")]] void A_fn1E56_0A3B(int * __far ptr, int wArg08, int wArg0A, int wArg0C, int wArg0E);
+[[reko::address("1E56:0AE5")]] void A_fn1E56_0AE5(int * __far ptr, int wArg08, int wArg0A, int wARg0C);
 [[reko::address("1F3D:00D5")]] void Graphical_Operations_00D5(long dwArg04, int wArg08, int wArg0A, char bArg0C, char bArg0E);
 [[reko::address("207F:01D7")]] void Copy_Struct_Operation(int WhileEndCond, int SourceStruct);
 [[reko::address("207F:0931")]] void A_fn207F_0931(int wArg04, int wArg06, int wArg08, int wArg0A, unsigned char bArg0C, unsigned char bArg0E, int wArg10);

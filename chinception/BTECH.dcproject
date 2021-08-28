@@ -37,6 +37,10 @@
       <procedure name="Combat_UI_14C3">
         <address>183B:14C3</address>
       </procedure>
+      <procedure name="A_fn183B_1774">
+        <address>183B:1774</address>
+        <CSignature>void A_fn183B_1774(int wArg04, int wArg06)</CSignature>
+      </procedure>
       <procedure name="fn183B_193B">
         <address>183B:193B</address>
       </procedure>
@@ -137,6 +141,10 @@
       </procedure>
       <procedure name="Struct_Internal_Ops_3_1303">
         <address>207F:1303</address>
+      </procedure>
+      <procedure name="A_fn207F_158C">
+        <address>207F:158C</address>
+        <CSignature>void A_fn207F_158C()</CSignature>
       </procedure>
       <procedure name="fn207F_163B">
         <address>207F:163B</address>
