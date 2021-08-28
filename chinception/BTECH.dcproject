@@ -87,6 +87,7 @@
       </procedure>
       <procedure name="CGA_Struct_Operations_0163">
         <address>207F:0163</address>
+        <CSignature>void CGA_Struct_Operations_0163(int * __far Ptr1, int * __far Ptr2, int A, int B)</CSignature>
       </procedure>
       <procedure name="Video_Operations_in_out">
         <address>207F:022A</address>
@@ -96,7 +97,7 @@
       </procedure>
       <procedure name="EGA_VGA_Registers_0377">
         <address>207F:0377</address>
-      </procedure>  
+      </procedure>
       <procedure name="Carry_Left_Four_times_SHL_RCL">
         <address>207F:05BF</address>
       </procedure>
@@ -114,7 +115,8 @@
       </procedure>
       <procedure name="CGA_Screen_Resolutions_Operations_0A26">
         <address>207F:0A26</address>
-      </procedure>  
+        <CSignature>void CGA_Screen_Resolutions_Operations_0A26(int *__far Ptr1, int * __far Ptr2)</CSignature>
+      </procedure>
       <procedure name="EGA_registers_0A9F">
         <address>207F:0A9F</address>
       </procedure>
@@ -183,6 +185,7 @@
       </procedure>
       <procedure name="Video_CGA_Variable_Operations_200E">
         <address>207F:200E</address>
+        <CSignature>void Video_CGA_Variable_Operations_200E(int * __far Ptr, int wArg04, int wArg06, int wArg08, int wArg0A)</CSignature>
       </procedure>
       <procedure name="Tandy_1000_Operation_21A8">
         <address>207F:21A8</address>
@@ -210,6 +213,7 @@
       </procedure>
       <procedure name="Tandy_Video_Mode">
         <address>207F:2B45</address>
+        <CSignature>void Tandy_Video_Mode(int * __far Ptr)</CSignature>
       </procedure>
       <procedure name="Video_MultiMode_func">
         <address>207F:2B87</address>
