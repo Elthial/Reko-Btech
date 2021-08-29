@@ -36,11 +36,7 @@
       </procedure>
       <procedure name="Combat_UI_14C3">
         <address>183B:14C3</address>
-      </procedure>
-      <procedure name="A_fn183B_1774">
-        <address>183B:1774</address>
-        <CSignature>void A_fn183B_1774(int wArg04, int wArg06)</CSignature>
-      </procedure>
+      </procedure>  
       <procedure name="fn183B_193B">
         <address>183B:193B</address>
       </procedure>
@@ -49,10 +45,7 @@
       </procedure>
       <procedure name="Combat_Kick_2231">
         <address>183B:2231</address>
-      </procedure>
-      <procedure name="EGA_operations_03EB">
-        <address>1F3D:03EB</address>
-      </procedure>
+      </procedure> 
       <procedure name="Sound_Operation_02A3">
         <address>1FC5:02A3</address>
       </procedure>
@@ -89,13 +82,6 @@
       <procedure name="Sound_Freq_Countdown_Loop_00A9">
         <address>207F:00A9</address>
       </procedure>
-      <procedure name="CGA_Struct_Operations_0163">
-        <address>207F:0163</address>
-        <CSignature>void CGA_Struct_Operations_0163(int * __far Ptr1, int * __far Ptr2, int A, int B)</CSignature>
-      </procedure>
-      <procedure name="Video_Operations_in_out">
-        <address>207F:022A</address>
-      </procedure>
       <procedure name="VGA_Bit_Mask_0313">
         <address>207F:0313</address>
       </procedure>
@@ -104,10 +90,7 @@
       </procedure>
       <procedure name="Carry_Left_Four_times_SHL_RCL">
         <address>207F:05BF</address>
-      </procedure>
-      <procedure name="EGA_register_05D0">
-        <address>207F:05D0</address>
-      </procedure>
+      </procedure>  
       <procedure name="EGA_registers_0780">
         <address>207F:0780</address>
       </procedure>
@@ -116,18 +99,14 @@
       </procedure>
       <procedure name="Get_Target_Compass_Direction">
         <address>207F:0971</address>
-      </procedure>
-      <procedure name="CGA_Screen_Resolutions_Operations_0A26">
-        <address>207F:0A26</address>
-        <CSignature>void CGA_Screen_Resolutions_Operations_0A26(int *__far Ptr1, int * __far Ptr2)</CSignature>
-      </procedure>
+      </procedure>   
       <procedure name="EGA_registers_0A9F">
         <address>207F:0A9F</address>
       </procedure>
       <procedure name="EGA_RGB_Palette_RCL_operations">
         <address>207F:0BC0</address>
       </procedure>
-      <procedure name="BIOS_VGA_Set_Palette_Registers">
+      <procedure name="MCGA_Set_Palette_Registers">
         <address>207F:0FEE</address>
       </procedure>
       <procedure name="data_structure">
@@ -141,10 +120,6 @@
       </procedure>
       <procedure name="Struct_Internal_Ops_3_1303">
         <address>207F:1303</address>
-      </procedure>
-      <procedure name="A_fn207F_158C">
-        <address>207F:158C</address>
-        <CSignature>void A_fn207F_158C()</CSignature>
       </procedure>
       <procedure name="fn207F_163B">
         <address>207F:163B</address>
@@ -190,38 +165,19 @@
       </procedure>
       <procedure name="VGA_Graphic_Address_Register_1FBE_F7H">
         <address>207F:1FBE</address>
-      </procedure>
-      <procedure name="Video_CGA_Variable_Operations_200E">
-        <address>207F:200E</address>
-        <CSignature>void Video_CGA_Variable_Operations_200E(int * __far Ptr, int wArg04, int wArg06, int wArg08, int wArg0A)</CSignature>
-      </procedure>
-      <procedure name="Tandy_1000_Operation_21A8">
-        <address>207F:21A8</address>
-      </procedure>
-      <procedure name="CGA_Operation_2209">
-        <address>207F:2209</address>
-      </procedure>
-      <procedure name="VGA_Graphics_Address_Register_2251">
-        <address>207F:2251</address>
-      </procedure>
-      <procedure name="MCGA_Operation_22A5">
-        <address>207F:22A5</address>
-      </procedure>
+      </procedure>    
       <procedure name="Video_struct_logic">
         <address>207F:22F8</address>
       </procedure>
       <procedure name="CGA_VGA_Graphics_Register_275C">
         <address>207F:275C</address>
-      </procedure>
-      <procedure name="CopyStructAToStructB">
-        <address>207F:28A8</address>
-      </procedure>
+      </procedure>   
       <procedure name="Non_EGA_VGA_Operations_28EB">
         <address>207F:28EB</address>
       </procedure>
-      <procedure name="Tandy_Video_Mode">
+      <procedure name="Tandy_Set_Palette_Registers">
         <address>207F:2B45</address>
-        <CSignature>void Tandy_Video_Mode(int * __far Ptr)</CSignature>
+        <CSignature>void Tandy_Set_Palette_Registers(int * __far Ptr)</CSignature>
       </procedure>
       <procedure name="Video_MultiMode_func">
         <address>207F:2B87</address>
@@ -1198,6 +1154,9 @@
       <annotation addr="207F:2D08">IF [246C:B764] Video Mode less than 2</annotation>
       <annotation addr="207F:2D19">IF [246C:B764] Video Mode != 0 or NULL</annotation>
       <annotation addr="207F:00DC">IF [246C:B764] Video Mode = 0</annotation>
+      <annotation addr="1E56:0A4A">IF [3EDB:4FBA]/[VideoMode] NOT VGA</annotation>
+      <annotation addr="1E56:0A57">IF [3EDB:4FBA]/[VideoMode] NOT CGA</annotation>
+      <annotation addr="1E56:0AAA">IF [3EDB:4FBA]/[VideoMode] NOT CGA</annotation>
       <annotation addr="0D27:01F9">fn1F3D_002F : if any input received then loop broken</annotation>
       <annotation addr="0D27:02BA">called DOS read file - infocom.cmp parent</annotation>
       <annotation addr="0D27:033C">called DOS read file - infocom.cmp parent</annotation>
