@@ -1737,7 +1737,18 @@ DI 	Destination Index 	used by string operations as destination</annotation>
 	  <annotation addr="207F:28A4">{ Index 2 of the Sequencer Address Register, Map Mask Register - Memory Plane Write Enable All } 3C4h,0F02h</annotation> 
 	  <annotation addr="207F:2B6D">Tandy Video Array Address (3DA) EE out 3DAh,al</annotation> 
 	  <annotation addr="207F:2B74">Tandy Video Array Address (3DA) 3DAh,es:[si]</annotation> 
-	  <annotation addr="207F:2B80">Tandy Video Array Address (3DA) 3DAh,0Fh</annotation> 
+	  <annotation addr="207F:2B80">Tandy Video Array Address (3DA) 3DAh,0Fh</annotation>
+	  <annotation addr="207F:2BB9">IF [246C:B764]/[VideoMode] != 3</annotation>
+	  <annotation addr="207F:2BD5">IF [246C:B764]/[VideoMode] JC 2</annotation>
+	  <annotation addr="207F:2BE4">IF [246C:B764]/[VideoMode] != 3</annotation>
+	  <annotation addr="207F:2BEF">IF [246C:B764]/[VideoMode] != 1</annotation>
+	  <annotation addr="207F:2BFE">IF [246C:B764]/[VideoMode] JZ 3</annotation>
+	  <annotation addr="207F:2C05">IF [246C:B764]/[VideoMode] JZ 1</annotation>
+	  <annotation addr="207F:2C17">IF [246C:B764]/[VideoMode] JZ 0</annotation>
+	  <annotation addr="207F:2CB8"> { Set write mode 2 }</annotation>
+	  <annotation addr="207F:2CBC"> { Index 8 of the Graphics Controller, Bit Mask Register (Index 08h) - set only bit 8} 3CE,0FF08h</annotation>
+	  <annotation addr="207F:2CC0"> { Index 8 of the Graphics Controller, Data Rotate Register }  3CE,1803h </annotation>
+	  <annotation addr="207F:2CDE"> { Index 8 of the Graphics Controller, Data Rotate Register }</annotation>
       <registerValues />
       <extractResources>false</extractResources>
       <outputFilePolicy>Segment</outputFilePolicy>
