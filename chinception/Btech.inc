@@ -1,3 +1,25 @@
+//Confirmed functions
+
+
+
+
+
+
+
+[[reko::address("207F:0BA7")]] void BIOS_Set_CGA_Palette(char Palette);
+
+
+
+
+
+
+
+
+
+
+
+///////////////////////
+//Unchecked functions
 // Main functions
 [[reko::address("207F:2D82")]] void Main();
 [[reko::address("0D27:0044")]] unsigned char Setup_Game(); //int A, int B, int C, int D, int E
@@ -49,7 +71,7 @@
 
 [[reko::address("1F3D:031C")]] void EGA_320x200_XY_minmax(unsigned minX, unsigned minY, unsigned maxX, unsigned maxY, unsigned wArg0C);
 [[reko::address("1F3D:0006")]] void Wait_For_N_Vertical_Retraces(unsigned NumberOfRetraces);
-[[reko::address("207F:0BA7")]] void BIOS_Set_CGA_Palette(char Palette);
+
 [[reko::address("207F:2CE1")]] void SaveVideoMode_246C_B764(int ptr);
 [[reko::address("207F:0260")]] void Write_Image_To_VGA_Memory(int * __far Image, int VGA_Memory);         
 [[reko::address("207F:0B40")]] void Wait_For_Retrace(unsigned char ContinueDuringVertical);
