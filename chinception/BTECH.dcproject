@@ -13,6 +13,10 @@
       <procedure name="Return_Double_Palette_RCL_19DD">
         <address>0800:19DD</address>
       </procedure>
+      <procedure name="DOS_Disk_IO_Play_Music">
+        <address>0800:476D</address>
+        <assume reg="ds" value="3EDB" />
+      </procedure>
       <procedure name="Increment_ptrArg04_by_1_19F6">
         <address>0FDC:19F6</address>
       </procedure>
@@ -82,7 +86,7 @@
       <procedure name="Sound_Freq_Countdown_Loop_00A9">
         <address>207F:00A9</address>
       </procedure>
-      <procedure name="VGA_Bit_Mask_0313">
+      <procedure name="VGA_ReadVGAMemoryAddress">
         <address>207F:0313</address>
       </procedure>
       <procedure name="EGA_VGA_Registers_0377">
@@ -166,11 +170,17 @@
       <procedure name="VGA_Graphic_Address_Register_1FBE_F7H">
         <address>207F:1FBE</address>
       </procedure>
-      <procedure name="Video_struct_logic">
+      <procedure name="Format01_Decode">
         <address>207F:22F8</address>
+        <CSignature>void Format01_Decode(byte * __far CompressedByteArray, byte * __far DecodedBuffer)</CSignature>
       </procedure>
-      <procedure name="CGA_VGA_Graphics_Register_275C">
+      <procedure name="Format02_Decode">
+        <address>207F:2368</address>
+        <CSignature>void Format02_Decode(byte * __far CompressedByteArray, byte * __far DecodedBuffer)</CSignature>
+      </procedure>
+      <procedure name="WriteDisplayMemory">
         <address>207F:275C</address>
+        <CSignature>void WriteDisplayMemory(int * __far DisplayMemory, int wArg08, int wArg0A)</CSignature>
       </procedure>
       <procedure name="Non_EGA_VGA_Operations_28EB">
         <address>207F:28EB</address>
@@ -188,12 +198,6 @@
       <procedure name="Palette_Bitshifting">
         <address>207F:2D64</address>
         <CSignature>void Palette_Bitshifting(int * __far Ptr, int B)</CSignature>
-      </procedure>
-      <procedure name="CWD_If_Carry_32F5">
-        <address>207F:32F5</address>
-      </procedure>
-      <procedure name="CWD_3308">
-        <address>207F:3308</address>
       </procedure>
       <procedure name="DOS_write_save_file">
         <address>207F:371E</address>
@@ -1142,7 +1146,7 @@
       <annotation addr="1F3D:06CA">IF [3EDB:4FBA]/[VideoMode] 256K EGA/VGA</annotation>
       <annotation addr="1F3D:06F6">IF [3EDB:4FBA]/[VideoMode] MCGA</annotation>
       <annotation addr="0800:481C">IF [3EDB:4FBA]/[VideoMode] Tandy 1000</annotation>
-      <annotation addr="0800:4891">IF [3EDB:4FBA]/[VideoMode] Tandy 1000</annotation> 
+      <annotation addr="0800:4891">IF [3EDB:4FBA]/[VideoMode] Tandy 1000</annotation>
       <annotation addr="207F:2B95">IF [246C:B764]/[VideoMode] != 2</annotation>
       <annotation addr="207F:2B9E">IF [246C:B764]/[VideoMode] != 0</annotation>
       <annotation addr="207F:2BA7">IF [246C:B764]/[VideoMode] != 1</annotation>
@@ -1150,16 +1154,16 @@
       <annotation addr="207F:1AD3">IF [246C:B764]/[VideoMode] = 2</annotation>
       <annotation addr="207F:1AF9">IF [246C:B764]/[VideoMode] = 2</annotation>
       <annotation addr="207F:204E">IF [246C:B764]/[VideoMode] != 1</annotation>
-      <annotation addr="207F:2055">IF [246C:B764]/[VideoMode] &gt;= 1</annotation> 
+      <annotation addr="207F:2055">IF [246C:B764]/[VideoMode] &gt;= 1</annotation>
       <annotation addr="207F:2D19">IF [246C:B764]/[VideoMode] != 0 or NULL</annotation>
       <annotation addr="207F:00DC">IF [246C:B764]/[VideoMode] = 0</annotation>
       <annotation addr="1E56:0A4A">IF [3EDB:4FBA]/[VideoMode] NOT VGA</annotation>
       <annotation addr="1E56:0A57">IF [3EDB:4FBA]/[VideoMode] NOT CGA</annotation>
       <annotation addr="1E56:0AAA">IF [3EDB:4FBA]/[VideoMode] NOT CGA</annotation>
-	  <annotation addr="207F:2776">IF [246C:B764]/[VideoMode] [CGA or 64K EGA]</annotation>
-	  <annotation addr="207F:2780">IF [246C:B764]/[VideoMode] [256K EGA/VGA]</annotation>
-	  <annotation addr="207F:278A">IF [246C:B764]/[VideoMode] [MCGA]</annotation>
-	  <annotation addr="207F:27DE">ELSE [246C:B764]/[VideoMode] [Tandy 1000]</annotation>
+      <annotation addr="207F:2776">IF [246C:B764]/[VideoMode] [CGA or 64K EGA]</annotation>
+      <annotation addr="207F:2780">IF [246C:B764]/[VideoMode] [256K EGA/VGA]</annotation>
+      <annotation addr="207F:278A">IF [246C:B764]/[VideoMode] [MCGA]</annotation>
+      <annotation addr="207F:27DE">ELSE [246C:B764]/[VideoMode] [Tandy 1000]</annotation>
       <annotation addr="0D27:01F9">fn1F3D_002F : if any input received then loop broken</annotation>
       <annotation addr="0D27:02BA">called DOS read file - infocom.cmp parent</annotation>
       <annotation addr="0D27:033C">called DOS read file - infocom.cmp parent</annotation>
@@ -1651,15 +1655,15 @@ DI 	Destination Index 	used by string operations as destination</annotation>
       <annotation addr="0800:3315">INFOCOM.CMP</annotation>
       <annotation addr="0800:3337">Game0</annotation>
       <annotation addr="135D:06F5">MAP15.MTP</annotation>
-	  <annotation addr="207F:0319">The index port of the Graphics Controller (part of the VGA interface) is at
+      <annotation addr="207F:0319">The index port of the Graphics Controller (part of the VGA interface) is at
 	  $3CE. The data port is at (index+1), so $3CF. If we want to write a 4 to index
 	  2, we do: Port[$3CE]:=2; { index } Port[$3CF]:=4; { data }
 	  But there is a way to do it with one Port[]. There's also a PortW[] 'array',
 	  and if the addressed port isn't a 16-bit one, it sends the lo byte to
 	  [address], and the high byte to [address]+1. Just what we need. The example
-	  becomes: PortW[$3CE]:=$0402; { index in low byte, data in high byte }</annotation>	  
-	  <annotation addr="207F:2D08">IF [246C:B764] Video Mode less than 2. CGA/EGA or Tandy 1000</annotation>
-	  <annotation addr="207F:0260">(*
+	  becomes: PortW[$3CE]:=$0402; { index in low byte, data in high byte }</annotation>
+      <annotation addr="207F:2D08">IF [246C:B764] Video Mode less than 2. CGA/EGA or Tandy 1000</annotation>
+      <annotation addr="207F:0260">(*
 	  Write mode 2
 	  The lower 4 bits of the CPU byte are the bits for each plane. If set for a
 	  plane, all bits selected with the Bitmask register are set, if clear, they're
@@ -1667,88 +1671,88 @@ DI 	Destination Index 	used by string operations as destination</annotation>
 	  So you can do the same as in the example from mode 0, but with fewer
 	  instructions:
 	  *)</annotation>
-	  <annotation addr="207F:0282">Graphics Controller ($3CE)</annotation>
-	  <annotation addr="207F:0288">{ Set write mode 2 }</annotation>
-	  <annotation addr="207F:0290">{ Index 8 of the Graphics Controller, Bit Mask Register (Index 08h) - set only bit 8}</annotation>
-	  <annotation addr="207F:02A7">{ Index 8 of the Graphics Controller, Bit Mask Register (Index 08h) - set only bit 7}</annotation>
-	  <annotation addr="207F:02AE">{ Index 8 of the Graphics Controller, Bit Mask Register (Index 08h) - set only bit 6}</annotation>
-	  <annotation addr="207F:02C5">{ Index 8 of the Graphics Controller, Bit Mask Register (Index 08h) - set only bit 5}</annotation>
-	  <annotation addr="207F:02CC">{ Index 8 of the Graphics Controller, Bit Mask Register (Index 08h) - set only bit 4}</annotation>
-	  <annotation addr="207F:02E3">{ Index 8 of the Graphics Controller, Bit Mask Register (Index 08h) - set only bit 3}</annotation>
-	  <annotation addr="207F:02EA">{ Index 8 of the Graphics Controller, Bit Mask Register (Index 08h) - set only bit 2}</annotation>
-	  <annotation addr="207F:0301">{ Index 8 of the Graphics Controller, Bit Mask Register (Index 08h) - set only bit 1}</annotation>
-	  <annotation addr="207F:030B">{ Index 8 of the Graphics Controller, Bit Mask Register (Index 08h) }</annotation>
-	  <annotation addr="207F:0325">{ Set write mode 2 }</annotation>
-	  <annotation addr="207F:0329">{ Index 8 of the Graphics Controller, Bit Mask Register (Index 08h) }</annotation>
-	  <annotation addr="207F:0352">{ Index 4 of the Graphics Controller, Read Map Select Register (Index 04h) }</annotation>
-	  <annotation addr="207F:0359">{ Index 4 of the Graphics Controller, Read Map Select Register (Index 04h) - set only bit 1 }</annotation>  
-	  <annotation addr="207F:0360">{ Index 4 of the Graphics Controller, Read Map Select Register (Index 04h) - set only bit 2 }</annotation>  
-	  <annotation addr="207F:0367">{ Index 4 of the Graphics Controller, Read Map Select Register (Index 04h) - set only bit 3 }</annotation>  
-	  <annotation addr="207F:0468">{ Index 5 of the Graphics Controller, set write mode 0 }</annotation>  
-	  <annotation addr="207F:046C">{ Index 8 of the Graphics Controller, Bit Mask Register (Index 08h) - set bits 1 - 8 }</annotation>
-	  <annotation addr="207F:048A">{ Index 4 of the Graphics Controller, Read Map Select Register (Index 04h) }</annotation>
-	  <annotation addr="207F:0490">{ Index 2 of the Sequencer Address Register, Map Mask Register - Memory Plane Write Enable 0 }</annotation>
-	  <annotation addr="207F:04CB">{ Index 4 of the Graphics Controller, Read Map Select Register (Index 04h) - set only bit 1 }</annotation>  
-	  <annotation addr="207F:04D1">{ Index 2 of the Sequencer Address Register, Map Mask Register - Memory Plane Write Enable 1 }</annotation>
-	  <annotation addr="207F:04F5">{ Index 4 of the Graphics Controller, Read Map Select Register (Index 04h) - set only bit 2 }</annotation> 
-	  <annotation addr="207F:04FB">{ Index 2 of the Sequencer Address Register, Map Mask Register - Memory Plane Write Enable 2 }</annotation>
-	  <annotation addr="207F:051F">{ Index 4 of the Graphics Controller, Read Map Select Register (Index 04h) - set only bit 3 }</annotation>  
-	  <annotation addr="207F:0525">{ Index 2 of the Sequencer Address Register, Map Mask Register - Memory Plane Write Enable 3 }</annotation>
-	  <annotation addr="207F:056B">{ Index 2 of the Sequencer Address Register, Map Mask Register - Memory Plane Write Enabld All } 03C4, 0F02h</annotation>
-	  <annotation addr="207F:063D">{ Set write mode 2 }</annotation>
-	  <annotation addr="207F:064C">{ Index 8 of the Graphics Controller, Bit Mask Register (Index 08h) - set only bit 8}</annotation>
-	  <annotation addr="207F:0AB0">{ Index 5 of the Graphics Controller, set write mode 0 }</annotation>  
-	  <annotation addr="207F:0AB4">{ Index 8 of the Graphics Controller, Bit Mask Register (Index 08h) - set bits 1 - 8}</annotation>
-	  <annotation addr="207F:0AB8">{ Index 1 of the Graphics Controller, Enable Set/Reset Register }</annotation>
-	  <annotation addr="207F:0AD6">{ Index 2 of the Sequencer Address Register, Map Mask Register - Memory Plane Write Enable 0 } 3C4h,102h</annotation> 
-	  <annotation addr="207F:0ADF">{ Index 2 of the Sequencer Address Register, Map Mask Register - Memory Plane Write Enable 1 } 3C4h,202h</annotation> 
-	  <annotation addr="207F:0AE8">{ Index 2 of the Sequencer Address Register, Map Mask Register - Memory Plane Write Enable 2 } 3C4h,402h</annotation> 
-	  <annotation addr="207F:0AF1">{ Index 2 of the Sequencer Address Register, Map Mask Register - Memory Plane Write Enable 3 } 3C4h,802h</annotation> 
-	  <annotation addr="207F:0AF9">{ Index 2 of the Sequencer Address Register, Map Mask Register - Memory Plane Write Enable 0 } 3C4h,102h</annotation> 
-	  <annotation addr="207F:0B02">{ Index 2 of the Sequencer Address Register, Map Mask Register - Memory Plane Write Enable 1 } 3C4h,202h</annotation> 
-	  <annotation addr="207F:0B0B">{ Index 2 of the Sequencer Address Register, Map Mask Register - Memory Plane Write Enable 2 } 3C4h,402h</annotation> 
-	  <annotation addr="207F:0B14">{ Index 2 of the Sequencer Address Register, Map Mask Register - Memory Plane Write Enable 3 } 3C4h,802h</annotation> 
-	  <annotation addr="207F:0B1E">{ Index 2 of the Sequencer Address Register, Map Mask Register - Memory Plane Write Enable All } 3C4h,0F02h</annotation> 
-	  <annotation addr="207F:07DE">>{ Set write mode 2 }</annotation>
-	  <annotation addr="207F:07E2">{ Index 8 of the Graphics Controller, Bit Mask Register (Index 08h) - set bits 1 - 8}</annotation>
-	  <annotation addr="207F:1924">{ Set write mode 2 }</annotation>
-	  <annotation addr="207F:1928">{ Index 8 of the Graphics Controller, Bit Mask Register (Index 08h) }</annotation>
-	  <annotation addr="207F:1E8B">{ set write mode 0 }</annotation>  
-	  <annotation addr="207F:1E8F">{ Index 8 of the Graphics Controller, Bit Mask Register (Index 08h) - set bits 1 - 8 }</annotation>
-	  <annotation addr="207F:1E93">{ Index 1 of the Graphics Controller, Enable Set/Reset Register (Index 01h) } 3CEh,1h </annotation>  
-	  <annotation addr="207F:1EA0">{ Index 2 of the Sequencer Address Register, Map Mask Register - Memory Plane Write Enable 0 } 3C4h,102h</annotation> 
-	  <annotation addr="207F:1EA9">{ Index 2 of the Sequencer Address Register, Map Mask Register - Memory Plane Write Enable 1 } 3C4h,202h</annotation> 
-	  <annotation addr="207F:1EB2">{ Index 2 of the Sequencer Address Register, Map Mask Register - Memory Plane Write Enable 2 } 3C4h,402h</annotation> 
-	  <annotation addr="207F:1EBB">{ Index 2 of the Sequencer Address Register, Map Mask Register - Memory Plane Write Enable 3 } 3C4h,802h</annotation> 
-	  <annotation addr="207F:1ECB">{ Index 2 of the Sequencer Address Register, Map Mask Register - Memory Plane Write Enable All } 3C4h,0F02h</annotation> 
-	  <annotation addr="207F:1FFF">>{ Set write mode 2 }</annotation>
-	  <annotation addr="207F:2003">{ Index 8 of the Graphics Controller, set bits 1 - 8}</annotation>
-	  <annotation addr="207F:2278">{ Set write mode 2 }</annotation>
-	  <annotation addr="207F:2288">{ Graphics Controller, ax }</annotation>
-	  <annotation addr="207F:2292">{ Graphics Controller, ax }</annotation>
-	  <annotation addr="207F:2548">{ set write mode 1 }</annotation>  
-	  <annotation addr="207F:2853">{ set write mode 0 }</annotation>  
-	  <annotation addr="207F:2857">{ Index 8 of the Graphics Controller, set bits 1 - 8}</annotation>
-	  <annotation addr="207F:285B">{ Index 1 of the Graphics Controller, Enable Set/Reset Register (Index 01h) } 3CEh,1h </annotation>  
-	  <annotation addr="207F:287C">{ Index 2 of the Sequencer Address Register, Map Mask Register - Memory Plane Write Enable 0 } 3C4h,102h</annotation> 
-	  <annotation addr="207F:2885">{ Index 2 of the Sequencer Address Register, Map Mask Register - Memory Plane Write Enable 1 } 3C4h,202h</annotation> 
-	  <annotation addr="207F:288E">{ Index 2 of the Sequencer Address Register, Map Mask Register - Memory Plane Write Enable 2 } 3C4h,402h</annotation> 
-	  <annotation addr="207F:2897">{ Index 2 of the Sequencer Address Register, Map Mask Register - Memory Plane Write Enable 3 } 3C4h,802h</annotation> 
-	  <annotation addr="207F:28A4">{ Index 2 of the Sequencer Address Register, Map Mask Register - Memory Plane Write Enable All } 3C4h,0F02h</annotation> 
-	  <annotation addr="207F:2B6D">Tandy Video Array Address (3DA) EE out 3DAh,al</annotation> 
-	  <annotation addr="207F:2B74">Tandy Video Array Address (3DA) 3DAh,es:[si]</annotation> 
-	  <annotation addr="207F:2B80">Tandy Video Array Address (3DA) 3DAh,0Fh</annotation>
-	  <annotation addr="207F:2BB9">IF [246C:B764]/[VideoMode] != 3</annotation>
-	  <annotation addr="207F:2BD5">IF [246C:B764]/[VideoMode] JC 2</annotation>
-	  <annotation addr="207F:2BE4">IF [246C:B764]/[VideoMode] != 3</annotation>
-	  <annotation addr="207F:2BEF">IF [246C:B764]/[VideoMode] != 1</annotation>
-	  <annotation addr="207F:2BFE">IF [246C:B764]/[VideoMode] JZ 3</annotation>
-	  <annotation addr="207F:2C05">IF [246C:B764]/[VideoMode] JZ 1</annotation>
-	  <annotation addr="207F:2C17">IF [246C:B764]/[VideoMode] JZ 0</annotation>
-	  <annotation addr="207F:2CB8"> { Set write mode 2 }</annotation>
-	  <annotation addr="207F:2CBC"> { Index 8 of the Graphics Controller, Bit Mask Register (Index 08h) - set only bit 8} 3CE,0FF08h</annotation>
-	  <annotation addr="207F:2CC0"> { Index 8 of the Graphics Controller, Data Rotate Register }  3CE,1803h </annotation>
-	  <annotation addr="207F:2CDE"> { Index 8 of the Graphics Controller, Data Rotate Register }</annotation>
+      <annotation addr="207F:0282">Graphics Controller ($3CE)</annotation>
+      <annotation addr="207F:0288">{ Set write mode 2 }</annotation>
+      <annotation addr="207F:0290">{ Index 8 of the Graphics Controller, Bit Mask Register (Index 08h) - set only bit 8}</annotation>
+      <annotation addr="207F:02A7">{ Index 8 of the Graphics Controller, Bit Mask Register (Index 08h) - set only bit 7}</annotation>
+      <annotation addr="207F:02AE">{ Index 8 of the Graphics Controller, Bit Mask Register (Index 08h) - set only bit 6}</annotation>
+      <annotation addr="207F:02C5">{ Index 8 of the Graphics Controller, Bit Mask Register (Index 08h) - set only bit 5}</annotation>
+      <annotation addr="207F:02CC">{ Index 8 of the Graphics Controller, Bit Mask Register (Index 08h) - set only bit 4}</annotation>
+      <annotation addr="207F:02E3">{ Index 8 of the Graphics Controller, Bit Mask Register (Index 08h) - set only bit 3}</annotation>
+      <annotation addr="207F:02EA">{ Index 8 of the Graphics Controller, Bit Mask Register (Index 08h) - set only bit 2}</annotation>
+      <annotation addr="207F:0301">{ Index 8 of the Graphics Controller, Bit Mask Register (Index 08h) - set only bit 1}</annotation>
+      <annotation addr="207F:030B">{ Index 8 of the Graphics Controller, Bit Mask Register (Index 08h) }</annotation>
+      <annotation addr="207F:0325">{ Set write mode 2 }</annotation>
+      <annotation addr="207F:0329">{ Index 8 of the Graphics Controller, Bit Mask Register (Index 08h) }</annotation>
+      <annotation addr="207F:0352">{ Index 4 of the Graphics Controller, Read Map Select Register (Index 04h) }</annotation>
+      <annotation addr="207F:0359">{ Index 4 of the Graphics Controller, Read Map Select Register (Index 04h) - set only bit 1 }</annotation>
+      <annotation addr="207F:0360">{ Index 4 of the Graphics Controller, Read Map Select Register (Index 04h) - set only bit 2 }</annotation>
+      <annotation addr="207F:0367">{ Index 4 of the Graphics Controller, Read Map Select Register (Index 04h) - set only bit 3 }</annotation>
+      <annotation addr="207F:0468">{ Index 5 of the Graphics Controller, set write mode 0 }</annotation>
+      <annotation addr="207F:046C">{ Index 8 of the Graphics Controller, Bit Mask Register (Index 08h) - set bits 1 - 8 }</annotation>
+      <annotation addr="207F:048A">{ Index 4 of the Graphics Controller, Read Map Select Register (Index 04h) }</annotation>
+      <annotation addr="207F:0490">{ Index 2 of the Sequencer Address Register, Map Mask Register - Memory Plane Write Enable 0 }</annotation>
+      <annotation addr="207F:04CB">{ Index 4 of the Graphics Controller, Read Map Select Register (Index 04h) - set only bit 1 }</annotation>
+      <annotation addr="207F:04D1">{ Index 2 of the Sequencer Address Register, Map Mask Register - Memory Plane Write Enable 1 }</annotation>
+      <annotation addr="207F:04F5">{ Index 4 of the Graphics Controller, Read Map Select Register (Index 04h) - set only bit 2 }</annotation>
+      <annotation addr="207F:04FB">{ Index 2 of the Sequencer Address Register, Map Mask Register - Memory Plane Write Enable 2 }</annotation>
+      <annotation addr="207F:051F">{ Index 4 of the Graphics Controller, Read Map Select Register (Index 04h) - set only bit 3 }</annotation>
+      <annotation addr="207F:0525">{ Index 2 of the Sequencer Address Register, Map Mask Register - Memory Plane Write Enable 3 }</annotation>
+      <annotation addr="207F:056B">{ Index 2 of the Sequencer Address Register, Map Mask Register - Memory Plane Write Enabld All } 03C4, 0F02h</annotation>
+      <annotation addr="207F:063D">{ Set write mode 2 }</annotation>
+      <annotation addr="207F:064C">{ Index 8 of the Graphics Controller, Bit Mask Register (Index 08h) - set only bit 8}</annotation>
+      <annotation addr="207F:0AB0">{ Index 5 of the Graphics Controller, set write mode 0 }</annotation>
+      <annotation addr="207F:0AB4">{ Index 8 of the Graphics Controller, Bit Mask Register (Index 08h) - set bits 1 - 8}</annotation>
+      <annotation addr="207F:0AB8">{ Index 1 of the Graphics Controller, Enable Set/Reset Register }</annotation>
+      <annotation addr="207F:0AD6">{ Index 2 of the Sequencer Address Register, Map Mask Register - Memory Plane Write Enable 0 } 3C4h,102h</annotation>
+      <annotation addr="207F:0ADF">{ Index 2 of the Sequencer Address Register, Map Mask Register - Memory Plane Write Enable 1 } 3C4h,202h</annotation>
+      <annotation addr="207F:0AE8">{ Index 2 of the Sequencer Address Register, Map Mask Register - Memory Plane Write Enable 2 } 3C4h,402h</annotation>
+      <annotation addr="207F:0AF1">{ Index 2 of the Sequencer Address Register, Map Mask Register - Memory Plane Write Enable 3 } 3C4h,802h</annotation>
+      <annotation addr="207F:0AF9">{ Index 2 of the Sequencer Address Register, Map Mask Register - Memory Plane Write Enable 0 } 3C4h,102h</annotation>
+      <annotation addr="207F:0B02">{ Index 2 of the Sequencer Address Register, Map Mask Register - Memory Plane Write Enable 1 } 3C4h,202h</annotation>
+      <annotation addr="207F:0B0B">{ Index 2 of the Sequencer Address Register, Map Mask Register - Memory Plane Write Enable 2 } 3C4h,402h</annotation>
+      <annotation addr="207F:0B14">{ Index 2 of the Sequencer Address Register, Map Mask Register - Memory Plane Write Enable 3 } 3C4h,802h</annotation>
+      <annotation addr="207F:0B1E">{ Index 2 of the Sequencer Address Register, Map Mask Register - Memory Plane Write Enable All } 3C4h,0F02h</annotation>
+      <annotation addr="207F:07DE">&gt;{ Set write mode 2 }</annotation>
+      <annotation addr="207F:07E2">{ Index 8 of the Graphics Controller, Bit Mask Register (Index 08h) - set bits 1 - 8}</annotation>
+      <annotation addr="207F:1924">{ Set write mode 2 }</annotation>
+      <annotation addr="207F:1928">{ Index 8 of the Graphics Controller, Bit Mask Register (Index 08h) }</annotation>
+      <annotation addr="207F:1E8B">{ set write mode 0 }</annotation>
+      <annotation addr="207F:1E8F">{ Index 8 of the Graphics Controller, Bit Mask Register (Index 08h) - set bits 1 - 8 }</annotation>
+      <annotation addr="207F:1E93">{ Index 1 of the Graphics Controller, Enable Set/Reset Register (Index 01h) } 3CEh,1h </annotation>
+      <annotation addr="207F:1EA0">{ Index 2 of the Sequencer Address Register, Map Mask Register - Memory Plane Write Enable 0 } 3C4h,102h</annotation>
+      <annotation addr="207F:1EA9">{ Index 2 of the Sequencer Address Register, Map Mask Register - Memory Plane Write Enable 1 } 3C4h,202h</annotation>
+      <annotation addr="207F:1EB2">{ Index 2 of the Sequencer Address Register, Map Mask Register - Memory Plane Write Enable 2 } 3C4h,402h</annotation>
+      <annotation addr="207F:1EBB">{ Index 2 of the Sequencer Address Register, Map Mask Register - Memory Plane Write Enable 3 } 3C4h,802h</annotation>
+      <annotation addr="207F:1ECB">{ Index 2 of the Sequencer Address Register, Map Mask Register - Memory Plane Write Enable All } 3C4h,0F02h</annotation>
+      <annotation addr="207F:1FFF">&gt;{ Set write mode 2 }</annotation>
+      <annotation addr="207F:2003">{ Index 8 of the Graphics Controller, set bits 1 - 8}</annotation>
+      <annotation addr="207F:2278">{ Set write mode 2 }</annotation>
+      <annotation addr="207F:2288">{ Graphics Controller, ax }</annotation>
+      <annotation addr="207F:2292">{ Graphics Controller, ax }</annotation>
+      <annotation addr="207F:2548">{ set write mode 1 }</annotation>
+      <annotation addr="207F:2853">{ set write mode 0 }</annotation>
+      <annotation addr="207F:2857">{ Index 8 of the Graphics Controller, set bits 1 - 8}</annotation>
+      <annotation addr="207F:285B">{ Index 1 of the Graphics Controller, Enable Set/Reset Register (Index 01h) } 3CEh,1h </annotation>
+      <annotation addr="207F:287C">{ Index 2 of the Sequencer Address Register, Map Mask Register - Memory Plane Write Enable 0 } 3C4h,102h</annotation>
+      <annotation addr="207F:2885">{ Index 2 of the Sequencer Address Register, Map Mask Register - Memory Plane Write Enable 1 } 3C4h,202h</annotation>
+      <annotation addr="207F:288E">{ Index 2 of the Sequencer Address Register, Map Mask Register - Memory Plane Write Enable 2 } 3C4h,402h</annotation>
+      <annotation addr="207F:2897">{ Index 2 of the Sequencer Address Register, Map Mask Register - Memory Plane Write Enable 3 } 3C4h,802h</annotation>
+      <annotation addr="207F:28A4">{ Index 2 of the Sequencer Address Register, Map Mask Register - Memory Plane Write Enable All } 3C4h,0F02h</annotation>
+      <annotation addr="207F:2B6D">Tandy Video Array Address (3DA) EE out 3DAh,al</annotation>
+      <annotation addr="207F:2B74">Tandy Video Array Address (3DA) 3DAh,es:[si]</annotation>
+      <annotation addr="207F:2B80">Tandy Video Array Address (3DA) 3DAh,0Fh</annotation>
+      <annotation addr="207F:2BB9">IF [246C:B764]/[VideoMode] != 3</annotation>
+      <annotation addr="207F:2BD5">IF [246C:B764]/[VideoMode] JC 2</annotation>
+      <annotation addr="207F:2BE4">IF [246C:B764]/[VideoMode] != 3</annotation>
+      <annotation addr="207F:2BEF">IF [246C:B764]/[VideoMode] != 1</annotation>
+      <annotation addr="207F:2BFE">IF [246C:B764]/[VideoMode] JZ 3</annotation>
+      <annotation addr="207F:2C05">IF [246C:B764]/[VideoMode] JZ 1</annotation>
+      <annotation addr="207F:2C17">IF [246C:B764]/[VideoMode] JZ 0</annotation>
+      <annotation addr="207F:2CB8"> { Set write mode 2 }</annotation>
+      <annotation addr="207F:2CBC"> { Index 8 of the Graphics Controller, Bit Mask Register (Index 08h) - set only bit 8} 3CE,0FF08h</annotation>
+      <annotation addr="207F:2CC0"> { Index 8 of the Graphics Controller, Data Rotate Register }  3CE,1803h </annotation>
+      <annotation addr="207F:2CDE"> { Index 8 of the Graphics Controller, Data Rotate Register }</annotation>
       <registerValues />
       <extractResources>false</extractResources>
       <outputFilePolicy>Segment</outputFilePolicy>
