@@ -50,6 +50,16 @@
       <procedure name="Combat_Kick_2231">
         <address>183B:2231</address>
       </procedure>
+      <procedure name="Draw_Top_Graphic_Sidebar">
+        <address>1E56:0388</address>
+      </procedure>
+      <procedure name="Create_TileSet_Array">
+        <address>1E56:0AE5</address>
+        <CSignature>void Create_TileSet_Array(int * __far MemoryLocation, int XStart, int  YStart, int  ArraySize);</CSignature>
+      </procedure>
+      <procedure name="Extract_Sprites_From_MECHSHAP">
+        <address>1F3D:070A</address>
+      </procedure>
       <procedure name="Sound_Operation_02A3">
         <address>1FC5:02A3</address>
       </procedure>
@@ -167,7 +177,7 @@
       <procedure name="Interrupt_flag_cli">
         <address>207F:1FAD</address>
       </procedure>
-      <procedure name="VGA_Graphic_Address_Register_1FBE_F7H">
+      <procedure name="Graphics_Set_Screen_To_Black">
         <address>207F:1FBE</address>
       </procedure>
       <procedure name="Format01_Decode">
@@ -1142,7 +1152,7 @@
       <annotation addr="1F3D:0531">IF [3EDB:4FBA]/[VideoMode] NOT Tandy 1000</annotation>
       <annotation addr="1F3D:0556">IF [3EDB:4FBA]/[VideoMode] NOT 256K EGA/VGA</annotation>
       <annotation addr="1F3D:05A2">IF [3EDB:4FBA]/[VideoMode] NOT MCGA</annotation>
-      <annotation addr="0800:467F">IF [3EDB:4FBA]/[VideoMode] NOT MCGA</annotation>
+      <annotation addr="0800:467F">IF [3EDB:4FBA]/[VideoMode] IS VGA</annotation>
       <annotation addr="1F3D:06CA">IF [3EDB:4FBA]/[VideoMode] 256K EGA/VGA</annotation>
       <annotation addr="1F3D:06F6">IF [3EDB:4FBA]/[VideoMode] MCGA</annotation>
       <annotation addr="0800:481C">IF [3EDB:4FBA]/[VideoMode] Tandy 1000</annotation>

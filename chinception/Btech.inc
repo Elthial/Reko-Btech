@@ -144,7 +144,7 @@
 [[reko::address("207F:324A")]] int DOS_write_struct(int wArg04);
 // DOS Load
 [[reko::address("207F:33D0")]] unsigned Get_FileHandle(int * __far FileName, unsigned int Bitflag);
-[[reko::address("0800:2DA8")]] void DOS_Load_Multiple_Files(int wArg04, int wArg06);
+[[reko::address("0800:2DA8")]] void DOS_Load_Map_Files(int wArg04, int MapFileNum);
 [[reko::address("1F3D:0814")]] void DOS_Load_File_to_memory(int * __far Filename, int * __far BufferForData, int FileHandle);
 [[reko::address("1F3D:063B")]] void Load_File_To_Memory(int * __far FileName, int * __far Memory);
 [[reko::address("207F:356F")]] int DOS_Load_File_Check(int cx);
@@ -176,7 +176,7 @@
 // Game Logic
 [[reko::address("0800:1C12")]] int Map_Interactables_Building_Or_Items(int wArg04, int wArg06);
 [[reko::address("0800:4D57")]] void Menu_Assign_Pilots();
-[[reko::address("0800:4CAC")]] void Draw_Siderbar(int ShowBorders); //Valid, int as bool
+[[reko::address("0800:4CAC")]] void Draw_Health_and_C_Bills_Siderbar(int ShowBorders); //Valid, int as bool
 [[reko::address("0FDC:17B9")]] void Citadel_Building_Greetings();
 [[reko::address("0FDC:1A26")]] void Select_Mech_For_Training();
 [[reko::address("135D:02A8")]] void Display_StarLeague_Cache_Dialog_Window();
@@ -260,7 +260,7 @@
 [[reko::address("207F:1DA8")]] void A_fn207F_1DA8();
 [[reko::address("207F:245C")]] void VGA_Operation(int * __far Ptr, int * __far Ptr2, int wArg0C, unsigned wArg0E, int wArg10, unsigned wArg12);
 
-[[reko::address("0800:4DC7")]] void Attract_Mode();
+[[reko::address("0800:4DC7")]] void Load_Game_Map_Data();
 
 [[reko::address("0DAB:0D3D")]] void Combat_engaged();
 [[reko::address("0DAB:174C")]] void Examine_Screen_Graphics(int wArg04, int wArg06, int wArg08, int wArg0A);
