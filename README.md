@@ -1,5 +1,5 @@
-# Reko-Btech
- Crescent Hawks: Inception Decompilation
+# Crescent Hawks: Inception Decompilation
+
 
 ![Crescent Hawks Title Screen](Documentation/Images/BTTITLE.png)
 ![Infocom logo](Documentation/Images/INFOCOM.png)
@@ -17,5 +17,7 @@ If you wish to follow along or use these decompilation project files you will ne
 Crescent Hawks: Inception EXE and associated data files.
 
 -----
+
+### Decompilation Discoveries:
 
 [Image File Encoding](Documentation/FileEncoding.md)
