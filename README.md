@@ -20,4 +20,9 @@ Crescent Hawks: Inception EXE and associated data files.
 
 ### Decompilation Discoveries:
 
-[Image File Encoding](Documentation/FileEncoding.md)
+[Image File Encoding](Documentation/FileEncoding.md)  
+[Map Files](Documentation/MapFileFormat.md)
+
+For practical code / toolkits that extract this data look at the `Crescent Hawks Toolkit` repository located:
+
+[Crescent Hawks Toolkit](https://github.com/Elthial/CrescentHawksTools)
