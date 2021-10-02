@@ -81,3 +81,5 @@ if (YAxisRemaining == 0)
 ```
 
 This behaviour is controller by the `-31999` (`XAxisObjectNextByteOffset`) and `200` (`YAxisSize`) offsets seen in the Format02 algorithm.
+
+This results in the read slowly progressing through the 160 byte object reading byte by byte until the 160 byte and then once the last object is read the output is complete.
