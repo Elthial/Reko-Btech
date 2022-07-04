@@ -3,16 +3,13 @@
   <arch>x86-real-16</arch>
   <platform>ms-dos</platform>
   <input>
-    <filename>BTECH.EXE</filename>
+    <location>BTECH.EXE</location>
     <asmDir>BTECH.reko</asmDir>
     <srcDir>BTECH.reko</srcDir>
     <includeDir>BTECH.reko</includeDir>
     <resources>BTECH.reko\resources</resources>
     <user>
       <processor />
-      <procedure name="Return_Double_Palette_RCL_19DD">
-        <address>0800:19DD</address>
-      </procedure>
       <procedure name="DOS_Disk_IO_Play_Music">
         <address>0800:476D</address>
         <assume reg="ds" value="3EDB" />
@@ -20,20 +17,11 @@
       <procedure name="Increment_ptrArg04_by_1_19F6">
         <address>0FDC:19F6</address>
       </procedure>
-      <procedure name="Combat_Weapon_UI_0004">
-        <address>1543:0004</address>
-      </procedure>
       <procedure name="Combat_Target_UI_07CB">
         <address>1543:07CB</address>
       </procedure>
-      <procedure name="Combat_Mech_Eject_0A35">
-        <address>1543:0A35</address>
-      </procedure>
       <procedure name="Menu_Graphical_Operations_032F">
         <address>1631:032F</address>
-      </procedure>
-      <procedure name="Graphical_Operation_1F09">
-        <address>1631:1F09</address>
       </procedure>
       <procedure name="Graphical_Operation_1F73">
         <address>1631:1F73</address>
@@ -41,24 +29,15 @@
       <procedure name="Combat_UI_14C3">
         <address>183B:14C3</address>
       </procedure>
-      <procedure name="fn183B_193B">
-        <address>183B:193B</address>
-      </procedure>
       <procedure name="Combat_Movement_1C1F">
         <address>183B:1C1F</address>
       </procedure>
       <procedure name="Combat_Kick_2231">
         <address>183B:2231</address>
       </procedure>
-      <procedure name="Draw_Top_Graphic_Sidebar">
-        <address>1E56:0388</address>
-      </procedure>
       <procedure name="Create_TileSet_Array">
         <address>1E56:0AE5</address>
         <CSignature>void Create_TileSet_Array(int * __far MemoryLocation, int XStart, int  YStart, int  ArraySize);</CSignature>
-      </procedure>
-      <procedure name="Extract_Sprites_From_MECHSHAP">
-        <address>1F3D:070A</address>
       </procedure>
       <procedure name="Sound_Operation_02A3">
         <address>1FC5:02A3</address>
@@ -102,29 +81,14 @@
       <procedure name="EGA_VGA_Registers_0377">
         <address>207F:0377</address>
       </procedure>
-      <procedure name="Carry_Left_Four_times_SHL_RCL">
-        <address>207F:05BF</address>
-      </procedure>
-      <procedure name="EGA_registers_0780">
-        <address>207F:0780</address>
-      </procedure>
       <procedure name="Tandy_1000_Graphics_Operation_08A1">
         <address>207F:08A1</address>
-      </procedure>
-      <procedure name="Get_Target_Compass_Direction">
-        <address>207F:0971</address>
       </procedure>
       <procedure name="EGA_registers_0A9F">
         <address>207F:0A9F</address>
       </procedure>
-      <procedure name="EGA_RGB_Palette_RCL_operations">
-        <address>207F:0BC0</address>
-      </procedure>
       <procedure name="MCGA_Set_Palette_Registers">
         <address>207F:0FEE</address>
-      </procedure>
-      <procedure name="data_structure">
-        <address>207F:104E</address>
       </procedure>
       <procedure name="Struct_internal_Ops_12D9">
         <address>207F:12D9</address>
@@ -135,17 +99,8 @@
       <procedure name="Struct_Internal_Ops_3_1303">
         <address>207F:1303</address>
       </procedure>
-      <procedure name="fn207F_163B">
-        <address>207F:163B</address>
-      </procedure>
-      <procedure name="Struct_Copy_Operation_18D8">
-        <address>207F:18D8</address>
-      </procedure>
       <procedure name="VGA_CGA_Graphics_Operations_18EF">
         <address>207F:18EF</address>
-      </procedure>
-      <procedure name="Graphical_Operation_1AA8">
-        <address>207F:1AA8</address>
       </procedure>
       <procedure name="Struct_Copy_Operation_1B1A">
         <address>207F:1B1A</address>
@@ -156,20 +111,11 @@
       <procedure name="VGA_8_loop_1BDF">
         <address>207F:1BDF</address>
       </procedure>
-      <procedure name="Non_VGA_Operation_1BFC">
-        <address>207F:1BFC</address>
-      </procedure>
-      <procedure name="VGA_Do_While_1C83">
-        <address>207F:1C83</address>
-      </procedure>
       <procedure name="NON_MCGA_Graphics_1CB8">
         <address>207F:1CB8</address>
       </procedure>
       <procedure name="MCGA_1D3A">
         <address>207F:1D3A</address>
-      </procedure>
-      <procedure name="VGA_Sequencer_Clocking_Mode_1E37">
-        <address>207F:1E37</address>
       </procedure>
       <procedure name="Interrupt_flag_sti">
         <address>207F:1F9C</address>
@@ -180,24 +126,12 @@
       <procedure name="Graphics_Set_Screen_To_Black">
         <address>207F:1FBE</address>
       </procedure>
-      <procedure name="Format01_Decode">
-        <address>207F:22F8</address>
-        <CSignature>void Format01_Decode(byte * __far CompressedByteArray, byte * __far DecodedBuffer)</CSignature>
-      </procedure>
-      <procedure name="Format02_Decode">
-        <address>207F:2368</address>
-        <CSignature>void Format02_Decode(byte * __far CompressedByteArray, byte * __far DecodedBuffer)</CSignature>
-      </procedure>
       <procedure name="WriteDisplayMemory">
         <address>207F:275C</address>
         <CSignature>void WriteDisplayMemory(int * __far DisplayMemory, int wArg08, int wArg0A)</CSignature>
       </procedure>
       <procedure name="Non_EGA_VGA_Operations_28EB">
         <address>207F:28EB</address>
-      </procedure>
-      <procedure name="Tandy_Set_Palette_Registers">
-        <address>207F:2B45</address>
-        <CSignature>void Tandy_Set_Palette_Registers(int * __far Ptr)</CSignature>
       </procedure>
       <procedure name="Video_MultiMode_func">
         <address>207F:2B87</address>
@@ -214,9 +148,6 @@
       </procedure>
       <procedure name="DOS_set_file_position_self_references">
         <address>207F:3777</address>
-      </procedure>
-      <procedure name="If_Arg_multiplication_parent">
-        <address>207F:3D1C</address>
       </procedure>
       <procedure name="rotate_with_carry_do_while_parent">
         <address>207F:3D44</address>
@@ -242,11 +173,6 @@
         <Address>246C:0252</Address>
         <prim domain="UnsignedInt" size="2" />
         <Name>XORFreq</Name>
-      </global>
-      <global>
-        <Address>246C:B764</Address>
-        <prim domain="UnsignedInt" size="2" />
-        <Name>Video_Mode</Name>
       </global>
       <global>
         <Address>2FE8:02F0</Address>
@@ -1098,26 +1024,6 @@
         </str>
         <Name>g_43B7B</Name>
       </global>
-      <global>
-        <Address>3EDB:4FBA</Address>
-        <prim domain="SignedInt UnsignedInt Integer Real Pointer SegPointer" size="2" />
-        <Name>GraphicsMode</Name>
-      </global>
-      <global>
-        <Address>3EDB:5286</Address>
-        <prim domain="SignedInt UnsignedInt Integer Real Pointer SegPointer" size="2" />
-        <Name>FP_Main_Value</Name>
-      </global>
-      <global>
-        <Address>3EDB:52E5</Address>
-        <prim domain="SignedInt UnsignedInt Integer Real Pointer SegPointer" size="2" />
-        <Name>DOS_Interrupt</Name>
-      </global>
-      <global>
-        <Address>3EDB:52F9</Address>
-        <prim domain="UnsignedInt" size="2" />
-        <Name>DOS_Version</Name>
-      </global>
       <heuristic name="shingle" />
       <onLoad Enabled="false" />
       <annotation addr="207F:2D8C">Set DI to 3EDB, data / string memory location</annotation>
@@ -1769,6 +1675,6 @@ DI 	Destination Index 	used by string operations as destination</annotation>
     </user>
   </input>
   <metadata>
-    <filename>Btech.inc</filename>
+    <location>Btech.inc</location>
   </metadata>
 </project>
