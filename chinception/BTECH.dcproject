@@ -135,10 +135,7 @@
       </procedure>
       <procedure name="Video_MultiMode_func">
         <address>207F:2B87</address>
-      </procedure>
-      <procedure name="Video_Operation_CGA_palettes">
-        <address>207F:2CF7</address>
-      </procedure>
+      </procedure>     
       <procedure name="Palette_Bitshifting">
         <address>207F:2D64</address>
         <CSignature>void Palette_Bitshifting(int * __far Ptr, int B)</CSignature>
@@ -1083,7 +1080,6 @@
       <annotation addr="0D27:01F9">fn1F3D_002F : if any input received then loop broken</annotation>
       <annotation addr="0D27:02BA">called DOS read file - infocom.cmp parent</annotation>
       <annotation addr="0D27:033C">called DOS read file - infocom.cmp parent</annotation>
-      <annotation addr="0D27:0425">called fn1F3D_070A. This loops 0x10 (16) times. fn1F3D_070A called a second time after 0x0C times</annotation>
       <annotation addr="207F:3308">Store [DS:52FC], al </annotation>
       <annotation addr="207F:330F">If [DS:52F9] &gt;=  0x03</annotation>
       <annotation addr="207F:332E">store [DS:52F1h],ax</annotation>
