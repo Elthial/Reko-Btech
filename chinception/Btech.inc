@@ -124,7 +124,8 @@ typedef struct Mech
 [[reko::address("0DAB:0C8F")]] void Set_Video_Mode();
 [[reko::address("0DAB:0D12")]] void Set_Video_Mode_to_Text_Mode();
 
-
+//Graphics Functions
+[[reko::address("0800:320B")]] void Load_And_Draw_ANIMATE_ICN();
 
 //Text Functions
 [[reko::address("1F3D:00D5")]] void Draw_EGA_Text_To_Screen(unsigned int * __far Textptr, unsigned char Horizonal_StatsLine_Offset, unsigned char Vertical_StatsLine_Offset, unsigned char EGAColour_Font, unsigned char EGAColour_Background);
@@ -133,6 +134,7 @@ typedef struct Mech
 
 
 //Game Logic
+
 [[reko::address("0DAB:0002")]] void Salvage_Armour_Dialog();
 [[reko::address("0DAB:174C")]] void Examine_Screen_EngineHeatSinks(unsigned char Horizontal_StatLine_Position, unsigned char Vertical_StatLine_Position, unsigned char CriticalHitPoints, unsigned char DamagedCriticalComponents);
 [[reko::address("0DAB:1858")]] void Examine_Screen_CriticalComponents(unsigned char Horizontal_StatLine_Position, unsigned char Vertical_StatLine_Position, unsigned char CriticalHitPoints, unsigned char DamagedCriticalComponents);
@@ -140,6 +142,7 @@ typedef struct Mech
 
 
 //Items that need work
+[[reko::address("0DAB:04F9")]] void Salvage_Mechs_Dialog(); //<--- Has a bug [Bp -2h] https://github.com/uxmal/reko/issues/1188
 
 //Graphics_Operations_0086 <-- Explore this 
 //MechSnap has confused Args <-- work out? Tiles vs offsets
@@ -147,7 +150,7 @@ typedef struct Mech
 
 
 //Needs review
-[[reko::address("0DAB:04F9")]] void Salvage_Mechs_Dialog();
+
 [[reko::address("1F3D:070A")]] void Extract_Sprites_From_MECHSHAP(unsigned short Index, unsigned short TilesWidth, unsigned short VerticalOffset, unsigned short TilesHeight, unsigned short HorizontalOffset); 
 [[reko::address("0DAB:0D3D")]] void Combat_engaged();
 [[reko::address("0DAB:1467")]] void Scan_Humans(int ScanTarget, int wArg08);
@@ -169,12 +172,10 @@ typedef struct Mech
 
 
 
-[[reko::address("3EDB:4FBA")]] unsigned char GraphicsMode;
+[[reko::address("3EDB:4FBA")]] unsigned char GraphicsAdapter;
 [[reko::address("3EDB:52E5")]] int DOS_Interrupt;
 [[reko::address("3EDB:52F9")]] int DOS_Version;
 [[reko::address("246C:B764")]] unsigned char Video_Mode;
-
-//[[reko::address("3EDB:52867")]] int FP_Main_Value; CE83
 
 
 //Confirmed functions
@@ -315,7 +316,7 @@ typedef struct Mech
 
 [[reko::address("0800:4621")]] void Load_And_Draw_BTTLTECH_ICN();
 [[reko::address("0800:46A7")]] void Load_And_Draw_BTTITLE_CMP();
-[[reko::address("0800:320B")]] void Load_And_Draw_ANIMATE_ICN();
+
 [[reko::address("0800:4CAC")]] void Draw_Sidebar_4CAC(int wArg04);
 [[reko::address("1CD3:17C6")]] void A_Draw_Message_Box();
 
