@@ -170,56 +170,7 @@
         <Address>246C:0252</Address>
         <prim domain="UnsignedInt" size="2" />
         <Name>XORFreq</Name>
-      </global>
-      <global>
-        <Address>2FE8:02F0</Address>
-        <str term="z">
-          <prim domain="Character" size="1" />
-        </str>
-        <Name>LOCUST</Name>
-      </global>
-      <global>
-        <Address>2FE8:036D</Address>
-        <str term="z">
-          <prim domain="Character" size="1" />
-        </str>
-        <Name>WASP</Name>
-      </global>
-      <global>
-        <Address>2FE8:03EA</Address>
-        <str term="z">
-          <prim domain="Character" size="1" />
-        </str>
-        <Name>STINGER</Name>
-      </global>
-      <global>
-        <Address>2FE8:0467</Address>
-        <str term="z">
-          <prim domain="Character" size="1" />
-        </str>
-        <Name>COMMANDO</Name>
-      </global>
-      <global>
-        <Address>2FE8:04E4</Address>
-        <str term="z">
-          <prim domain="Character" size="1" />
-        </str>
-        <Name>CHAMELEON</Name>
-      </global>
-      <global>
-        <Address>2FE8:0561</Address>
-        <str term="z">
-          <prim domain="Character" size="1" />
-        </str>
-        <Name>JENNER</Name>
-      </global>
-      <global>
-        <Address>2FE8:065B</Address>
-        <str term="z">
-          <prim domain="Character" size="1" />
-        </str>
-        <Name>URBANMECH</Name>
-      </global>
+      </global>      
       <global>
         <Address>3EDB:0042</Address>
         <str term="z">
@@ -1023,7 +974,7 @@
       </global>
       <heuristic name="shingle" />
       <onLoad Enabled="false" />
-      <annotation addr="207F:2D8C">Set DI to 3EDB, data / string memory location</annotation>
+      
       <annotation addr="1CD3:0027">Locust string</annotation>
       <annotation addr="1CD3:0051">Wasp string</annotation>
       <annotation addr="1CD3:0067">Chameleon string</annotation>

@@ -20,17 +20,87 @@ typedef struct Infantry
     unsigned char Riding;
 } Infantry;
 
+typedef struct Mech 
+{
+		unsigned char Name[16];
+		unsigned char Tonnage;
+		unsigned char CurrentArmour[11];
+		unsigned char CurrentStructure[8];
+		unsigned char CurrentActuators[4];
+		unsigned char EngineHeatsinks;
+		unsigned char CurrentAmmo[10];
+		unsigned char WalkMove;
+		unsigned char JumpMove;
+		unsigned char Critical_L_Arm[7];
+		unsigned char Critical_L_Torso[7];
+		unsigned char Critical_R_Arm[7];
+		unsigned char Critical_R_Torso[7];
+		unsigned char Critical_L_Leg[2];
+		unsigned char Critical_R_Leg[2];
+		unsigned char Critical_C_Torso[2];
+		unsigned char Critical_Head;
+		unsigned char Maxrmour[11];
+		unsigned char MaxStructure[8];
+		unsigned char MaxActuators[4];
+		unsigned char MaxAmmo[10];
+		unsigned char Unknown_00;
+		unsigned char Unknown_01;
+		unsigned char Unknown_02;
+		unsigned char Unknown_03;
+} Mech;
 
+//------------------------------------------------------------------
 //Infantry Variables
-[[reko::address("3092:C614")]] Infantry CrescentHawk00_Jason;
-[[reko::address("3092:C625")]] Infantry CrescentHawk01_Rex;
-[[reko::address("3092:C636")]] Infantry CrescentHawk02;
-[[reko::address("3092:C647")]] Infantry CrescentHawk03;
-[[reko::address("3092:C658")]] Infantry CrescentHawk04;
-[[reko::address("3092:C669")]] Infantry CrescentHawk05;
-[[reko::address("3092:C67A")]] Infantry CrescentHawk06;
-[[reko::address("3092:C68B")]] Infantry CrescentHawk07;
+//------------------------------------------------------------------
+//Crescent Hawk Members
+[[reko::address("3092:C614")]] Infantry CrescentHawk00_Jason; //SAVE_Offset: 0x0001;
+[[reko::address("3092:C625")]] Infantry CrescentHawk01_Rex;   //SAVE_Offset: 0x0012;
+[[reko::address("3092:C636")]] Infantry CrescentHawk02;       //SAVE_Offset: 0x0023;
+[[reko::address("3092:C647")]] Infantry CrescentHawk03;       //SAVE_Offset: 0x0034;
+[[reko::address("3092:C658")]] Infantry CrescentHawk04;       //SAVE_Offset: 0x0045;
+[[reko::address("3092:C669")]] Infantry CrescentHawk05;       //SAVE_Offset: 0x0056;
+[[reko::address("3092:C67A")]] Infantry CrescentHawk06;       //SAVE_Offset: 0x0067;
+[[reko::address("3092:C68B")]] Infantry CrescentHawk07;       //SAVE_Offset: 0x0078;
 
+//Enemy Infantry
+[[reko::address("3092:C614")]] Infantry Enemy00;              //SAVE_Offset: 0x0089;
+[[reko::address("3092:C625")]] Infantry Enemy01;              //SAVE_Offset: 0x009A;
+[[reko::address("3092:C636")]] Infantry Enemy02;              //SAVE_Offset: 0x00AB;
+[[reko::address("3092:C647")]] Infantry Enemy03;              //SAVE_Offset: 0x00BC;
+[[reko::address("3092:C658")]] Infantry Enemy04;              //SAVE_Offset: 0x00CD;
+[[reko::address("3092:C669")]] Infantry Enemy05;              //SAVE_Offset: 0x00DE;
+[[reko::address("3092:C67A")]] Infantry Enemy06;              //SAVE_Offset: 0x00EF;
+[[reko::address("3092:C68B")]] Infantry Enemy07;              //SAVE_Offset: 0x0100;
+
+//------------------------------------------------------------------
+//Mech Variables
+//------------------------------------------------------------------
+//Crescent Hawk
+[[reko::address("3092:C69C")]] Mech CrescentHawkMech00; //SAVE_Offset: 0x0111;
+[[reko::address("3092:C719")]] Mech CrescentHawkMech01; //SAVE_Offset: 0x018E;
+[[reko::address("3092:C796")]] Mech CrescentHawkMech02; //SAVE_Offset: 0x020B;
+[[reko::address("3092:C813")]] Mech CrescentHawkMech03; //SAVE_Offset: 0x0288; 
+
+//Enemy Mechs
+[[reko::address("3092:C890")]] Mech EnemyMech00; //SAVE_Offset: 0x0305;
+[[reko::address("3092:C90D")]] Mech EnemyMech01; //SAVE_Offset: 0x0382;
+[[reko::address("3092:C98A")]] Mech EnemyMech02; //SAVE_Offset: 0x03FF;
+[[reko::address("3092:CA07")]] Mech EnemyMech03; //SAVE_Offset: 0x047C; 
+
+//Mech Reference Stats
+[[reko::address("2FE8:02F0")]] Mech LOCUST;      //Reference Stats
+[[reko::address("2FE8:036D")]] Mech WASP;        //Reference Stats
+[[reko::address("2FE8:03EA")]] Mech STINGER;     //Reference Stats
+[[reko::address("2FE8:0467")]] Mech COMMANDO;    //Reference Stats
+[[reko::address("2FE8:04E4")]] Mech CHAMELEON;   //Reference Stats
+[[reko::address("2FE8:0561")]] Mech JENNER;      //Reference Stats
+[[reko::address("2FE8:05DE")]] Mech Spectator;   //Reference Stats - Arena Floating Camera
+[[reko::address("2FE8:065B")]] Mech URBANMECH;   //Reference Stats
+
+//Game Variables
+[[reko::address("3092:CA84")]] unsigned short Map_FogOfWar_Visibility[2048]; //SAVE_Offset: 0x0F45;    
+[[reko::address("246C:A44B")]] unsigned short CrescentHawk_MapPositionX; //SAVE_Offset: 0x0F45;  //tA44B
+[[reko::address("246C:A44D")]] unsigned short CrescentHawk_MapPositionY; //SAVE_Offset: 0x0F47;  //tA44D
 
 //Functions
 
@@ -96,12 +166,6 @@ typedef struct Infantry
 //Pre-Reko update
 //------------------------------------------------------------------
 //------------------------------------------------------------------
-
-
-
-
-
-
 
 
 
