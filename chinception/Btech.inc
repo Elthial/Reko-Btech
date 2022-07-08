@@ -63,29 +63,29 @@ typedef struct Mech
 [[reko::address("3092:C68B")]] Infantry CrescentHawk07;       //SAVE_Offset: 0x0078;
 
 //Enemy Infantry
-[[reko::address("3092:C614")]] Infantry Enemy00;              //SAVE_Offset: 0x0089;
-[[reko::address("3092:C625")]] Infantry Enemy01;              //SAVE_Offset: 0x009A;
-[[reko::address("3092:C636")]] Infantry Enemy02;              //SAVE_Offset: 0x00AB;
-[[reko::address("3092:C647")]] Infantry Enemy03;              //SAVE_Offset: 0x00BC;
-[[reko::address("3092:C658")]] Infantry Enemy04;              //SAVE_Offset: 0x00CD;
-[[reko::address("3092:C669")]] Infantry Enemy05;              //SAVE_Offset: 0x00DE;
-[[reko::address("3092:C67A")]] Infantry Enemy06;              //SAVE_Offset: 0x00EF;
-[[reko::address("3092:C68B")]] Infantry Enemy07;              //SAVE_Offset: 0x0100;
+[[reko::address("3092:C69C")]] Infantry Enemy00;              //SAVE_Offset: 0x0089;
+[[reko::address("3092:C6AD")]] Infantry Enemy01;              //SAVE_Offset: 0x009A;
+[[reko::address("3092:C6BE")]] Infantry Enemy02;              //SAVE_Offset: 0x00AB;
+[[reko::address("3092:C6CF")]] Infantry Enemy03;              //SAVE_Offset: 0x00BC;
+[[reko::address("3092:C6E0")]] Infantry Enemy04;              //SAVE_Offset: 0x00CD;
+[[reko::address("3092:C6F1")]] Infantry Enemy05;              //SAVE_Offset: 0x00DE;
+[[reko::address("3092:C702")]] Infantry Enemy06;              //SAVE_Offset: 0x00EF;
+[[reko::address("3092:C713")]] Infantry Enemy07;              //SAVE_Offset: 0x0100;
 
 //------------------------------------------------------------------
 //Mech Variables
 //------------------------------------------------------------------
 //Crescent Hawk
-[[reko::address("3092:C69C")]] Mech CrescentHawkMech00; //SAVE_Offset: 0x0111;
-[[reko::address("3092:C719")]] Mech CrescentHawkMech01; //SAVE_Offset: 0x018E;
-[[reko::address("3092:C796")]] Mech CrescentHawkMech02; //SAVE_Offset: 0x020B;
-[[reko::address("3092:C813")]] Mech CrescentHawkMech03; //SAVE_Offset: 0x0288; 
+[[reko::address("3092:C724")]] Mech CrescentHawkMech00; //SAVE_Offset: 0x0111;
+[[reko::address("3092:C7A1")]] Mech CrescentHawkMech01; //SAVE_Offset: 0x018E;
+[[reko::address("3092:C81E")]] Mech CrescentHawkMech02; //SAVE_Offset: 0x020B;
+[[reko::address("3092:C89B")]] Mech CrescentHawkMech03; //SAVE_Offset: 0x0288; 
 
 //Enemy Mechs
-[[reko::address("3092:C890")]] Mech EnemyMech00; //SAVE_Offset: 0x0305;
-[[reko::address("3092:C90D")]] Mech EnemyMech01; //SAVE_Offset: 0x0382;
-[[reko::address("3092:C98A")]] Mech EnemyMech02; //SAVE_Offset: 0x03FF;
-[[reko::address("3092:CA07")]] Mech EnemyMech03; //SAVE_Offset: 0x047C; 
+[[reko::address("3092:C918")]] Mech EnemyMech00; //SAVE_Offset: 0x0305;
+[[reko::address("3092:C995")]] Mech EnemyMech01; //SAVE_Offset: 0x0382;
+[[reko::address("3092:CA12")]] Mech EnemyMech02; //SAVE_Offset: 0x03FF;
+[[reko::address("3092:CA8F")]] Mech EnemyMech03; //SAVE_Offset: 0x047C; 
 
 //Mech Reference Stats
 [[reko::address("2FE8:02F0")]] Mech LOCUST;      //Reference Stats
@@ -98,7 +98,7 @@ typedef struct Mech
 [[reko::address("2FE8:065B")]] Mech URBANMECH;   //Reference Stats
 
 //Game Variables
-[[reko::address("3092:CA84")]] unsigned short Map_FogOfWar_Visibility[2048]; //SAVE_Offset: 0x0F45;    
+[[reko::address("3092:CB0C")]] unsigned short Map_FogOfWar_Visibility[2048]; //SAVE_Offset: 0x0F45;    
 [[reko::address("246C:A44B")]] unsigned short CrescentHawk_MapPositionX; //SAVE_Offset: 0x0F45;  //tA44B
 [[reko::address("246C:A44D")]] unsigned short CrescentHawk_MapPositionY; //SAVE_Offset: 0x0F47;  //tA44D
 
@@ -140,9 +140,13 @@ typedef struct Mech
 [[reko::address("0DAB:1858")]] void Examine_Screen_CriticalComponents(unsigned char Horizontal_StatLine_Position, unsigned char Vertical_StatLine_Position, unsigned char CriticalHitPoints, unsigned char DamagedCriticalComponents);
 [[reko::address("0800:17BB")]] void CharacterPos_Compare(unsigned int PosX, unsigned int PosY);
 
+[[reko::address("0800:2A93")]] void CharacterPosition_2A93();
+
+[[reko::address("0800:051B")]] void Position_And_Map_051B();
 
 //Items that need work
 [[reko::address("0DAB:04F9")]] void Salvage_Mechs_Dialog(); //<--- Has a bug [Bp -2h] https://github.com/uxmal/reko/issues/1188
+[[reko::address("0800:0E4B")]] void Graphical_Operations_0E4B(); //<--- Has a bug [Bp -2h] https://github.com/uxmal/reko/issues/1188
 
 //Graphics_Operations_0086 <-- Explore this 
 //MechSnap has confused Args <-- work out? Tiles vs offsets
@@ -155,21 +159,25 @@ typedef struct Mech
 [[reko::address("0DAB:0D3D")]] void Combat_engaged();
 [[reko::address("0DAB:1467")]] void Scan_Humans(int ScanTarget, int wArg08);
 [[reko::address("0800:0000")]] void Main_Game_Loop(unsigned char Disable_Input);
-[[reko::address("0800:051B")]] void Position_And_Map_051B();
+
 [[reko::address("1AE8:12C7")]] void Combat_AudioVisual_Effects(unsigned char ShooterId_04, unsigned char CombatantId, unsigned char WeaponId_Used, unsigned char PosOffset_0A,  unsigned char Bool_NonMissile_0C, unsigned char CombatId_Dead_0E, unsigned char MechIsDestroyed_10, unsigned char Dead_CharacterId_12, word16 Bool_OnFoot_14, unsigned int* MemoryFarPtr_16);
 [[reko::address("1AE8:1E46")]] void Combat_RandomUsage_1E46(unsigned short wArg04, unsigned short wArg06, unsigned short wArg08);
 [[reko::address("1AE8:000C")]] void Combat_Mechanics(int IsCombat);
 
+[[reko::address("207F:0377")]] void DrawCall_EGA_CharacterPos_0377(unsigned short EGA_Mem_Offset_04, unsigned short EGA_Mem_Seg_06, unsigned short OffsetPtr_wArg08, unsigned short SegPtr_wArg0A, unsigned char PosX, unsigned char PosY);
+
+
+
+
 //Unused code // <-- Wrong Graphics adapter etc
 [[reko::address("207F:2CF7")]] void CGA_Palette_Operation();
-
+[[reko::address("207F:28EB")]] void Non_EGA_VGA_Operations_28EB(unsigned short wArg04, unsigned short wArg06, unsigned short wArg08, unsigned short wArg0A, unsigned char wArg0C, unsigned char wArg0E);
 
 //------------------------------------------------------------------
 //------------------------------------------------------------------
 //Pre-Reko update
 //------------------------------------------------------------------
 //------------------------------------------------------------------
-
 
 
 [[reko::address("3EDB:4FBA")]] unsigned char GraphicsAdapter;
@@ -333,7 +341,7 @@ typedef struct Mech
 [[reko::address("207F:0260")]] void Write_Image_To_VGA_Memory(int * __far Image, int VGA_Memory);         
 [[reko::address("207F:0B40")]] void Wait_For_Retrace(unsigned char ContinueDuringVertical);
 [[reko::address("207F:0B73")]] char BIOS_Set_Video_Mode(char VideoMode);  
-[[reko::address("0800:2A93")]] void Graphics_Operations_2A93();
+
 [[reko::address("1F3D:0086")]] void Graphics_Operations_0086(int * __far Ptr, int wArg08, unsigned wArg0A, int wArg0c, unsigned wArg0E);	   
 
 
@@ -484,14 +492,13 @@ typedef struct Mech
 [[reko::address("204B:033C")]] int If_XOR_0x0186_Is_ZERO();      
 [[reko::address("207F:37B4")]] int Memory_Operation_37B4();    
 [[reko::address("207F:3BDC")]] short If_ds_5367_then_get_stdin_status();
-[[reko::address("0800:051B")]] void A_fn0800_051B();
 [[reko::address("0800:0E4B")]] void Graphical_Operation_0E4B();
 [[reko::address("0800:1732")]] void A_fn0800_1732(int wArg04);
 [[reko::address("0800:240B")]] void MemoryPtr_Copy_240B();
 [[reko::address("0800:24C2")]] void CharacterPos_24C2();
 [[reko::address("207F:3BB6")]] void fn207F_3BB6(int * __far Ptr, char * __far TextPtr);
 
-[[reko::address("0800:0E4B")]] void Graphical_Operations_0E4B();
+
 
 [[reko::address("0800:231D")]] void A_fn0800_231D(unsigned KeyPress);
 

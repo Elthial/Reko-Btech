@@ -78,9 +78,6 @@
       <procedure name="VGA_ReadVGAMemoryAddress">
         <address>207F:0313</address>
       </procedure>
-      <procedure name="EGA_VGA_Registers_0377">
-        <address>207F:0377</address>
-      </procedure>
       <procedure name="Tandy_1000_Graphics_Operation_08A1">
         <address>207F:08A1</address>
       </procedure>
@@ -129,10 +126,7 @@
       <procedure name="WriteDisplayMemory">
         <address>207F:275C</address>
         <CSignature>void WriteDisplayMemory(int * __far DisplayMemory, int wArg08, int wArg0A)</CSignature>
-      </procedure>
-      <procedure name="Non_EGA_VGA_Operations_28EB">
-        <address>207F:28EB</address>
-      </procedure>
+      </procedure>   
       <procedure name="Video_MultiMode_func">
         <address>207F:2B87</address>
       </procedure>     
