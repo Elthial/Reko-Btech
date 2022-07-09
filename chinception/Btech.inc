@@ -131,7 +131,10 @@ typedef struct Mech
 [[reko::address("1F3D:00D5")]] void Draw_EGA_Text_To_Screen(unsigned int * __far Textptr, unsigned char Horizonal_StatsLine_Offset, unsigned char Vertical_StatsLine_Offset, unsigned char EGAColour_Font, unsigned char EGAColour_Background);
 [[reko::address("207F:2127")]] void Set_EGAColours_Font_And_Background(unsigned char EGAColour_Font, unsigned char EGAColour_Background);
 [[reko::address("207F:2251")]] void DrawCall_EGA_Text_To_ScreenLocation(unsigned char ScreenOffset, unsigned int* TextPtr);
-
+[[reko::address("1631:1DAB")]] void Display_Text_From_Memory_IF_11832(char * __far TextPtr);
+[[reko::address("1631:1FDF")]] void Display_Text_CBill_Balance();
+[[reko::address("1631:1B8F")]] void Combat_Display_Text_From_Memory(unsigned char eqCond);
+[[reko::address("1631:02E4")]] void Display_Text_Human_Health(unsigned char Scan_TargetId);
 
 //Game Logic
 
@@ -144,9 +147,40 @@ typedef struct Mech
 
 [[reko::address("0800:051B")]] void Position_And_Map_051B();
 
+
+[[reko::address("1631:03AB")]] void Combat_Computer_Control(int wArg04, int wArg06);
+[[reko::address("1631:0C63")]] void Combat_Mech_HeatLevels(int * __far ptrArg04);
+
+[[reko::address("1631:0F24")]] void Combat_PosBracket_0F24(unsigned char TargetId, unsigned char CharacterId);
+[[reko::address("1631:0BB5")]] unsigned short Combat_Operation_0BB5(int wArg04, int wArg06);
+
+[[reko::address("1631:1057")]] void Combat_Weapon_Display_Text_And_Menu_Options(int * __far Ptr);
+[[reko::address("1631:10A2")]] unsigned char Combat_fn1631_10A2(unsigned char MechLanceId, unsigned char wArg06);
+[[reko::address("1631:1122")]] unsigned char Combat_fn1631_1122(unsigned short wArg04)
+[[reko::address("1631:11AB")]] void Combat_Case_Statement_11AB(unsigned short wArg04, unsigned short wArg06);
+[[reko::address("1631:163E")]] int Combat_fn1631_163E(int * __far ptr, int wArg08);
+[[reko::address("1631:16AB")]] unsigned char Return_bool_fn1631_16AB(unsigned char TargetId, unsigned char wArg0A);
+[[reko::address("1631:1DCC")]] void Countdown_or_Keyboard_Input();
+[[reko::address("1631:1DF8")]] void Combat_AudioVisual_1DF8(unsigned short wArg04, unsigned short wArg06, unsigned short wArg08, unsigned short wArg0A);
+[[reko::address("1631:1EA2")]] void Combat_AudioVisual_1EA2(unsigned short wArg04, unsigned short wArg06);
+[[reko::address("1631:1F09")]] void Combat_AudioVisual_MechPositioning_And_GraphicsMemory_1F09(unsigned int* dwArg04);
+[[reko::address("1631:1F73")]] void Combat_AudioVisual_1F73(unsigned short wArg04, unsigned short wArg06, unsigned short wArg08);
+[[reko::address("1631:1B44")]] unsigned char Combat_Check_Mech_Actuator_Status(unsigned char MechLanceId, unsigned char MechComponent);
+[[reko::address("1631:1B44")]] void Menu_Draw_MultiSelect(unsigned char wArg04);
+[[reko::address("1631:0006")]] void Position_0006(unsigned short wArg04, unsigned short EnemyMech_PosX_06, unsigned short EnemyMech_PosY_08, unsigned short wArg0c, unsigned short BoolValue);
+
+
+
+
+
+
+
 //Items that need work
 [[reko::address("0DAB:04F9")]] void Salvage_Mechs_Dialog(); //<--- Has a bug [Bp -2h] https://github.com/uxmal/reko/issues/1188
 [[reko::address("0800:0E4B")]] void Graphical_Operations_0E4B(); //<--- Has a bug [Bp -2h] https://github.com/uxmal/reko/issues/1188
+
+[[reko::address("1631:1BFE")]] unsigned char Combat_Return_bool_fn1631_1BFE(unsigned short wArg04, unsigned short wArg06, unsigned short wArg08, unsigned short wArg0A); <-- Recheck after reko reload / added new args. 
+
 
 //Graphics_Operations_0086 <-- Explore this 
 //MechSnap has confused Args <-- work out? Tiles vs offsets
@@ -173,11 +207,67 @@ typedef struct Mech
 [[reko::address("207F:2CF7")]] void CGA_Palette_Operation();
 [[reko::address("207F:28EB")]] void Non_EGA_VGA_Operations_28EB(unsigned short wArg04, unsigned short wArg06, unsigned short wArg08, unsigned short wArg0A, unsigned char wArg0C, unsigned char wArg0E);
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //------------------------------------------------------------------
 //------------------------------------------------------------------
 //Pre-Reko update
 //------------------------------------------------------------------
 //------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 [[reko::address("3EDB:4FBA")]] unsigned char GraphicsAdapter;
@@ -220,7 +310,7 @@ typedef struct Mech
  //A_fn207F_1AF4  
 //fn1AE8_12C7
 
-[[reko::address("1631:1F09")]] void MechPositioning_And_GraphicsMemory_1F09(unsigned int* dwArg04);
+
 
 
 //Position Functions
@@ -243,7 +333,7 @@ typedef struct Mech
 
 
 [[reko::address("183B:000A")]] void Combat_Parent_000A(int wArg04);
-[[reko::address("1631:03AB")]] void Combat_Computer_Control(int wArg04, int wArg06);
+
 [[reko::address("1467:0D7E")]] void Combat_Reset_40B4_To_Zero();
 
 // Broken functions
@@ -309,12 +399,11 @@ typedef struct Mech
 [[reko::address("1CD3:1809")]] void Display_Text_Shop_Cannot_Afford_Text();
 [[reko::address("1CD3:181E")]] void Display_Text_4FA0_Value();
 [[reko::address("0FDC:19E1")]] void Display_nothing_this_time_Text();
-[[reko::address("1631:1DAB")]] void Display_Text_From_Memory_IF_11832(char * __far TextPtr);
+
 [[reko::address("1CD3:17EA")]] void Display_Text_From_Memory_ScreenRetrace_KeyboardInput(int * __far TextPtr);
 [[reko::address("1E56:0B5E")]] int Display_Menu_Chocies_And_Check(int wArg04);
-[[reko::address("1631:02E4")]] void Display_Text_Human(int wArg04);
+
 [[reko::address("1467:0B98")]] void Display_Text_Mech_Names();
-[[reko::address("1631:1FDF")]] void Display_Text_CBill_Balance();
 
 [[reko::address("207F:3B22")]] void Append_Text_To_Memory(int * __far TextPtr, int * __far AppendTextPtr);
 [[reko::address("207F:3B68")]] void Append_Text_To_Memory_3B68(int * __far TextPtr, int * __far AppendTextPtr);
@@ -461,7 +550,7 @@ typedef struct Mech
 
 
 [[reko::address("0FDC:0D49")]] void RandomBattle(int wArg04, int wArg06);
-[[reko::address("1631:10A2")]] unsigned char A_fn1631_10A2(unsigned char MechLanceId, unsigned char wArg06);
+
 
 // Confirm valid
 [[reko::address("0800:2A4F")]] void Press_A_Key();
@@ -476,7 +565,7 @@ typedef struct Mech
 
 
 
-[[reko::address("1631:0F24")]] void A_fn1631_0F24(unsigned char TargetId, unsigned short wArg06);
+
 
 
 [[reko::address("1E56:0388")]] void Draw_Top_Graphic_Sidebar();
@@ -532,7 +621,7 @@ typedef struct Mech
 [[reko::address("1467:0002")]] void Assign_Pilot_and_rider_to_Mechs(int wArg04);
 [[reko::address("1467:08A8")]] void Copyright_Check_Mech_Quiz();
 
-[[reko::address("1631:1DCC")]] void Countdown_or_Keyboard_Input();
+
 [[reko::address("183B:24F0")]] unsigned Return_Bool_Options_Combat_Messages();
 [[reko::address("183B:2556")]] unsigned Return_Bool_Options_See_Combat_Graphics();
 
@@ -564,15 +653,15 @@ typedef struct Mech
 [[reko::address("0800:4BC1")]] void BDCStatsBar(int wArg04, unsigned int wArg06, int wArg08);
 [[reko::address("1543:0C72")]] void While_Less_Than_26_Function(int bool_Arg);
 [[reko::address("1543:0CDE")]] unsigned Money_Balance_Function();
-[[reko::address("1631:0006")]] void A_fn1631_0006(int wArg04, int wArg06, int wArg08, int wArg0c, int BoolValue);
-[[reko::address("1631:0C63")]] void Mech_HeatLevels(int * __far ptrArg04);
-[[reko::address("1631:11AB")]] int Case_Statement_11AB(int wArg04, int wArg06);
+
+
+
 [[reko::address("1631:15FA")]] int Return_bool_fn1631_15FA(int *ptrArg04, int LessThanCond);
-[[reko::address("1631:163E")]] int A_fn1631_163E(int * __far ptr, int wArg08);
-[[reko::address("1631:16AB")]] unsigned char Return_bool_fn1631_16AB(int wARg04, int wARg06, int wARg08, int wArg0A);
-[[reko::address("1631:1B44")]] unsigned char Check_Mech_Actuator_Status(unsigned char MechLanceId, unsigned char MechComponent);
-[[reko::address("1631:1B8F")]] void A_fn1631_1B8F(int eqCond);
-[[reko::address("1631:1BFE")]] int Return_bool_fn1631_1BFE(int wArg06, int wArg08, int wArg0A);
+
+
+
+
+
 [[reko::address("183B:1482")]] void A_fn183B_1482(int wArg04);
 
 
@@ -590,7 +679,7 @@ typedef struct Mech
 [[reko::address("207F:3026")]] void A_fn207F_3026();
 [[reko::address("207F:31CE")]] int A_Memory_Function_31CE();
 
-[[reko::address("1631:0BB5")]] unsigned A_fn1631_0BB5(int wArg04, int wArg06);
+
 [[reko::address("207F:37DA")]] int A_fn207F_37DA(int wArg04);
 [[reko::address("207F:3835")]] int Return_bool_fn207F_3835(int wArg04);
 [[reko::address("207F:3874")]] bool Return_Bool_3874();
@@ -606,7 +695,7 @@ typedef struct Mech
 
 
 [[reko::address("207F:00A9")]] void Sound_Freq_Countdown_Loop(int wArg04, int wArg06);
-[[reko::address("1631:1057")]] void Display_Text_And_Menu_Options(int * __far Ptr);
+
 
 
 

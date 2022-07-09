@@ -19,13 +19,7 @@
       </procedure>
       <procedure name="Combat_Target_UI_07CB">
         <address>1543:07CB</address>
-      </procedure>
-      <procedure name="Menu_Graphical_Operations_032F">
-        <address>1631:032F</address>
-      </procedure>
-      <procedure name="Graphical_Operation_1F73">
-        <address>1631:1F73</address>
-      </procedure>
+      </procedure>  
       <procedure name="Combat_UI_14C3">
         <address>183B:14C3</address>
       </procedure>
