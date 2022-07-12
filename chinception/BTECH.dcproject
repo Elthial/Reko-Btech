@@ -102,12 +102,6 @@
       <procedure name="VGA_8_loop_1BDF">
         <address>207F:1BDF</address>
       </procedure>
-      <procedure name="NON_MCGA_Graphics_1CB8">
-        <address>207F:1CB8</address>
-      </procedure>
-      <procedure name="MCGA_1D3A">
-        <address>207F:1D3A</address>
-      </procedure>
       <procedure name="Interrupt_flag_sti">
         <address>207F:1F9C</address>
       </procedure>
@@ -116,10 +110,6 @@
       </procedure>
       <procedure name="Graphics_Set_Screen_To_Black">
         <address>207F:1FBE</address>
-      </procedure>
-      <procedure name="WriteDisplayMemory">
-        <address>207F:275C</address>
-        <CSignature>void WriteDisplayMemory(int * __far DisplayMemory, int wArg08, int wArg0A)</CSignature>
       </procedure>   
       <procedure name="Video_MultiMode_func">
         <address>207F:2B87</address>
