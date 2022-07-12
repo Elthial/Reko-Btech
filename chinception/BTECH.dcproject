@@ -9,11 +9,7 @@
     <includeDir>BTECH.reko</includeDir>
     <resources>BTECH.reko\resources</resources>
     <user>
-      <processor />
-      <procedure name="DOS_Disk_IO_Play_Music">
-        <address>0800:476D</address>
-        <assume reg="ds" value="3EDB" />
-      </procedure>
+      <processor />  
       <procedure name="Increment_ptrArg04_by_1_19F6">
         <address>0FDC:19F6</address>
       </procedure>
@@ -78,18 +74,6 @@
       <procedure name="EGA_registers_0A9F">
         <address>207F:0A9F</address>
       </procedure>
-      <procedure name="MCGA_Set_Palette_Registers">
-        <address>207F:0FEE</address>
-      </procedure>
-      <procedure name="Struct_internal_Ops_12D9">
-        <address>207F:12D9</address>
-      </procedure>
-      <procedure name="Struct_Internal_Ops_2_12F2">
-        <address>207F:12F2</address>
-      </procedure>
-      <procedure name="Struct_Internal_Ops_3_1303">
-        <address>207F:1303</address>
-      </procedure>
       <procedure name="VGA_CGA_Graphics_Operations_18EF">
         <address>207F:18EF</address>
       </procedure>
@@ -107,10 +91,7 @@
       </procedure>
       <procedure name="Interrupt_flag_cli">
         <address>207F:1FAD</address>
-      </procedure>
-      <procedure name="Graphics_Set_Screen_To_Black">
-        <address>207F:1FBE</address>
-      </procedure>   
+      </procedure> 
       <procedure name="Video_MultiMode_func">
         <address>207F:2B87</address>
       </procedure>     

@@ -109,6 +109,7 @@ typedef struct Mech
 //--------------------------------------------------------------------------------------------------------------
 
 //Game Structure
+[[reko::address("0800:50C8")]] void Start_Game();
 [[reko::address("0D27:0044")]] void Setup_Game(); 
 [[reko::address("0DAB:0B5E")]] unsigned char Return_Bool_Allow_Computer_Control_Dialog();
 
@@ -136,13 +137,11 @@ typedef struct Mech
 [[reko::address("1631:1B44")]] void Menu_Draw_MultiSelect(unsigned char wArg04);
 [[reko::address("1E56:0281")]] void Menu_Memory_Variables(unsigned Index);
 [[reko::address("0800:378D")]] void Inspect_Characters();
-
-//Input Functions
 [[reko::address("0800:2A2B")]] void Check_For_Input();
+[[reko::address("1F3D:002F")]] unsigned char Pending_Input();
+[[reko::address("1F3D:086A")]] void Wait_For_50Hz_Then_Check_Input();
+[[reko::address("0800:1A13")]] unsigned char Keyboard_space_key_pressed_Display_Yes_No(unsigned char Display_03EE); 
 
-//DOS
-[[reko::address("0D27:000A")]] static void Print(char * __far Text); //Print to DOS_DirectConsoleOutput
-[[reko::address("1F3D:0814")]] void DOS_Load_File_to_memory(int * __far Filename, int * __far BufferForData, int BytesToRead);
 
 [[reko::address("0DAB:0C8F")]] void Set_Video_Mode();
 [[reko::address("0DAB:0D12")]] void Set_Video_Mode_to_Text_Mode();
@@ -152,8 +151,8 @@ typedef struct Mech
 [[reko::address("1F3D:06C3")]] void Back_to_Game_Graphics_Operation();
 [[reko::address("207F:245C")]] void EGA_Assign_MemoryPtrs_Operation(unsigned long * __far Ptr, unsigned long * __far Ptr2, unsigned char wArg0C, unsigned char wArg0E, unsigned char wArg10, unsigned char wArg12);
 [[reko::address("0800:1AFD")]] void Draw_Animation_Scene();
-
-
+[[reko::address("207F:1FBE")]] void Graphics_Set_Screen_To_Black();
+[[reko::address("207F:1E37")]] void DrawCall_EGA_MCGA_Animations();
 
 //Text Functions
 [[reko::address("1F3D:00D5")]] void Draw_EGA_Text_To_Screen(unsigned int * __far Textptr, unsigned char Horizonal_StatsLine_Offset, unsigned char Vertical_StatsLine_Offset, unsigned char EGAColour_Font, unsigned char EGAColour_Background);
@@ -173,8 +172,8 @@ typedef struct Mech
 [[reko::address("0800:2867")]] void Display_Text_Assign_Item(unsigned int* Textptr, unsigned short Horizonal_StatsLine_Offset, unsigned short Vertical_StatsLine_Offset);
 [[reko::address("1CD3:17EA")]] void Display_Text_From_Memory_ScreenRetrace_KeyboardInput(int * __far TextPtr);
 [[reko::address("0800:28A2")]] void Set_Text_To_EGAColour_Green_w37WE();
-
-
+[[reko::address("207F:3B22")]] void Append_Text_To_Memory(int * __far TextPtr, int * __far AppendTextPtr);   //On Port: Replace with StringBuilder or plain append
+[[reko::address("207F:3B68")]] void Append_Large_Text_To_Memory(int * __far TextPtr, int * __far AppendTextPtr);  //On Port: Replace with StringBuilder or plain append
 
 
 
@@ -193,7 +192,7 @@ typedef struct Mech
 [[reko::address("0DAB:174C")]] void Examine_Screen_EngineHeatSinks(unsigned char Horizontal_StatLine_Position, unsigned char Vertical_StatLine_Position, unsigned char CriticalHitPoints, unsigned char DamagedCriticalComponents);
 [[reko::address("0DAB:1858")]] void Examine_Screen_CriticalComponents(unsigned char Horizontal_StatLine_Position, unsigned char Vertical_StatLine_Position, unsigned char CriticalHitPoints, unsigned char DamagedCriticalComponents);
 [[reko::address("0800:17BB")]] void CharacterPos_Compare(unsigned int PosX, unsigned int PosY);
-
+[[reko::address("0FDC:134B")]] void Assign_A44B_A44D_CharPos_Before_Graphics();
 
 
 [[reko::address("183B:2474")]] void Combat_Infantry_Movement(unsigned char CharacterId);
@@ -227,6 +226,16 @@ typedef struct Mech
 [[reko::address("207F:1314")]] void PosXY_OffsetGrid(unsigned short PosX, unsigned short PosY); 
 [[reko::address("207F:0971")]] unsigned char Get_Target_Compass_Direction(unsigned char x0, unsigned char y0, unsigned char x1, unsigned char y1);
 
+// Decoding functions
+[[reko::address("207F:22F8")]] unsigned long Format01_Decode(unsigned long * __far CompressedByteArray, unsigned long * __far DecodedBuffer);
+[[reko::address("207F:2368")]] unsigned long Format02_Decode(unsigned long * __far CompressedByteArray, unsigned long * __far DecodedBuffer);
+[[reko::address("207F:23EC")]] unsigned long Animation_Decode(unsigned long * __far CompressedByteArray, unsigned long * __far DecodedBuffer);
+
+
+
+//Sound Functions
+
+
 
 
 
@@ -237,7 +246,7 @@ typedef struct Mech
 [[reko::address("1631:1BFE")]] unsigned char Combat_Return_bool_fn1631_1BFE(unsigned short wArg04, unsigned short wArg06, unsigned short wArg08, unsigned short wArg0A); //<-- Recheck after reko reload / added new args. 
 [[reko::address("183B:193B")]] void Combat_Calculate_Movement(unsigned char TargetId); //Needs ASM walk through to confirm code. Likely bad decompile
 [[reko::address("0DAB:0002")]] void Salvage_Armour_Dialog(); // <-- Has ptr bug in later sections
-
+[[reko::address("0800:476D")]] void DOS_Disk_IO_Play_Music(); //Needs a review on empty do: Check ASM
 [[reko::address("1E56:03F5")]] void Display_Text_From_Memory(unsigned short wArg04, unsigned short wArg06); //Had wrong number of args
 
 //Graphics_Operations_0086 <-- Explore this 
@@ -314,22 +323,26 @@ fn183B_2835
 
 
 //----------------------------------
-//Unused code 
-//ASM
+//Non-Port code
 
 
-// <-- Wrong Graphics adapter etc
+//Non-EGA  - Minimum car about these // <-- Wrong Graphics adapter etc
 [[reko::address("207F:2CF7")]] void CGA_Palette_Operation();
 [[reko::address("207F:28EB")]] void Non_EGA_VGA_Operations_28EB(unsigned short wArg04, unsigned short wArg06, unsigned short wArg08, unsigned short wArg0A, unsigned char wArg0C, unsigned char wArg0E);
 [[reko::address("207F:1D3A")]] void MCGA_1D3A();
 [[reko::address("207F:1CB8")]] void NON_MCGA_Graphics_1CB8();
-  
-
-//Non-EGA  - Minimum car about these
+[[reko::address("207F:2B45")]] void Tandy_Set_Palette_Registers(int * __far Ptr);
+[[reko::address("207F:0FEE")]] void MCGA_Set_Palette_Registers();  
+[[reko::address("207F:0BA7")]] void BIOS_Set_CGA_Palette(char Palette);   
 [[reko::address("207F:1B94")]] void Non_EGA_MemoryCopy_1B94(unsigned short* SourceSegPtr, unsigned short* SourceOffset, unsigned short* DestinationOffsetPtr, unsigned short* DestinationSegPtr, unsigned short Seg246C);
 [[reko::address("207F:1BFC")]] void Non_EGA_MemoryCopy_1BFC(unsigned short* SourceSegPtr, unsigned short* SourceOffset, unsigned short* DestinationOffsetPtr, unsigned short* DestinationSegPtr, unsigned short Seg246C);
 [[reko::address("207F:1B1A")]] void Non_EGA_MemoryCopy_1B1A(unsigned short* SourceSegPtr, unsigned short* SourceOffset, unsigned short* DestinationOffsetPtr, unsigned short* DestinationSegPtr, unsigned short Seg246C);
+[[reko::address("207F:00D1")]] void CGA_Copy_To_Memory(unsigned long * __far Ptr);
 
+//DOS
+[[reko::address("0D27:000A")]] static void Print(char * __far Text); //Print to DOS_DirectConsoleOutput
+[[reko::address("1F3D:0814")]] void DOS_Load_File_to_memory(unsigned long * __far Filename, unsigned long * __far BufferForData, unsigned short BytesToRead);
+[[reko::address("0800:28CC")]] void Set_Default_Disk_Drive(unsigned char Drive);
 
 //DOS Functions - Memory
 [[reko::address("207F:2D82")]] void Main(); // DOS Memory extender? 
@@ -341,10 +354,22 @@ fn183B_2835
 [[reko::address("207F:3275")]] int DOS_write_file(int wArg04);    
 
 
+[[reko::address("207F:2EA4")]] void DOS_IOCTL_GET_DEVICE_INFO();
+[[reko::address("207F:3C82")]] void DOS_Set_Interrupt_Vector( int * __far PtrOffset ); 
+[[reko::address("207F:2E50")]] void DOS_Set_Interrupt_Vector_Partial_ASM();
+[[reko::address("207F:2F72")]] void DOS_set_interrupt_vector();
+[[reko::address("207F:2E3B")]] void DOS_Interrupts_Preamble_2E3B();
+[[reko::address("207F:2E76")]] void DOS_Interrupt_Vector_Post_2E76();
+[[reko::address("207F:32A0")]] int DOS_memory_resize_perhaps(int *ax);
+[[reko::address("207F:0213")]] void DOS_DirectConsoleOutput(char Character);  
 
+// DOS File Read
+[[reko::address("207F:3356")]] void DOS_set_file_position(int FileHandle, int B, int C, int D); // Needs work
+[[reko::address("207F:3580")]] void DOS_read_file_handler(int FileHandle, int * __far BufferForData, unsigned BytesToRead);
 
-
-
+// DOS Close / Terminate
+[[reko::address("207F:3336")]] void DOS_close_file(int FileHandle);
+[[reko::address("207F:2F14")]] void DOS_Terminate(unsigned char wArg04); 
 
 
 
@@ -367,6 +392,16 @@ fn183B_2835
 
 
 
+
+
+//Keyboard_space_key_pressed_Display_Yes_No(0x01) != 0x00)
+//  Load_Game_Map_Data();
+
+
+
+
+
+//Position_And_Map_051B();
 
 
 
@@ -410,14 +445,14 @@ fn183B_2835
 
 
 
-[[reko::address("207F:0BA7")]] void BIOS_Set_CGA_Palette(char Palette);
+
 
 
 [[reko::address("207F:1DF8")]] void CharPosition_Asigning_To_t09ED_to_t09F1();
 
 
 
-[[reko::address("207F:1E37")]] void DrawCall_EGA_MCGA_Animations();
+
 
 [[reko::address("207F:1C83")]] void EGA_Copy_A400_Memory_Word_Or_Byte_To_Destination(unsigned short EGAMemoryOffset, unsigned short* DestinationOffSetPtr, unsigned short DestinationSegPtr, unsigned short Seg246C);
 [[reko::address("207F:1BDF")]] void EGA_MemoryCopy_Byte_1BDF(unsigned short GraphicsMemoryOffset, unsigned short* DestinationOffsetPtr, unsigned short* DestinationSegPtr);
@@ -435,7 +470,7 @@ fn183B_2835
 
 //Position Functions
 
-[[reko::address("0FDC:134B")]] void Assign_A44B_A44D_CharPos_Before_Graphics();
+
 
 
 //Combat
@@ -450,7 +485,7 @@ fn183B_2835
 
 
 // Broken functions
-[[reko::address("207F:2EA4")]] void DOS_IOCTL_GET_DEVICE_INFO();
+
 
 [[reko::address("1543:0004")]] void Combat_Weapon_UI_0004(int * CombatPtr);
 
@@ -461,7 +496,7 @@ fn183B_2835
 [[reko::address("207F:13D9")]] unsigned char PosXY_GridSegment(unsigned char bPosX, unsigned char bPosY); 
 [[reko::address("207F:158C")]] void PosY_Function();
 
-[[reko::address("207F:2B45")]] void Tandy_Set_Palette_Registers(int * __far Ptr);
+
 
 [[reko::address("0800:218F")]] void Character_Movement_On_Map(unsigned char IncomingValue);
 [[reko::address("207F:163B")]] void PosY_Function02();
@@ -489,9 +524,8 @@ fn183B_2835
 
 
 
-[[reko::address("0800:50C8")]] void Start_Game();
 
-[[reko::address("0800:476D")]] void DOS_Disk_IO_Play_Music();
+
 
 
 
@@ -518,8 +552,8 @@ fn183B_2835
 
 
 
-[[reko::address("207F:3B22")]] void Append_Text_To_Memory(int * __far TextPtr, int * __far AppendTextPtr);
-[[reko::address("207F:3B68")]] void Append_Text_To_Memory_3B68(int * __far TextPtr, int * __far AppendTextPtr);
+
+
 
 // Graphics functions
 
@@ -547,7 +581,7 @@ fn183B_2835
 
 
 [[reko::address("1F3D:0525")]] void Set_Palette_registers(int * __far Ptr);
-[[reko::address("207F:00D1")]] void CGA_Copy_To_Memory(int * __far Ptr);
+
 
 [[reko::address("1F3D:049D")]] void Decompress_File_Into_Memory(unsigned char * __far CompressedByteArray, unsigned char * __far GraphicByteArray); 
 
@@ -594,20 +628,14 @@ fn183B_2835
 [[reko::address("207F:0B8A")]] char Keyboard_GetKey();
 
 [[reko::address("0DAB:0B95")]] void Interrupts_And_Retrace();
-[[reko::address("0800:1A13")]] bool Keyboard_space_key_pressed_Display_Yes_No(int Display_03EE); //bool or unsigned?
+
 
 // DOS functions
 
-[[reko::address("207F:3C82")]] void DOS_Set_Interrupt_Vector( int * __far PtrOffset ); 
-[[reko::address("207F:2E50")]] void DOS_Set_Interrupt_Vector_Partial_ASM();
-[[reko::address("207F:2F72")]] void DOS_set_interrupt_vector();
-[[reko::address("207F:2E3B")]] void DOS_Interrupts_Preamble_2E3B();
-[[reko::address("207F:2E76")]] void DOS_Interrupt_Vector_Post_2E76();
-[[reko::address("207F:32A0")]] int DOS_memory_resize_perhaps(int *ax);
-[[reko::address("207F:0213")]] void DOS_DirectConsoleOutput(char Character);    
-[[reko::address("0800:2913")]] void Request_Diskette_In_Drive(unsigned Drive);
+  
+[[reko::address("0800:2913")]] void Request_Diskette_In_Drive(unsigned char Drive);
 [[reko::address("207F:014C")]] void DOS_SetDrive(char Drive);      
-[[reko::address("0800:28CC")]] void Set_Default_Disk_Drive(int Drive);
+
 // DOS Write
 
 [[reko::address("207F:366A")]] int DOS_write_memory_to_save_file(int wArg04, int *ptrArg05, int wArg0A);
@@ -622,18 +650,10 @@ fn183B_2835
 [[reko::address("1F3D:063B")]] void Load_File_To_Memory(int * __far FileName, int * __far Memory);
 [[reko::address("207F:356F")]] int DOS_Load_File_Check(int cx);
 [[reko::address("0FDC:1D30")]] void Load_Indexed_BLD_Files(int BLD_FileIndex);
-// DOS File Read
-[[reko::address("207F:3356")]] void DOS_set_file_position(int FileHandle, int B, int C, int D); // Needs work
-[[reko::address("207F:3580")]] void DOS_read_file_handler(int FileHandle, int * __far BufferForData, unsigned BytesToRead);
-// DOS Close / Terminate
-[[reko::address("207F:3336")]] void DOS_close_file(int FileHandle);
-[[reko::address("207F:2F14")]] void DOS_Terminate(unsigned char wArg04); 
 
 
-// Decoding functions
-[[reko::address("207F:22F8")]] int Format01_Decode(char * __far CompressedByteArray, char * __far DecodedBuffer);
-[[reko::address("207F:2368")]] int Format02_Decode(char * __far CompressedByteArray, char * __far DecodedBuffer);
-[[reko::address("207F:23EC")]] int Animation_Decode(char * __far CompressedByteArray, char * __far DecodedBuffer);
+
+
 
 
 
@@ -739,9 +759,9 @@ fn183B_2835
 
 [[reko::address("1E56:0004")]] void Draw_Menu_CGA_VGA_Graphical_Operation(int wArg04);
 
-[[reko::address("1F3D:002F")]] unsigned char Pending_Input();
 
-[[reko::address("1F3D:086A")]] void Wait_For_50Hz_Then_Check_Input();
+
+
 
 
 
