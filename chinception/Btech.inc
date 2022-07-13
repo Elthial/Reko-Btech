@@ -172,8 +172,8 @@ typedef struct Mech
 [[reko::address("0800:2867")]] void Display_Text_Assign_Item(unsigned int* Textptr, unsigned short Horizonal_StatsLine_Offset, unsigned short Vertical_StatsLine_Offset);
 [[reko::address("1CD3:17EA")]] void Display_Text_From_Memory_ScreenRetrace_KeyboardInput(int * __far TextPtr);
 [[reko::address("0800:28A2")]] void Set_Text_To_EGAColour_Green_w37WE();
-[[reko::address("207F:3B22")]] void Append_Text_To_Memory(int * __far TextPtr, int * __far AppendTextPtr);   //On Port: Replace with StringBuilder or plain append
-[[reko::address("207F:3B68")]] void Append_Large_Text_To_Memory(int * __far TextPtr, int * __far AppendTextPtr);  //On Port: Replace with StringBuilder or plain append
+[[reko::address("207F:3B22")]] void Append_Text_To_Memory(unsigned long * __far TextPtr, unsigned long * __far AppendTextPtr);  //Port replace with SB
+[[reko::address("207F:3B68")]] void Append_Large_Text_To_Memory(unsigned long * __far TextPtr, unsigned long * __far AppendTextPtr); //Port replace with SB
 
 
 
@@ -279,7 +279,7 @@ typedef struct Mech
 //Display_Text_From_Memory_ScreenRetrace_KeyboardInput
 
 [[reko::address("183B:2835")]] void Combat_Load_9Grid_Map_2835();
-fn183B_2835
+
 
 
 
@@ -302,24 +302,25 @@ fn183B_2835
 
 
 
-[[reko::address("1E56:01E7")]] void WriteDisplayMemory(unsigned short wArg04, unsigned short wArg06, unsigned short wArg08, unsigned short wArg0A) //Had the wrong args
 
+[[reko::address("1E56:01E7")]] void WriteDisplayMemory_ForLoop(int ptrArg04, int wArg08, int wArg0A, int wArg0C, int wArg0E, int wArg10); //Incorrect Args?
 
 
 //All Same function? //ASM?
-[[reko::address("207F:3C15")]] void ASM_Function_3C15(); 
-[[reko::address("207F:3BB6")]] void A_fn207F_3BB6(unsigned short wArg04, unsigned short wArg06, unsigned short wArg08, unsigned short wArg0A); //Had the wrong args
-[[reko::address("207F:3BD2")]] void CBill_Function(unsigned short wArg04, unsigned short wArg06, unsigned short wArg08, unsigned short wArg0A, unsigned short wArg0C);   //Had the wrong args
+//[[reko::address("207F:3C15")]] void ASM_Function_3C15(); 
+//[[reko::address("207F:3BB6")]] void A_fn207F_3BB6(int wArg04, int * __far ptr, int wArg08);
+//[[reko::address("207F:3BD2")]] void CBill_Function(int A, int B, int * __far ptr); 																																															 
 
 //ASM
-[[reko::address("207F:1DA8")]] void Map_fn207F_1DA8(); //Immediately contains Map_fn207F_1886() 
-[[reko::address("207F:1886")]] void Map_fn207F_1886(); // <-- Doesn't have normal calls
-[[reko::address("207F:11BB")]] void Map_fn207F_11BB(unsigned short wArg04, unsigned short wArg06); // <-- Calls have MOV; Check new arg with reload
-[[reko::address("207F:12BA")]] void Map_fn207F_12BA(); //ASM function?
-[[reko::address("207F:12F2")]] void Map_Struct_Internal_Ops_12F2(); //ASM function?
-[[reko::address("207F:12D9")]] void Map_Struct_internal_Ops_12D9(); //ASM function?
-[[reko::address("207F:1303")]] void Map_Struct_Internal_Ops_1303(); //ASM function?
-
+//[[reko::address("207F:1DA8")]] void Map_fn207F_1DA8(); //Immediately contains Map_fn207F_1886() 
+//[[reko::address("207F:1886")]] void Map_fn207F_1886(); // <-- Doesn't have normal calls
+//[[reko::address("207F:11BB")]] void Map_fn207F_11BB(unsigned short wArg04, unsigned short wArg06); // <-- Calls have MOV; Check new arg with reload
+//[[reko::address("207F:12BA")]] void Map_fn207F_12BA(); //ASM function?
+//[[reko::address("207F:12F2")]] void Map_Struct_Internal_Ops_12F2(); //ASM function?
+//[[reko::address("207F:12D9")]] void Map_Struct_internal_Ops_12D9(); //ASM function?
+//[[reko::address("207F:1303")]] void Map_Struct_Internal_Ops_1303(); //ASM function?
+																																													 
+	
 
 
 //----------------------------------
@@ -332,7 +333,7 @@ fn183B_2835
 [[reko::address("207F:1D3A")]] void MCGA_1D3A();
 [[reko::address("207F:1CB8")]] void NON_MCGA_Graphics_1CB8();
 [[reko::address("207F:2B45")]] void Tandy_Set_Palette_Registers(int * __far Ptr);
-[[reko::address("207F:0FEE")]] void MCGA_Set_Palette_Registers();  
+[[reko::address("207F:0FEE")]] void MCGA_Set_Palette_Registers();
 [[reko::address("207F:0BA7")]] void BIOS_Set_CGA_Palette(char Palette);   
 [[reko::address("207F:1B94")]] void Non_EGA_MemoryCopy_1B94(unsigned short* SourceSegPtr, unsigned short* SourceOffset, unsigned short* DestinationOffsetPtr, unsigned short* DestinationSegPtr, unsigned short Seg246C);
 [[reko::address("207F:1BFC")]] void Non_EGA_MemoryCopy_1BFC(unsigned short* SourceSegPtr, unsigned short* SourceOffset, unsigned short* DestinationOffsetPtr, unsigned short* DestinationSegPtr, unsigned short Seg246C);
@@ -343,9 +344,10 @@ fn183B_2835
 [[reko::address("0D27:000A")]] static void Print(char * __far Text); //Print to DOS_DirectConsoleOutput
 [[reko::address("1F3D:0814")]] void DOS_Load_File_to_memory(unsigned long * __far Filename, unsigned long * __far BufferForData, unsigned short BytesToRead);
 [[reko::address("0800:28CC")]] void Set_Default_Disk_Drive(unsigned char Drive);
+[[reko::address("0800:2913")]] void Request_Diskette_In_Drive(unsigned char Drive); 
 
 //DOS Functions - Memory
-[[reko::address("207F:2D82")]] void Main(); // DOS Memory extender? 
+[[reko::address("207F:2D82")]] void Main(); // DOS Memory extender?
 [[reko::address("207F:3026")]] void DOS_Operation_3026(); //Pre-setup game. Memory or device interrupts. Whatever
 [[reko::address("207F:31CE")]] int DOS_Memory_Function_31CE();
 
@@ -370,7 +372,6 @@ fn183B_2835
 // DOS Close / Terminate
 [[reko::address("207F:3336")]] void DOS_close_file(int FileHandle);
 [[reko::address("207F:2F14")]] void DOS_Terminate(unsigned char wArg04); 
-
 
 
 
@@ -441,15 +442,10 @@ fn183B_2835
 
 
 
-[[reko::address("1E56:01E7")]] void WriteDisplayMemory_ForLoop(int ptrArg04, int wArg08, int wArg0A, int wArg0C, int wArg0E, int wArg10);
-
-
-
 
 
 
 [[reko::address("207F:1DF8")]] void CharPosition_Asigning_To_t09ED_to_t09F1();
-
 
 
 
@@ -472,13 +468,11 @@ fn183B_2835
 
 
 
-
 //Combat
 
 
 
 [[reko::address("183B:1774")]] void Combat_MovementTarget_unknown_1774(unsigned char TargetId, unsigned char Bool_06);
-
 
 
 
@@ -506,7 +500,6 @@ fn183B_2835
 
 
 
-
 [[reko::address("207F:3D1C")]] void ComStar_Stocks_multiplication(unsigned short * Stocks, unsigned char wArg08, unsigned char wArg0A);
 
 [[reko::address("183B:2AA3")]] void Character_Pos_Grid_Function(unsigned char PosX, unsigned char PosY);
@@ -529,17 +522,11 @@ fn183B_2835
 
 
 
-
-
-
-
 [[reko::address("1CD3:0004")]] void Citadel_Building_Dialogs(unsigned char CaseOption);
 [[reko::address("0800:35D3")]] void Save_Game();
 [[reko::address("0800:32B3")]] void Load_Game();
 
 // Text functions
-
-
 
 
 
@@ -632,8 +619,12 @@ fn183B_2835
 
 // DOS functions
 
-  
-[[reko::address("0800:2913")]] void Request_Diskette_In_Drive(unsigned char Drive);
+
+
+
+
+   
+
 [[reko::address("207F:014C")]] void DOS_SetDrive(char Drive);      
 
 // DOS Write
@@ -650,7 +641,6 @@ fn183B_2835
 [[reko::address("1F3D:063B")]] void Load_File_To_Memory(int * __far FileName, int * __far Memory);
 [[reko::address("207F:356F")]] int DOS_Load_File_Check(int cx);
 [[reko::address("0FDC:1D30")]] void Load_Indexed_BLD_Files(int BLD_FileIndex);
-
 
 
 
