@@ -73,10 +73,7 @@
       </procedure>
       <procedure name="EGA_registers_0A9F">
         <address>207F:0A9F</address>
-      </procedure>
-      <procedure name="VGA_CGA_Graphics_Operations_18EF">
-        <address>207F:18EF</address>
-      </procedure>
+      </procedure>     
       <procedure name="Struct_Copy_Operation_1B1A">
         <address>207F:1B1A</address>
       </procedure>
