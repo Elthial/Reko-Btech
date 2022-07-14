@@ -119,6 +119,7 @@ typedef struct Mech
 [[reko::address("207F:2FDC")]] [[reko::characteristics({alloca:true})]] [[reko::returns(register,"sp")]] char *alloca([[reko::arg(register,"ax")]] unsigned ax );
 [[reko::address("1F3D:05BC")]] void Debug_MemoryErrors_For_Sprite_Load(unsigned short MemorySize, unsigned char ValueAlwaysZero);
 [[reko::address("207F:0931")]] void CopyWordFromAToB(int * __far SourcePtr, int * __far DestinationPtr, unsigned char SourceRowCount, unsigned char SourceSpriteSize, int SourceRowPtrOffset); //Used for loading MechSnap sprites
+[[reko::address("207F:28A8")]] void CopyStructAToStructB(unsigned short SourceOffset, unsigned short SourceSegment, unsigned short DestinationOffset, unsigned short DestinationSegment);
 
 //Game UI
 [[reko::address("1E56:0388")]] void Draw_Top_Graphic_Sidebar();
@@ -146,6 +147,7 @@ typedef struct Mech
 
 
 //Graphics Functions
+[[reko::address("1F3D:063B")]] void Load_File_To_Memory(unsigned long FileName, unsigned long Memory); 
 [[reko::address("0800:4621")]] void Load_And_Draw_BTTLTECH_ICN();
 [[reko::address("0800:46A7")]] void Load_And_Draw_BTTITLE_CMP();
 [[reko::address("0800:320B")]] void Load_And_Draw_ANIMATE_ICN();
@@ -189,7 +191,7 @@ typedef struct Mech
 [[reko::address("207F:3B68")]] void Append_Large_Text_To_Memory(unsigned long * __far TextPtr, unsigned long * __far AppendTextPtr); //Port replace with SB
 [[reko::address("135D:02A8")]] void Display_StarLeague_Cache_Dialog_Window();
 [[reko::address("135D:02D2")]] void StarLeague_HyperPulse_Power_Dialog_Window(unsigned short CharacterPosX_04, unsigned short CharacterPosY_06);
-
+[[reko::address("207F:3B9E")]] void Loop_Until_TextPtr_Null(unsigned long TextPtr);
 
 
 // Line Drawing Functions
@@ -240,7 +242,9 @@ typedef struct Mech
 [[reko::address("11B8:080A")]] void Mechlube_Modify_Mech();
 [[reko::address("11B8:0925")]] void Mechlube_Upgrade_Mech();
 [[reko::address("135D:03AA")]] void StarLeague_Security_Terminal(unsigned short CharacterPosX, unsigned short CharacterPosY);
-
+[[reko::address("183B:2591")]] void Scan_Enemies(unsigned char NumCombatantsOnField);
+[[reko::address("11B8:0D58")]] void Teammate_Mech_Assign(unsigned char wArg04);
+[[reko::address("11B8:104E")]] void KuritaParty_RexJoinsFight(); 
 
 
 // Math functions
@@ -311,7 +315,7 @@ typedef struct Mech
 [[reko::address("0DAB:0D3D")]] void Combat_engaged();
 [[reko::address("0DAB:1467")]] void Scan_Humans(int ScanTarget, int wArg08);
 [[reko::address("0800:0000")]] void Main_Game_Loop(unsigned char Disable_Input);
-
+[[reko::address("0800:240B")]] void MemoryPtr_Copy_240B(); //CHECK ASM variable values incorrect
 [[reko::address("1AE8:12C7")]] void Combat_AudioVisual_Effects(unsigned char ShooterId_04, unsigned char CombatantId, unsigned char WeaponId_Used, unsigned char PosOffset_0A,  unsigned char Bool_NonMissile_0C, unsigned char CombatId_Dead_0E, unsigned char MechIsDestroyed_10, unsigned char Dead_CharacterId_12, word16 Bool_OnFoot_14, unsigned int* MemoryFarPtr_16);
 [[reko::address("1AE8:1E46")]] void Combat_RandomUsage_1E46(unsigned short wArg04, unsigned short wArg06, unsigned short wArg08);
 [[reko::address("1AE8:000C")]] void Combat_Mechanics(int IsCombat);
@@ -326,7 +330,8 @@ typedef struct Mech
 [[reko::address("135D:01E9")]] void StarLeague_Secret_Passageway_Discovered(); //Variable set inside loop needs reviewing
 [[reko::address("0DAB:0B95")]] void Interrupts_And_Retrace(); //Odd loops. Check ASM. Graphics function
 [[reko::address("1E56:01E7")]] void WriteDisplayMemory_ForLoop(int ptrArg04, int wArg08, int wArg0A, int wArg0C, int wArg0E, int wArg10); //Incorrect Args?
-
+[[reko::address("1467:0002")]] void Assign_Pilot_and_rider_to_Mechs(int wArg04); //fp - 26 issue
+[[reko::address("0FDC:0629")]] void Mech_Mission_0629(int wArg04); //fp - 0x0E issue. ASM comments in func
 
 //All Same function? //ASM?
 //[[reko::address("207F:3C15")]] void ASM_Function_3C15(); 
@@ -375,6 +380,8 @@ typedef struct Mech
 
 
 //DOS
+[[reko::address("207F:3BDC")]] unsigned short Check_Input_For_Character();
+[[reko::address("207F:0213")]] void DOS_DirectConsoleOutput(char Character);  
 [[reko::address("0D27:000A")]] static void Print(char * __far Text); //Print to DOS_DirectConsoleOutput
 [[reko::address("1F3D:0814")]] void DOS_Load_File_to_memory(unsigned long * __far Filename, unsigned long * __far BufferForData, unsigned short BytesToRead);
 [[reko::address("0800:28CC")]] void Set_Default_Disk_Drive(unsigned char Drive);
@@ -398,9 +405,10 @@ typedef struct Mech
 [[reko::address("207F:2E3B")]] void DOS_Interrupts_Preamble_2E3B();
 [[reko::address("207F:2E76")]] void DOS_Interrupt_Vector_Post_2E76();
 [[reko::address("207F:32A0")]] int DOS_memory_resize_perhaps(int *ax);
-[[reko::address("207F:0213")]] void DOS_DirectConsoleOutput(char Character);  
+[[reko::address("207F:2F9F")]] int DOS_SI_Transfer_to_DI();
 
 // DOS File Read
+[[reko::address("207F:33D0")]] unsigned Get_FileHandle(int * __far FileName, unsigned int Bitflag); //fp - 6
 [[reko::address("207F:3356")]] void DOS_set_file_position(int FileHandle, int B, int C, int D); // Needs work
 [[reko::address("207F:3580")]] void DOS_read_file_handler(int FileHandle, int * __far BufferForData, unsigned BytesToRead);
 
@@ -438,7 +446,18 @@ typedef struct Mech
 [[reko::address("207F:00A9")]] void Sound_Freq_Countdown_Loop(int wArg04, int wArg06);
 
 
-
+//Debug Memory functions??? <-- Handles memory reshuffling?
+[[reko::address("207F:3835")]] int Debug_Memory_3835(unsigned short MemorySize_04); //fp -8 issue
+[[reko::address("207F:38FD")]] void Debug_Memory_38FD(); // bool A_fn207F_38FD(int *ptrArg00);
+[[reko::address("207F:39E0")]] void Debug_Memory_39E0()
+[[reko::address("207F:38E2")]] void Debug_Memory_38E2();//unsigned char Debug_Memory_38E2(unsigned short ptrArg02)
+[[reko::address("207F:3874")]] void Debug_Memory_3874();  //bool Return_Bool_3874();
+[[reko::address("207F:37DA")]] unsigned short Debug_Memory_37DA(unsigned short wArg04);  //int A_fn207F_37DA(int wArg04);
+[[reko::address("207F:3A3C")]] unsigned char Debug_Memory_3A3C(unsigned short * ax, unsigned short* es); //bool A_fn207F_3A3C(int *ax, int *es);
+[[reko::address("207F:3A1A")]] void Debug_Memory_3A1A();
+[[reko::address("207F:3A1A")]] void Debug_Memory_3A1A();
+[[reko::address("207F:3A5E")]] unsigned char Debug_Memory_3A5E(unsigned short wArg04, unsigned short wArg06, unsigned short wArg08, unsigned short wArg0A, unsigned short wArg0C);
+[[reko::address("207F:3ACC")]]unsigned char Debug_Memory__3ACC();
 
 
 
@@ -643,10 +662,10 @@ typedef struct Mech
 
 [[reko::address("207F:324A")]] int DOS_write_struct(int wArg04);
 // DOS Load
-[[reko::address("207F:33D0")]] unsigned Get_FileHandle(int * __far FileName, unsigned int Bitflag);
+
 [[reko::address("0800:2DA8")]] void DOS_Load_Map_Files(int wArg04, int MapFileNum);
 
-[[reko::address("1F3D:063B")]] void Load_File_To_Memory(int * __far FileName, int * __far Memory);
+
 [[reko::address("207F:356F")]] int DOS_Load_File_Check(int cx);
 [[reko::address("0FDC:1D30")]] void Load_Indexed_BLD_Files(int BLD_FileIndex);
 
@@ -674,7 +693,7 @@ typedef struct Mech
 
 
 
-[[reko::address("183B:2591")]] void Scan_Enemies(int PtrScanningMech);
+
 [[reko::address("183B:273D")]] void Salvage_If_wArg06(unsigned char MechId, int wArg06);
 
 
@@ -687,7 +706,7 @@ typedef struct Mech
 
 
 // Problem functions - Not translated correctly
-[[reko::address("207F:2F9F")]] int SI_Transfer_to_DI();
+
 
 [[reko::address("207F:104E")]] void Map_data_structure(unsigned int wArg04);
 
@@ -712,7 +731,7 @@ typedef struct Mech
 [[reko::address("207F:3BDC")]] short If_ds_5367_then_get_stdin_status();
 [[reko::address("0800:0E4B")]] void Graphical_Operation_0E4B();
 [[reko::address("0800:1732")]] void A_fn0800_1732(int wArg04);
-[[reko::address("0800:240B")]] void MemoryPtr_Copy_240B();
+
 [[reko::address("0800:24C2")]] void CharacterPos_24C2();
 [[reko::address("207F:3BB6")]] void fn207F_3BB6(int * __far Ptr, char * __far TextPtr);
 
@@ -736,7 +755,7 @@ typedef struct Mech
 
 
 
-[[reko::address("11B8:0D58")]] void Teammate_Mech_Assign(unsigned wArg04);
+
 
 
 
@@ -747,7 +766,7 @@ typedef struct Mech
 
 [[reko::address("135D:0980")]] void Map_Interactable_Menu_And_Sound();
 [[reko::address("135D:0AB6")]] void StarLeague_Key_Codes(int wArg04, int wArg06, int wArg08);
-[[reko::address("1467:0002")]] void Assign_Pilot_and_rider_to_Mechs(int wArg04);
+
 
 
 
@@ -764,13 +783,13 @@ typedef struct Mech
 [[reko::address("0800:4DC7")]] void Load_Game_Map_Data();
 
 [[reko::address("0FDC:05F7")]] unsigned A_fn0FDC_05F7(int *ptrArg04);
-[[reko::address("0FDC:0629")]] void Mech_Mission_0629(int wArg04);
+
 
 [[reko::address("0FDC:13DE")]] void Weapon_inventory_13DE(int wArg04, int wArg06);
 
 [[reko::address("0FDC:1B41")]] void Mech_Mission_Function();
 [[reko::address("0FDC:1C9B")]] void Mech_Mission_function_2();
-[[reko::address("11B8:104E")]] void KuritaParty_RexJoinsFight();
+
 [[reko::address("11B8:137F")]] void Mech_Mission_Operation_137f();
 [[reko::address("11B8:1441")]] void Mech_Mission_Operation_1441();
 [[reko::address("11B8:152F")]] void Building_Operation_152F();
@@ -800,7 +819,10 @@ typedef struct Mech
 
 
 
-[[reko::address("207F:0BFB")]] void Struct_Loop_Operations_0BFB();
+[[reko::address("207F:0BFB")]] void Map_Pos_Struct_Loop_Operations_0BFB(); //Needs review, check args
+[[reko::address("207F:0D07")]] void Map_Pos_0D07(); //Needs review, check args
+[[reko::address("207F:0D79")]] void Map_Pos_0D79(); //Needs review, check args
+[[reko::address("207F:0DF8")]] void Map_Pos_0DF8(); //Needs review, check args
 
 
 
@@ -808,13 +830,8 @@ typedef struct Mech
 
 
 
-[[reko::address("207F:37DA")]] int A_fn207F_37DA(int wArg04);
-[[reko::address("207F:3835")]] int Return_bool_fn207F_3835(int wArg04);
-[[reko::address("207F:3874")]] bool Return_Bool_3874();
-[[reko::address("207F:38E2")]] bool fn207F_38E2();
-[[reko::address("207F:38FD")]] bool A_fn207F_38FD(int *ptrArg00);
-[[reko::address("207F:3A3C")]] bool A_fn207F_3A3C(int *ax, int *es);
-[[reko::address("207F:3BDC")]] unsigned short Check_Input_For_Character();
+
+
 [[reko::address("207F:3CD8")]] void Unused_Function_3CD8();
 [[reko::address("207F:3E62")]] unsigned rotate_with_carry_do_while(unsigned wArg04, unsigned wArg06, unsigned wArg08, unsigned wArg0A);
 [[reko::address("207F:1ECE")]] void a_fn207F_1ECE(int * __far ptr, int B);
@@ -827,16 +844,13 @@ typedef struct Mech
 
 
 
-[[reko::address("207F:39E0")]] void A_fn207F_39E0();
-[[reko::address("207F:3A1A")]] void A_fn207F_3A1A();
-[[reko::address("207F:3ACC")]] bool A_fn207F_3ACC();
-
-
-[[reko::address("207F:3B9E")]] void A_fn207F_3B9E(int * __far ptr);
 
 
 
-[[reko::address("207F:28A8")]] void CopyStructAToStructB(unsigned int SourceOffset, int SourceSegment, unsigned int DestinationOffset, int DestinationSegment);
+
+
+
+
 
 
 
