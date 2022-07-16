@@ -24,46 +24,7 @@
       </procedure>
       <procedure name="Combat_Kick_2231">
         <address>183B:2231</address>
-      </procedure> 
-      <procedure name="Sound_Operation_02A3">
-        <address>1FC5:02A3</address>
-      </procedure>
-      <procedure name="Sound_Operation_02EB">
-        <address>1FC5:02EB</address>
-      </procedure>
-      <procedure name="Sound_Operation_0345">
-        <address>1FC5:0345</address>
-      </procedure>
-      <procedure name="Sound_Operation_03A8">
-        <address>1FC5:03A8</address>
-      </procedure>
-      <procedure name="Sound_Operation_040B">
-        <address>1FC5:040B</address>
-      </procedure>
-      <procedure name="Sound_Ptr_Multiply_06F6">
-        <address>1FC5:06F6</address>
-      </procedure>
-      <procedure name="seg204B_001E_ROR_Set_Var_00F5">
-        <address>204B:00F5</address>
-      </procedure>
-      <procedure name="Tandy_SoundCard_Output">
-        <address>204B:0160</address>
-      </procedure>
-      <procedure name="PC_Speaker_Set_Value_0179">
-        <address>204B:0179</address>
-      </procedure>
-      <procedure name="Tandy_Soundcard_Operations_01B8">
-        <address>204B:01B8</address>
-      </procedure>
-      <procedure name="Timer_8253_5">
-        <address>207F:001C</address>
-      </procedure>
-      <procedure name="Sound_Freq_Countdown_Loop_00A9">
-        <address>207F:00A9</address>
-      </procedure>  
-      <procedure name="Tandy_1000_Graphics_Operation_08A1">
-        <address>207F:08A1</address>
-      </procedure>
+      </procedure>      
       <procedure name="EGA_registers_0A9F">
         <address>207F:0A9F</address>
       </procedure>     
@@ -95,20 +56,8 @@
       <procedure name="DOS_set_file_position_self_references">
         <address>207F:3777</address>
       </procedure>
-      <procedure name="rotate_with_carry_do_while_parent">
-        <address>207F:3D44</address>
-      </procedure>
-      <procedure name="rotate_with_carry_loop_parent">
-        <address>207F:3D6C</address>
-      </procedure>
       <procedure name="Arg_less_than_zero_else_do_while_rotate_with_carry">
         <address>207F:3D92</address>
-      </procedure>
-      <procedure name="If_Arg_multiplication_return_func">
-        <address>207F:3E2E</address>
-      </procedure>
-      <procedure name="rotate_with_carry_loop_and_return">
-        <address>207F:3EC4</address>
       </procedure>
       <global>
         <Address>207F:3255</Address>

@@ -253,9 +253,18 @@ typedef struct Mech
 [[reko::address("11B8:104E")]] void KuritaParty_RexJoinsFight(); 
 [[reko::address("1543:0C72")]] void While_Less_Than_26_Function(unsigned char bool_Arg);
 [[reko::address("0FDC:0D49")]] void Mission_GenerateEnemies(unsigned char MissionNumber, unsigned char wArg06);
+[[reko::address("0FDC:1B41")]] void Mech_Mission_Function();
+[[reko::address("0FDC:1C9B")]] void Mech_Mission_function_2();
+[[reko::address("11B8:137F")]] void Mech_Mission_Operation_137f();
+[[reko::address("11B8:1441")]] void Mech_Mission_Operation_1441();
 [[reko::address("0DAB:094B")]] void Loot_Enemy_Soldiers_Dialog(); 
 [[reko::address("0DAB:18E8")]] void Scan_Human_Teammate_suspicious(unsigned char ScanTargetId, unsigned char wArg06, unsigned char wArg08);
-
+[[reko::address("135D:0980")]] void Map_Interactable_Menu_And_Sound();
+[[reko::address("135D:0AB6")]] void StarLeague_Key_Codes(unsigned short wArg04, unsigned short wArg06, unsigned short wArg08);
+[[reko::address("135D:0913")]] void Map_Interactable_Play_Sound(unsigned short CharacterPos_X, unsigned short CharacterPos_Y);
+[[reko::address("1631:15FA")]] unsigned short MechId_Random_Count_15FA(unsigned char MechId_04, unsigned char LessThanCond);
+[[reko::address("11B8:152F")]] void Building_Operation_152F();
+[[reko::address("0FDC:0008")]] void Interact_with_BLD(unsigned char Indexed_BLDFile); 
 
 //Tinyland / overhead map
 [[reko::address("0800:45C2")]] void TinyLand_Graphics_45C2(int wArg04);
@@ -359,7 +368,8 @@ typedef struct Mech
 [[reko::address("207F:0DF8")]] void Map_Pos_0DF8(); //Needs review, check args
 [[reko::address("207F:104E")]] void Map_data_structure(unsigned short wArg04); 
 [[reko::address("0800:2DA8")]] void DOS_Load_Map_Files(int wArg04, int MapFileNum); //CHECK ASM for read file values
-[[reko::address("1543:0CDE")]] unsigned Money_Balance_Function(); //CHECK ASM
+[[reko::address("1543:0CDE")]] void Money_Balance_Function(); //CHECK ASM - Last loop has problem
+[[reko::address("0FDC:13DE")]] void Weapon_inventory_13DE(unsigned char WeaponId, unsigned short wArg06);  //fp - 18 issue
 
 //All Same function? //ASM?
 //[[reko::address("207F:3C15")]] void ASM_Function_3C15(); 
@@ -386,6 +396,17 @@ typedef struct Mech
 
 [[reko::address("1467:08A8")]] void Copyright_Check_Mech_Quiz(); //fp - issue plus loop cmp wrong //Already disabled
 [[reko::address("207F:3CD8")]] void Unused_Function_3CD8(); //No calls to this
+[[reko::address("204B:00F5")]] void Unused_Function_00F5(); //No calls to this
+
+[[reko::address("207F:3E62")]] void rotate_with_carry_do_while(unsigned long wArg04, unsigned long wArg06);
+[[reko::address("207F:3D44")]] void rotate_with_carry_do_while_parent(unsigned long wArg04, unsigned long wArg06);
+
+[[reko::address("207F:3D6C")]] void rotate_with_carry_loop_parent(unsigned long ptrArg04, unsigned char bArg08);
+[[reko::address("207F:3EC4")]] void rotate_with_carry_loop_and_return(unsigned long ptrArg04, unsigned char bArg08); //ASM function
+
+[[reko::address("207F:3D1C")]] void ComStar_Stocks_multiplication(unsigned long* Stocks, unsigned long* wArg08); //  ComStar_Stocks_multiplication <--- Causes ss->sp deref issue 
+[[reko::address("207F:3E2E")]] unsigned long If_Arg_multiplication_return_func(unsigned long* wArg04, unsigned long* wArg08); 
+
 
 //Non-EGA  - Minimum car about these // <-- Wrong Graphics adapter etc
 [[reko::address("207F:2CF7")]] void CGA_Palette_Operation();
@@ -425,6 +446,7 @@ typedef struct Mech
 //DOS Functions - Write
 [[reko::address("207F:2FB2")]] void DOS_write_file_if_Func_Ptr();
 [[reko::address("207F:3275")]] int DOS_write_file(int wArg04);    
+[[reko::address("207F:366A")]] void DOS_write_memory_to_save_file(); //changed args: int DOS_write_memory_to_save_file(int wArg04, int *ptrArg05, int wArg0A);
 
 
 [[reko::address("207F:2EA4")]] void DOS_IOCTL_GET_DEVICE_INFO();
@@ -473,6 +495,20 @@ typedef struct Mech
 [[reko::address("204B:02E4")]] void Tandy_1000_PC_Speakers(int Value);
 [[reko::address("207F:0030")]] void PC_Speaker_ON_ptr_freq(short freq);
 [[reko::address("207F:00A9")]] void Sound_Freq_Countdown_Loop(int wArg04, int wArg06);
+[[reko::address("1FC5:02A3")]] void Sound_Operation_02A3();
+[[reko::address("1FC5:02EB")]] void Sound_Operation_02EB();
+[[reko::address("1FC5:0345")]] void Sound_Operation_0345();
+[[reko::address("1FC5:03A8")]] void Sound_Operation_03A8();
+[[reko::address("1FC5:040B")]] void Sound_Operation_040B();
+[[reko::address("1FC5:06F6")]] void Sound_Ptr_Multiply_06F6(unsigned short wArg04, unsigned short wArg06); //ASM function
+[[reko::address("204B:0160")]] void Tandy_SoundCard_Output(); //No calls to this
+[[reko::address("204B:0179")]] void PC_Speaker_Set_Value_0179(); //No calls to this
+[[reko::address("204B:01B8")]] void Tandy_Soundcard_Operations_01B8(); //No calls to this
+[[reko::address("207F:001C")]] void Timer_8253_5();
+[[reko::address("207F:00A9")]] void Sound_Freq_Countdown_Loop_00A9(unsigned short wArg04, unsigned short wArg06);
+[[reko::address("207F:08A1")]] void Tandy_1000_DrawCall_Line(unsigned char x0, unsigned char y0, unsigned char xLength, unsigned char yLength, unsigned char EGAColour);
+
+
 
 
 //Debug Memory functions??? <-- Handles memory reshuffling?
@@ -502,20 +538,10 @@ typedef struct Mech
 
 
 
-
 //Keyboard_space_key_pressed_Display_Yes_No(0x01) != 0x00)
-//  Load_Game_Map_Data();
 
-
-
-//  ComStar_Stocks_multiplication <--- Causes ss->sp deref issue 
 
 //Position_And_Map_051B();
-
-
-
-
-
 //(VGA_CGA_Graphics_Operations_18EF
 
 
@@ -526,11 +552,6 @@ typedef struct Mech
 
 
 //Confirmed functions
-
-
-
-
-
 
 
 [[reko::address("207F:1DF8")]] void CharPosition_Asigning_To_t09ED_to_t09F1();
@@ -588,7 +609,7 @@ typedef struct Mech
 
 
 
-[[reko::address("207F:3D1C")]] void ComStar_Stocks_multiplication(unsigned short * Stocks, unsigned char wArg08, unsigned char wArg0A);
+
 
 [[reko::address("183B:2AA3")]] void Character_Pos_Grid_Function(unsigned char PosX, unsigned char PosY);
 
@@ -625,7 +646,7 @@ typedef struct Mech
 
 // DOS Write
 
-[[reko::address("207F:366A")]] int DOS_write_memory_to_save_file(int wArg04, int *ptrArg05, int wArg0A);
+
 [[reko::address("207F:377A")]] int DOS_Return_file_write_ptr_377A(int ds_bx);
 [[reko::address("207F:3000")]] bool Return_Bool_DOS_Write_function();
 
@@ -673,53 +694,6 @@ typedef struct Mech
 
 
 
-
-[[reko::address("0FDC:0008")]] void Interact_with_BLD(int Indexed_BLDFile);
 [[reko::address("0FDC:01C0")]] void Large_Switch_Statement(int ptrArg04);
-
-
-[[reko::address("135D:0980")]] void Map_Interactable_Menu_And_Sound();
-[[reko::address("135D:0AB6")]] void StarLeague_Key_Codes(int wArg04, int wArg06, int wArg08);
-
-
-[[reko::address("0FDC:13DE")]] void Weapon_inventory_13DE(int wArg04, int wArg06);
-
-[[reko::address("0FDC:1B41")]] void Mech_Mission_Function();
-[[reko::address("0FDC:1C9B")]] void Mech_Mission_function_2();
-
-[[reko::address("11B8:137F")]] void Mech_Mission_Operation_137f();
-[[reko::address("11B8:1441")]] void Mech_Mission_Operation_1441();
-[[reko::address("11B8:152F")]] void Building_Operation_152F();
-
-[[reko::address("135D:0913")]] void Map_Interactable_Play_Sound(unsigned int CharacterPos_X, unsigned int CharacterPos_Y);
-
-
-
-
-
-
-
-
-[[reko::address("1631:15FA")]] int Return_bool_fn1631_15FA(int *ptrArg04, int LessThanCond);
-
-
-
-[[reko::address("207F:3E62")]] unsigned rotate_with_carry_do_while(unsigned wArg04, unsigned wArg06, unsigned wArg08, unsigned wArg0A);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
