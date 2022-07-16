@@ -111,13 +111,16 @@ typedef struct Mech
 //Game Structure
 [[reko::address("0800:50C8")]] void Start_Game();
 [[reko::address("0D27:0044")]] void Setup_Game(); 
-
+[[reko::address("0800:4DC7")]] void Load_Game_Map_Data();
 [[reko::address("0DAB:0B5E")]] unsigned char Return_Bool_Allow_Computer_Control_Dialog();
 
 
 //Memory
 [[reko::address("207F:2FDC")]] [[reko::characteristics({alloca:true})]] [[reko::returns(register,"sp")]] char *alloca([[reko::arg(register,"ax")]] unsigned ax );
-[[reko::address("1F3D:05BC")]] void Debug_MemoryErrors_For_Sprite_Load(unsigned short MemorySize, unsigned char ValueAlwaysZero);
+[[reko::address("1F3D:05BC")]] void Debug_MemoryErrors_For_Sprite_Load(unsigned long); //Remove this arg , unsigned char ValueAlwaysZero
+[[reko::address("1E56:0AE5")]] void Create_TileSet_Array(unsigned long * __far MemoryLocation, unsigned short XStart, unsigned short  YStart, unsigned char ArraySize);
+[[reko::address("1E56:0A3B")]] void TileSet_Memory_Operation(unsigned long * DisplayPtr, unsigned long ArrayPtr_08, unsigned short XStart_0C, unsigned short YStart_0E); //args changed
+[[reko::address("207F:0313")]] void DrawCall_Read_EGAMemory(unsigned short DestinationOffset, unsigned short DestinationSeg, unsigned short SourceOffset, unsigned short SourceSeg); //new func
 [[reko::address("207F:0931")]] void CopyWordFromAToB(int * __far SourcePtr, int * __far DestinationPtr, unsigned char SourceRowCount, unsigned char SourceSpriteSize, int SourceRowPtrOffset); //Used for loading MechSnap sprites
 [[reko::address("207F:28A8")]] void CopyStructAToStructB(unsigned short SourceOffset, unsigned short SourceSegment, unsigned short DestinationOffset, unsigned short DestinationSegment);
 
@@ -213,11 +216,14 @@ typedef struct Mech
 [[reko::address("183B:22BC")]] void Combat_Mech_Movement(unsigned char MechId, unsigned char SelectedMovementMode);
 [[reko::address("1631:03AB")]] void Combat_Computer_Control(int wArg04, int wArg06);
 [[reko::address("1631:0C63")]] void Combat_Mech_HeatLevels(int * __far ptrArg04);
+[[reko::address("1543:0A35")]] void Combat_Mech_Eject_0A35(unsigned char MechLanceId);
+[[reko::address("183B:28DB")]] unsigned char Combat_MovementPointsRemaining_28DB();
 [[reko::address("183B:27C9")]] void Draw_TerrainDamage_and_Wrecks(unsigned char Sprite, unsigned char PosX, unsigned char PosY);
 [[reko::address("1631:0F24")]] void Combat_PosBracket_0F24(unsigned char TargetId, unsigned char CharacterId);
 [[reko::address("1631:0BB5")]] unsigned short Combat_Operation_0BB5(int wArg04, int wArg06);
 [[reko::address("0800:29F5")]] unsigned int Return_50_CBills();
 [[reko::address("1631:1057")]] void Combat_Weapon_Display_Text_And_Menu_Options(int * __far Ptr);
+[[reko::address("207F:1ECE")]] void Combat_1ECE(unsigned long * ptr, unsigned char B);
 [[reko::address("1631:10A2")]] unsigned char Combat_fn1631_10A2(unsigned char MechLanceId, unsigned char wArg06);
 [[reko::address("1631:1122")]] unsigned char Combat_fn1631_1122(unsigned short wArg04);
 [[reko::address("1631:11AB")]] void Combat_Case_Statement_11AB(unsigned short wArg04, unsigned short wArg06);
@@ -245,6 +251,16 @@ typedef struct Mech
 [[reko::address("183B:2591")]] void Scan_Enemies(unsigned char NumCombatantsOnField);
 [[reko::address("11B8:0D58")]] void Teammate_Mech_Assign(unsigned char wArg04);
 [[reko::address("11B8:104E")]] void KuritaParty_RexJoinsFight(); 
+[[reko::address("1543:0C72")]] void While_Less_Than_26_Function(unsigned char bool_Arg);
+[[reko::address("0FDC:0D49")]] void Mission_GenerateEnemies(unsigned char MissionNumber, unsigned char wArg06);
+[[reko::address("0DAB:094B")]] void Loot_Enemy_Soldiers_Dialog(); 
+[[reko::address("0DAB:18E8")]] void Scan_Human_Teammate_suspicious(unsigned char ScanTargetId, unsigned char wArg06, unsigned char wArg08);
+
+
+//Tinyland / overhead map
+[[reko::address("0800:45C2")]] void TinyLand_Graphics_45C2(int wArg04);
+[[reko::address("207F:1F51")]] void TinyLand_Struct_1F51(unsigned long wArg04);
+[[reko::address("0800:3FAE")]] void Overhead_Map_Draw_3FAE(unsigned short Character_PosX, unsigned short Character_PosY); //CHECK ASM
 
 
 // Math functions
@@ -332,6 +348,18 @@ typedef struct Mech
 [[reko::address("1E56:01E7")]] void WriteDisplayMemory_ForLoop(int ptrArg04, int wArg08, int wArg0A, int wArg0C, int wArg0E, int wArg10); //Incorrect Args?
 [[reko::address("1467:0002")]] void Assign_Pilot_and_rider_to_Mechs(int wArg04); //fp - 26 issue
 [[reko::address("0FDC:0629")]] void Mech_Mission_0629(int wArg04); //fp - 0x0E issue. ASM comments in func
+[[reko::address("0800:1732")]] void Select_As_Target_Variable_1732(unsigned char TargetId); //review -- CHECK ASM
+[[reko::address("0800:231D")]] void Cycle_Through_Characters_231D(unsigned KeyPress);  //review
+[[reko::address("0FDC:05F7")]] unsigned ASM_Func_05F7(int *ptrArg04); //Needs ASM CHECK
+[[reko::address("207F:0BC0")]] unsigned char RandomNumberGenerator_RCL(); // CHECK ASM and write to understand
+[[reko::address("207F:1F04")]] void Overhead_Map_1F04(int wArg04); //review
+[[reko::address("207F:0BFB")]] void Map_Pos_Struct_Loop_Operations_0BFB(); //Needs review, check args
+[[reko::address("207F:0D07")]] void Map_Pos_0D07(); //Needs review, check args
+[[reko::address("207F:0D79")]] void Map_Pos_0D79(); //Needs review, check args
+[[reko::address("207F:0DF8")]] void Map_Pos_0DF8(); //Needs review, check args
+[[reko::address("207F:104E")]] void Map_data_structure(unsigned short wArg04); 
+[[reko::address("0800:2DA8")]] void DOS_Load_Map_Files(int wArg04, int MapFileNum); //CHECK ASM for read file values
+[[reko::address("1543:0CDE")]] unsigned Money_Balance_Function(); //CHECK ASM
 
 //All Same function? //ASM?
 //[[reko::address("207F:3C15")]] void ASM_Function_3C15(); 
@@ -351,12 +379,13 @@ typedef struct Mech
 [[reko::address("11B8:1762")]] void Mechlube_Buy_Ammo(); //fp issue
 [[reko::address("0FDC:17B9")]] void Citadel_Building_Greetings(); //fp -0A issue
 [[reko::address("1CD3:0004")]] void Citadel_Building_Dialogs(unsigned char CaseOption); //Review this and all sub functions	
-
+[[reko::address("183B:1482")]] void Combat_Computer_Control_1482(unsigned char TargetMechId); //review
 
 //----------------------------------
 //Non-Port code
 
 [[reko::address("1467:08A8")]] void Copyright_Check_Mech_Quiz(); //fp - issue plus loop cmp wrong //Already disabled
+[[reko::address("207F:3CD8")]] void Unused_Function_3CD8(); //No calls to this
 
 //Non-EGA  - Minimum car about these // <-- Wrong Graphics adapter etc
 [[reko::address("207F:2CF7")]] void CGA_Palette_Operation();
@@ -449,7 +478,7 @@ typedef struct Mech
 //Debug Memory functions??? <-- Handles memory reshuffling?
 [[reko::address("207F:3835")]] int Debug_Memory_3835(unsigned short MemorySize_04); //fp -8 issue
 [[reko::address("207F:38FD")]] void Debug_Memory_38FD(); // bool A_fn207F_38FD(int *ptrArg00);
-[[reko::address("207F:39E0")]] void Debug_Memory_39E0()
+[[reko::address("207F:39E0")]] void Debug_Memory_39E0();
 [[reko::address("207F:38E2")]] void Debug_Memory_38E2();//unsigned char Debug_Memory_38E2(unsigned short ptrArg02)
 [[reko::address("207F:3874")]] void Debug_Memory_3874();  //bool Return_Bool_3874();
 [[reko::address("207F:37DA")]] unsigned short Debug_Memory_37DA(unsigned short wArg04);  //int A_fn207F_37DA(int wArg04);
@@ -488,15 +517,6 @@ typedef struct Mech
 
 
 //(VGA_CGA_Graphics_Operations_18EF
-
-
-
-
-
-
-
-
-
 
 
 [[reko::address("3EDB:4FBA")]] unsigned char GraphicsAdapter;
@@ -549,7 +569,7 @@ typedef struct Mech
 // Broken functions
 
 
-[[reko::address("1543:0004")]] void Combat_Weapon_UI_0004(int * CombatPtr);
+[[reko::address("1543:0004")]] void Combat_Weapon_UI_0004(int * CombatPtr); //fp - issues
 
 [[reko::address("207F:18D8")]] void Struct_Copy_Operation_18D8();
 [[reko::address("207F:05BF")]] void ASM_LODSB_4x_SHL_RCL(); //LODSB 	Load byte at address DS:(E)SI into AL
@@ -572,8 +592,8 @@ typedef struct Mech
 
 [[reko::address("183B:2AA3")]] void Character_Pos_Grid_Function(unsigned char PosX, unsigned char PosY);
 
-[[reko::address("1543:0A35")]] void Combat_Mech_Eject_0A35(unsigned char MechLanceId);
-[[reko::address("183B:28DB")]] short A_fn183B_28DB();
+
+
 
 
 
@@ -582,54 +602,15 @@ typedef struct Mech
 //Unchecked functions
 // Main functions
 
-
-
-
-
-
-
-
-
-
-
-
-
-// Graphics functions
-
-
-
-
-
-
-
-
 [[reko::address("1E56:0004")]] void Draw_Menu_CGA_VGA_Gtaphical_Operation(int A);
-
-
-
-
-
 [[reko::address("1F3D:0006")]] void Wait_For_N_Vertical_Retraces(unsigned NumberOfRetraces);
-
-
-[[reko::address("207F:0260")]] void Write_Image_To_VGA_Memory(int * __far Image, int VGA_Memory);         
-
-
-
+[[reko::address("207F:0260")]] void Write_Image_To_VGA_Memory(int * __far Image, int VGA_Memory);     
 [[reko::address("1F3D:0086")]] void Graphics_Operations_0086(int * __far Ptr, int wArg08, unsigned wArg0A, int wArg0c, unsigned wArg0E);	   
 
 
 
-
-
-
-
-
-
-
-
 //Random functions
-[[reko::address("207F:0BC0")]] unsigned char RandomNumberGenerator_RCL();
+
 [[reko::address("0800:19F3")]] int RandomNumber_GreaterThan5_AND_07_Plus_01();
 [[reko::address("0800:19DD")]] int Return_Double_RandomNumber_GreaterThan5_AND_07_Plus_01();
 
@@ -640,18 +621,6 @@ typedef struct Mech
 [[reko::address("1F3D:002F")]] int Bool_stdin_status_002F();
 [[reko::address("1F3D:0259")]] int Keyboard_Get_ASCII_Hex_Input();
 [[reko::address("207F:0B8A")]] char Keyboard_GetKey();
-
-
-
-
-// DOS functions
-
-
-
-
-
-   
-
    
 
 // DOS Write
@@ -663,17 +632,11 @@ typedef struct Mech
 [[reko::address("207F:324A")]] int DOS_write_struct(int wArg04);
 // DOS Load
 
-[[reko::address("0800:2DA8")]] void DOS_Load_Map_Files(int wArg04, int MapFileNum);
+
 
 
 [[reko::address("207F:356F")]] int DOS_Load_File_Check(int cx);
 [[reko::address("0FDC:1D30")]] void Load_Indexed_BLD_Files(int BLD_FileIndex);
-
-
-
-
-
-
 
 
 // Data functions
@@ -687,38 +650,9 @@ typedef struct Mech
 // Game Logic
 [[reko::address("0800:1C12")]] int Map_Interactables_Building_Or_Items(unsigned int CurrentPosX, unsigned int CurrentPosY);
 
-
-
-
-
-
-
-
 [[reko::address("183B:273D")]] void Salvage_If_wArg06(unsigned char MechId, int wArg06);
 
 
-[[reko::address("0FDC:0D49")]] void RandomBattle(int wArg04, int wArg06);
-
-
-// Confirm valid
-
-
-
-
-// Problem functions - Not translated correctly
-
-
-[[reko::address("207F:104E")]] void Map_data_structure(unsigned int wArg04);
-
-
-
-
-
-
-
-
- 
- 
  
 // Unorganised
 
@@ -730,59 +664,22 @@ typedef struct Mech
 [[reko::address("207F:37B4")]] int Memory_Operation_37B4();    
 [[reko::address("207F:3BDC")]] short If_ds_5367_then_get_stdin_status();
 [[reko::address("0800:0E4B")]] void Graphical_Operation_0E4B();
-[[reko::address("0800:1732")]] void A_fn0800_1732(int wArg04);
+
 
 [[reko::address("0800:24C2")]] void CharacterPos_24C2();
 [[reko::address("207F:3BB6")]] void fn207F_3BB6(int * __far Ptr, char * __far TextPtr);
 
 
 
-[[reko::address("0800:231D")]] void A_fn0800_231D(unsigned KeyPress);
-
-[[reko::address("0800:3FAE")]] void A_fn0800_3FAE(unsigned short Character_PosX, unsigned short Character_PosY);
-[[reko::address("0800:45C2")]] void A_fn0800_45C2(int wArg04);
 
 
-
-[[reko::address("0DAB:094B")]] void Loot_Enemy_Soldiers_Dialog();
-
-
-[[reko::address("0DAB:18E8")]] void Scan_Human_Teammate_suspicious(int wArg04, int wArg06, int wArg08);
 
 [[reko::address("0FDC:0008")]] void Interact_with_BLD(int Indexed_BLDFile);
 [[reko::address("0FDC:01C0")]] void Large_Switch_Statement(int ptrArg04);
 
 
-
-
-
-
-
-
-
-
-
-
-
 [[reko::address("135D:0980")]] void Map_Interactable_Menu_And_Sound();
 [[reko::address("135D:0AB6")]] void StarLeague_Key_Codes(int wArg04, int wArg06, int wArg08);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-[[reko::address("0800:4DC7")]] void Load_Game_Map_Data();
-
-[[reko::address("0FDC:05F7")]] unsigned A_fn0FDC_05F7(int *ptrArg04);
 
 
 [[reko::address("0FDC:13DE")]] void Weapon_inventory_13DE(int wArg04, int wArg06);
@@ -798,8 +695,8 @@ typedef struct Mech
 
 
 
-[[reko::address("1543:0C72")]] void While_Less_Than_26_Function(int bool_Arg);
-[[reko::address("1543:0CDE")]] unsigned Money_Balance_Function();
+
+
 
 
 
@@ -807,41 +704,7 @@ typedef struct Mech
 
 
 
-
-
-[[reko::address("183B:1482")]] void A_fn183B_1482(int wArg04);
-
-
-
-[[reko::address("1E56:07CB")]] void A_fn1E56_07CB(int ptrArg04, int wArg08);
-[[reko::address("1E56:0A3B")]] void TileSet_Memory_Operation(int * __far DisplayPtr, int wArg08, int wArg0A, int wArg0C, int wArg0E);
-[[reko::address("1E56:0AE5")]] void A_fn1E56_0AE5(int * __far DisplayPtr, int wArg08, int wArg0A, int wArg0C);
-
-
-
-[[reko::address("207F:0BFB")]] void Map_Pos_Struct_Loop_Operations_0BFB(); //Needs review, check args
-[[reko::address("207F:0D07")]] void Map_Pos_0D07(); //Needs review, check args
-[[reko::address("207F:0D79")]] void Map_Pos_0D79(); //Needs review, check args
-[[reko::address("207F:0DF8")]] void Map_Pos_0DF8(); //Needs review, check args
-
-
-
-
-
-
-
-
-
-[[reko::address("207F:3CD8")]] void Unused_Function_3CD8();
 [[reko::address("207F:3E62")]] unsigned rotate_with_carry_do_while(unsigned wArg04, unsigned wArg06, unsigned wArg08, unsigned wArg0A);
-[[reko::address("207F:1ECE")]] void a_fn207F_1ECE(int * __far ptr, int B);
-[[reko::address("207F:1F04")]] void A_fn207F_1F04(int wArg04);
-[[reko::address("207F:1F51")]] void A_fn207F_1F51(int wArg04);
-
-
-
-
-
 
 
 

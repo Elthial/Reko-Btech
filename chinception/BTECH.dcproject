@@ -24,11 +24,7 @@
       </procedure>
       <procedure name="Combat_Kick_2231">
         <address>183B:2231</address>
-      </procedure>
-      <procedure name="Create_TileSet_Array">
-        <address>1E56:0AE5</address>
-        <CSignature>void Create_TileSet_Array(int * __far MemoryLocation, int XStart, int  YStart, int  ArraySize);</CSignature>
-      </procedure>
+      </procedure> 
       <procedure name="Sound_Operation_02A3">
         <address>1FC5:02A3</address>
       </procedure>
@@ -64,10 +60,7 @@
       </procedure>
       <procedure name="Sound_Freq_Countdown_Loop_00A9">
         <address>207F:00A9</address>
-      </procedure>
-      <procedure name="VGA_ReadVGAMemoryAddress">
-        <address>207F:0313</address>
-      </procedure>
+      </procedure>  
       <procedure name="Tandy_1000_Graphics_Operation_08A1">
         <address>207F:08A1</address>
       </procedure>
