@@ -288,6 +288,10 @@ typedef struct Mech
 [[reko::address("207F:13D9")]] unsigned char PosXY_GridSegment(unsigned char bPosX, unsigned char bPosY); 
 [[reko::address("0800:218F")]] void Character_Movement_On_Map(unsigned char IncomingValue);
 [[reko::address("207F:1DF8")]] void Combat_CharPosition_Assign_t09ED_to_t09F1();
+[[reko::address("1543:07CB")]] void Combat_Select_Weapon_Target_UI(unsigned char FriendlyMechId_04, unsigned char WeaponId_06, unsigned char wArg08);
+[[reko::address("183B:1C1F")]] void Combat_Select_Movement_Plan_For_Turn(unsigned char TargetMechId, unsigned char SelectedMovementMode);
+[[reko::address("183B:2231")]] void Combat_Kick_Target(unsigned char FriendlyAttackingMechId);
+[[reko::address("183B:14C3")]] unsigned char Combat_UI_Menu_Logic();
 
 //Random funcs
 [[reko::address("0800:19F3")]] unsigned char RandomNumber_GreaterThan5_AND_07_Plus_01();
@@ -350,7 +354,7 @@ typedef struct Mech
 
 
 
-//Needs review - 53 funcs
+//Needs review - 55 funcs
 [[reko::address("0DAB:04F9")]] void Salvage_Mechs_Dialog(); //<--- Has a bug [Bp -2h] https://github.com/uxmal/reko/issues/1188
 [[reko::address("0800:0E4B")]] void Graphical_Operations_0E4B(); //<--- Has a bug [Bp -2h] https://github.com/uxmal/reko/issues/1188
 [[reko::address("1631:1BFE")]] unsigned char Combat_Return_bool_fn1631_1BFE(unsigned short wArg04, unsigned short wArg06, unsigned short wArg08, unsigned short wArg0A); //<-- Recheck after reko reload / added new args. 
@@ -405,7 +409,8 @@ typedef struct Mech
 [[reko::address("183B:1482")]] void Combat_Computer_Control_1482(unsigned char TargetMechId); //review
 [[reko::address("207F:05BF")]] void EGA_ASM_LODSB_4x_SHL_RCL(); //Inline ASM func? //LODSB instruct = Load byte at address DS:(E)SI into AL 
 [[reko::address("207F:18D8")]] void Struct_Copy_Operation_18D8(); //No call args but needs si / di? Reko registers?
-
+[[reko::address("0FDC:01C0")]] void Large_Switch_Statement(unsigned long ptrArg04); //sp and fp problems - memset values missing // broken case statement
+[[reko::address("0FDC:19F6")]] unsigned short Increment_ptrArg04_by_1_19F6(unsigned short ptrArg04); //check args after large switch
 
 //ASM
 [[reko::address("207F:3BB6")]] void A_fn207F_3BB6(unsigned short wArg04, unsigned short wArg06, unsigned short wArg08, unsigned short wArg0A); //ASM function
@@ -464,7 +469,7 @@ typedef struct Mech
 [[reko::address("207F:2209")]] void CGA_Operation_2209(int A, int * __far Ptr);
 [[reko::address("207F:21A8")]] void Tandy_1000_Operation_21A8( int A, int * __far Ptr);
 [[reko::address("207F:200E")]] void CGA_Variable_Operations_200E(int * __far Ptr, int wArg04, int wArg06, int wArg08, int wArg0A);
-
+[[reko::address("207F:2D64")]] void CGA_Palette_Bitshifting(); //no args calls - unsigned long * __far Ptr, unsigned short B
 
 //DOS
 [[reko::address("207F:3BDC")]] unsigned short Check_Input_For_Character();
@@ -578,9 +583,7 @@ typedef struct Mech
 //Pre-Reko update
 //------------------------------------------------------------------
 //------------------------------------------------------------------
-
-
-
+[[reko::address("207F:2B87")]] unsigned char DrawCall_Combat_Menu(unsigned short Horizonal_StatsLine_Offset_04, unsigned short Vertical_StatsLine_Offset_06, unsigned short wArg08, unsigned char bArg0A);
 
 
 
@@ -606,7 +609,6 @@ typedef struct Mech
 
 
 
-
 ///////////////////////
 //Unchecked functions
 // Main functions
@@ -616,6 +618,22 @@ typedef struct Mech
 
 // Input functions
 
-[[reko::address("0FDC:01C0")]] void Large_Switch_Statement(int ptrArg04);
 
+
+
+
+
+//[[reko::address("207F:0A9F")]] EGA_registers_0A9F
+//[[reko::address("207F:1B1A")]] Struct_Copy_Operation_1B1A
+//[[reko::address("207F:1B94")]] Struct_Copy_Operation_1B94
+//[[reko::address("207F:1BDF")]] VGA_8_loop_1BDF
+//[[reko::address("207F:1F9C")]] Interrupt_flag_sti
+//[[reko::address("207F:1FAD")]] Interrupt_flag_cli
+
+
+//[[reko::address("207F:371E")]] DOS_write_save_file
+//[[reko::address("207F:3777")]] DOS_set_file_position_self_references
+//[[reko::address("207F:3D92")]] Arg_less_than_zero_else_do_while_rotate_with_carry
+   
+      
 

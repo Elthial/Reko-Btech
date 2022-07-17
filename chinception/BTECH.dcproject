@@ -9,56 +9,7 @@
     <includeDir>BTECH.reko</includeDir>
     <resources>BTECH.reko\resources</resources>
     <user>
-      <processor />  
-      <procedure name="Increment_ptrArg04_by_1_19F6">
-        <address>0FDC:19F6</address>
-      </procedure>
-      <procedure name="Combat_Target_UI_07CB">
-        <address>1543:07CB</address>
-      </procedure>  
-      <procedure name="Combat_UI_14C3">
-        <address>183B:14C3</address>
-      </procedure>
-      <procedure name="Combat_Movement_1C1F">
-        <address>183B:1C1F</address>
-      </procedure>
-      <procedure name="Combat_Kick_2231">
-        <address>183B:2231</address>
-      </procedure>      
-      <procedure name="EGA_registers_0A9F">
-        <address>207F:0A9F</address>
-      </procedure>     
-      <procedure name="Struct_Copy_Operation_1B1A">
-        <address>207F:1B1A</address>
-      </procedure>
-      <procedure name="Struct_Copy_Operation_1B94">
-        <address>207F:1B94</address>
-      </procedure>
-      <procedure name="VGA_8_loop_1BDF">
-        <address>207F:1BDF</address>
-      </procedure>
-      <procedure name="Interrupt_flag_sti">
-        <address>207F:1F9C</address>
-      </procedure>
-      <procedure name="Interrupt_flag_cli">
-        <address>207F:1FAD</address>
-      </procedure> 
-      <procedure name="Video_MultiMode_func">
-        <address>207F:2B87</address>
-      </procedure>     
-      <procedure name="Palette_Bitshifting">
-        <address>207F:2D64</address>
-        <CSignature>void Palette_Bitshifting(int * __far Ptr, int B)</CSignature>
-      </procedure>
-      <procedure name="DOS_write_save_file">
-        <address>207F:371E</address>
-      </procedure>
-      <procedure name="DOS_set_file_position_self_references">
-        <address>207F:3777</address>
-      </procedure>
-      <procedure name="Arg_less_than_zero_else_do_while_rotate_with_carry">
-        <address>207F:3D92</address>
-      </procedure>
+      <processor />          
       <global>
         <Address>207F:3255</Address>
         <prim domain="Pointer" size="2" />
