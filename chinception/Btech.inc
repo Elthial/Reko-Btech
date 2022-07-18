@@ -181,6 +181,12 @@ typedef struct Mech
 [[reko::address("1F3D:0006")]] void Wait_For_N_Vertical_Retraces(unsigned char NumberOfRetraces);
 [[reko::address("207F:0260")]] void DrawCall_Image_To_VGA_Memory(unsigned long* __far Image, unsigned short VGA_Memory);    
 [[reko::address("1F3D:0086")]] void Draw_GraphicsFile_In_Memory(unsigned long * Ptr, unsigned short wArg08, unsigned short wArg0A, unsigned short wArg0c, unsigned short wArg0E);	
+[[reko::address("207F:2B87")]] unsigned char DrawCall_Combat_Menu(unsigned short Horizonal_StatsLine_Offset_04, unsigned short Vertical_StatsLine_Offset_06, unsigned short wArg08, unsigned char bArg0A);
+[[reko::address("207F:0A9F")]] void DrawCall_EGA_Combat(unsigned short wArg04, unsigned short wArg06, unsigned short wArg08);
+[[reko::address("207F:1C83")]] void EGA_Copy_A400_Memory_Word_Or_Byte_To_Destination(unsigned short EGAMemoryOffset, unsigned short* DestinationOffSetPtr, unsigned short DestinationSegPtr, unsigned short Seg246C);
+[[reko::address("207F:1BDF")]] void EGA_MemoryCopy_Byte_1BDF(unsigned short GraphicsMemoryOffset, unsigned short* DestinationOffsetPtr, unsigned short* DestinationSegPtr);
+[[reko::address("207F:1B71")]] void EGA_Copy_A400_Memory_Word_Or_Byte_To_Destination_1B71(unsigned short GraphicsMemoryOffset, unsigned short* DestinationOffsetPtr, unsigned short DestinationSegPtr, unsigned short Seg246C);
+
 
 //Text Functions
 [[reko::address("1F3D:00D5")]] void Draw_EGA_Text_To_Screen(unsigned int * __far Textptr, unsigned char Horizonal_StatsLine_Offset, unsigned char Vertical_StatsLine_Offset, unsigned char EGAColour_Font, unsigned char EGAColour_Background);
@@ -205,6 +211,7 @@ typedef struct Mech
 [[reko::address("135D:02A8")]] void Display_StarLeague_Cache_Dialog_Window();
 [[reko::address("135D:02D2")]] void StarLeague_HyperPulse_Power_Dialog_Window(unsigned short CharacterPosX_04, unsigned short CharacterPosY_06);
 [[reko::address("207F:3B9E")]] void Loop_Until_TextPtr_Null(unsigned long TextPtr);
+[[reko::address("1E56:07CB")]] void Draw_Text_To_Screen(unsigned long ptrArg04, unsigned short wArg08);
 
 
 // Line Drawing Functions
@@ -370,7 +377,7 @@ typedef struct Mech
 [[reko::address("0DAB:0D3D")]] void Combat_engaged();
 [[reko::address("0DAB:1467")]] void Scan_Humans(int ScanTarget, int wArg08);
 [[reko::address("0800:0000")]] void Main_Game_Loop(unsigned char Disable_Input);
-[[reko::address("0800:240B")]] void MemoryPtr_Copy_240B(); //CHECK ASM variable values incorrect
+[[reko::address("0800:240B")]] void Combat_MemoryPtr_Copy_240B(); //CHECK ASM variable values incorrect
 [[reko::address("1AE8:12C7")]] void Combat_AudioVisual_Effects(unsigned char ShooterId_04, unsigned char CombatantId, unsigned char WeaponId_Used, unsigned char PosOffset_0A,  unsigned char Bool_NonMissile_0C, unsigned char CombatId_Dead_0E, unsigned char MechIsDestroyed_10, unsigned char Dead_CharacterId_12, word16 Bool_OnFoot_14, unsigned int* MemoryFarPtr_16);
 [[reko::address("1AE8:1E46")]] void Combat_RandomUsage_1E46(unsigned short wArg04, unsigned short wArg06, unsigned short wArg08);
 [[reko::address("1AE8:000C")]] void Combat_Mechanics(int IsCombat);
@@ -401,8 +408,6 @@ typedef struct Mech
 [[reko::address("0FDC:13DE")]] void Weapon_inventory_13DE(unsigned char WeaponId, unsigned short wArg06);  //fp - 18 issue
 [[reko::address("0800:24C2")]] void CharacterPos_24C2();
 [[reko::address("207F:0572")]] void VGA_Inline_ASM_Loop(unsigned long* __far PtrSource, unsigned long* __far PtrDestination, unsigned short BytesToRead); //Needs Review / ASM rewrite
-[[reko::address("207F:1ACE")]] void Graphic_Memory_To_Destination_1ACE(unsigned short dh, unsigned short* DestinationOffsetPtr, unsigned short DestinationSegPtr, unsigned short Seg246C); //Need args review - No push for call but seems like args?
-[[reko::address("207F:1AA8")]] void Graphic_Memory_To_Destination(unsigned short dh, unsigned short* DestinationOffsetPtr, unsigned short* DestinationSegPtr, unsigned short Seg246C); //Need args review - No push for call but seems like args?
 [[reko::address("11B8:1762")]] void Mechlube_Buy_Ammo(); //fp issue
 [[reko::address("0FDC:17B9")]] void Citadel_Building_Greetings(); //fp -0A issue
 [[reko::address("1CD3:0004")]] void Citadel_Building_Dialogs(unsigned char CaseOption); //Review this and all sub functions	
@@ -411,6 +416,12 @@ typedef struct Mech
 [[reko::address("207F:18D8")]] void Struct_Copy_Operation_18D8(); //No call args but needs si / di? Reko registers?
 [[reko::address("0FDC:01C0")]] void Large_Switch_Statement(unsigned long ptrArg04); //sp and fp problems - memset values missing // broken case statement
 [[reko::address("0FDC:19F6")]] unsigned short Increment_ptrArg04_by_1_19F6(unsigned short ptrArg04); //check args after large switch
+[[reko::address("1543:0004")]] void Combat_Weapon_UI_0004(unsigned char TargetId); //fp - issues - 1543:0018 C6 42 E0 00 mov byte ptr [bp+si-20h],0h
+[[reko::address("183B:1774")]] void Combat_MovementTarget_unknown_1774(unsigned char TargetId, unsigned char Bool_06); //fp - issue - Draw_EGA_Text_To_Screen(fp - 16, (uint8) v27_177, (uint8) v28_180, 0x0F, 0x00);
+[[reko::address("207F:1AF4")]] void EGA_ptr_Operations_1AF4();//(unsigned long* ptrArg04, unsigned long* ptrRrg08);
+[[reko::address("207F:1ACE")]] void Graphic_Memory_To_Destination_1ACE(); //unsigned short dh, unsigned short* DestinationOffsetPtr, unsigned short DestinationSegPtr, unsigned short Seg246C); //Need args review - No push for call but seems like args?
+[[reko::address("207F:1AA8")]] void Graphic_Memory_To_Destination(); //(unsigned short dh, unsigned short* DestinationOffsetPtr, unsigned short* DestinationSegPtr, unsigned short Seg246C); //Need args review - No push for call but seems like args?
+
 
 //ASM
 [[reko::address("207F:3BB6")]] void A_fn207F_3BB6(unsigned short wArg04, unsigned short wArg06, unsigned short wArg08, unsigned short wArg0A); //ASM function
@@ -439,6 +450,7 @@ typedef struct Mech
 [[reko::address("1467:08A8")]] void Copyright_Check_Mech_Quiz(); //fp - issue plus loop cmp wrong //Already disabled
 [[reko::address("207F:3CD8")]] void Unused_Function_3CD8(); //No calls to this
 [[reko::address("204B:00F5")]] void Unused_Function_00F5(); //No calls to this
+[[reko::address("204B:00DE")]] void Unused_Function_00DE(); //No calls to this
 
 [[reko::address("207F:3E62")]] void rotate_with_carry_do_while(unsigned long wArg04, unsigned long wArg06);
 [[reko::address("207F:3D44")]] void rotate_with_carry_do_while_parent(unsigned long wArg04, unsigned long wArg06);
@@ -448,6 +460,7 @@ typedef struct Mech
 
 [[reko::address("207F:3D1C")]] void ComStar_Stocks_multiplication(unsigned long* Stocks, unsigned long* wArg08); //  ComStar_Stocks_multiplication <--- Causes ss->sp deref issue 
 [[reko::address("207F:3E2E")]] unsigned long If_Arg_multiplication_return_func(unsigned long* wArg04, unsigned long* wArg08); 
+[[reko::address("207F:3D92")]] unsigned short Arg_less_than_zero_else_do_while_rotate_with_carry(unsigned long wArg04, unsigned long wArg08);
 
 
 //Non-EGA  - Minimum car about these // <-- Wrong Graphics adapter etc
@@ -481,6 +494,14 @@ typedef struct Mech
 [[reko::address("207F:014C")]] void DOS_SetDrive(unsigned char Drive);   
 [[reko::address("204B:033C")]] unsigned char DOS_Music_If_XOR_0x0186_Is_ZERO(); 
 [[reko::address("207F:0B8A")]] char Keyboard_GetKey();
+[[reko::address("207F:1F9C")]] void Interrupt_flag_sti();
+[[reko::address("207F:1FAD")]] void Interrupt_flag_cli();
+
+// fn207F_32F5 - DOS ASM
+// fn207F_32F7 - DOS ASM
+// fn207F_3308 - DOS ASM
+// fn207F_376F - DOS ASM
+
 
 //DOS Functions - Memory
 [[reko::address("207F:2D82")]] void Main(); // DOS Memory extender?
@@ -494,7 +515,8 @@ typedef struct Mech
 [[reko::address("207F:37B4")]] unsigned char Dos_Write_Memory_Operation_37B4(unsigned short ds);   // added ds arg
 [[reko::address("207F:324A")]] unsigned short DOS_write_struct(unsigned short wArg04);
 [[reko::address("207F:377A")]] int DOS_Write_Return_file_ptr_377A(int ds_bx); //JMP function. No Args
-
+[[reko::address("207F:371E")]] void DOS_write_save_file();
+[[reko::address("207F:3777")]] void DOS_set_file_position_self_references();   //ASM recursive function, no args, jmp call
 
 [[reko::address("207F:2EA4")]] void DOS_IOCTL_GET_DEVICE_INFO();
 [[reko::address("207F:3C82")]] void DOS_Set_Interrupt_Vector( int * __far PtrOffset ); 
@@ -573,67 +595,4 @@ typedef struct Mech
 [[reko::address("207F:3A5E")]] unsigned char Debug_Memory_3A5E(unsigned short wArg04, unsigned short wArg06, unsigned short wArg08, unsigned short wArg0A, unsigned short wArg0C);
 [[reko::address("207F:3ACC")]] unsigned char Debug_Memory__3ACC();
 
-
-
-
-
-
-//------------------------------------------------------------------
-//------------------------------------------------------------------
-//Pre-Reko update
-//------------------------------------------------------------------
-//------------------------------------------------------------------
-[[reko::address("207F:2B87")]] unsigned char DrawCall_Combat_Menu(unsigned short Horizonal_StatsLine_Offset_04, unsigned short Vertical_StatsLine_Offset_06, unsigned short wArg08, unsigned char bArg0A);
-
-
-
-
-
-[[reko::address("207F:1C83")]] void EGA_Copy_A400_Memory_Word_Or_Byte_To_Destination(unsigned short EGAMemoryOffset, unsigned short* DestinationOffSetPtr, unsigned short DestinationSegPtr, unsigned short Seg246C);
-[[reko::address("207F:1BDF")]] void EGA_MemoryCopy_Byte_1BDF(unsigned short GraphicsMemoryOffset, unsigned short* DestinationOffsetPtr, unsigned short* DestinationSegPtr);
-[[reko::address("207F:1B71")]] void EGA_Copy_A400_Memory_Word_Or_Byte_To_Destination_1B71(unsigned short GraphicsMemoryOffset, unsigned short* DestinationOffsetPtr, unsigned short DestinationSegPtr, unsigned short Seg246C);
-
-
-  
- //A_fn207F_1AF4  
-
-
-//Combat
-[[reko::address("183B:1774")]] void Combat_MovementTarget_unknown_1774(unsigned char TargetId, unsigned char Bool_06);
-
-
-// Broken functions
-[[reko::address("1543:0004")]] void Combat_Weapon_UI_0004(int * CombatPtr); //fp - issues
-
-
-
-
-
-///////////////////////
-//Unchecked functions
-// Main functions
-
-  
-
-
-// Input functions
-
-
-
-
-
-
-//[[reko::address("207F:0A9F")]] EGA_registers_0A9F
-//[[reko::address("207F:1B1A")]] Struct_Copy_Operation_1B1A
-//[[reko::address("207F:1B94")]] Struct_Copy_Operation_1B94
-//[[reko::address("207F:1BDF")]] VGA_8_loop_1BDF
-//[[reko::address("207F:1F9C")]] Interrupt_flag_sti
-//[[reko::address("207F:1FAD")]] Interrupt_flag_cli
-
-
-//[[reko::address("207F:371E")]] DOS_write_save_file
-//[[reko::address("207F:3777")]] DOS_set_file_position_self_references
-//[[reko::address("207F:3D92")]] Arg_less_than_zero_else_do_while_rotate_with_carry
-   
-      
 
