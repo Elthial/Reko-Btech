@@ -163,7 +163,7 @@ typedef struct Mech
 [[reko::address("0800:46A7")]] void Load_And_Draw_BTTITLE_CMP();
 [[reko::address("0800:320B")]] void Load_And_Draw_ANIMATE_ICN();
 [[reko::address("1F3D:06C3")]] void Back_to_Game_Graphics_Operation();
-[[reko::address("207F:245C")]] void EGA_Assign_MemoryPtrs_Operation(unsigned long * __far Ptr, unsigned long * __far Ptr2, unsigned char wArg0C, unsigned char wArg0E, unsigned char wArg10, unsigned char wArg12);
+[[reko::address("207F:245C")]] void EGA_DrawBox_Operation(unsigned long * __far VGAMemory, unsigned long * __far Ptr2, unsigned short X0, unsigned short Y0, unsigned short X1, unsigned short Y1);
 [[reko::address("0800:1AFD")]] void Draw_Animation_Scene();
 [[reko::address("207F:1FBE")]] void Graphics_Set_Screen_To_Black();
 [[reko::address("207F:1E37")]] void DrawCall_EGA_MCGA_Animations();
@@ -173,11 +173,12 @@ typedef struct Mech
 [[reko::address("207F:0B73")]] unsigned char BIOS_Set_Video_Mode(unsigned char VideoMode);  
 [[reko::address("0DAB:0C8F")]] void Set_Video_Mode();
 [[reko::address("0DAB:0D12")]] void Set_Video_Mode_to_Text_Mode();
-[[reko::address("207F:2CE1")]] void SaveVideoMode_246C_B764(unsigned char GraphicsAdapter);
-[[reko::address("207F:1D8C")]] void Set_Vars_026E_0270(unsigned long * __far Ptr);
+[[reko::address("207F:2CE1")]] void Store_VideoMode(unsigned char GraphicsAdapter);
+[[reko::address("207F:1D8C")]] void Store_PtrFileToMemoryBlock(unsigned long * __far PtrFileToMemoryBlock);
 [[reko::address("1F3D:0525")]] void Set_Palette_registers(unsigned char Offset);
 [[reko::address("207F:0B40")]] void Wait_For_Retrace(unsigned char ContinueDuringVertical);
-[[reko::address("207F:275C")]] void DrawCall_WriteTextPtr(unsigned long* DisplayMemory, unsigned short wArg08, unsigned short wArg0A);
+[[reko::address("207F:275C")]] void DrawCall_SingleTile(unsigned long* Tile, unsigned short PosX, unsigned short PosY);
+[[reko::address("1E56:01E7")]] void DrawCall_LineOfTiles(unsigned long* TileIndex, unsigned short TileId, unsigned short PosX, unsigned short PosY, unsigned short TotalLength, unsigned short IsXAxis); 
 [[reko::address("1F3D:0006")]] void Wait_For_N_Vertical_Retraces(unsigned char NumberOfRetraces);
 [[reko::address("207F:0260")]] void DrawCall_Image_To_VGA_Memory(unsigned long* __far Image, unsigned short VGA_Memory);    
 [[reko::address("1F3D:0086")]] void Draw_GraphicsFile_In_Memory(unsigned long * Ptr, unsigned short wArg08, unsigned short wArg0A, unsigned short wArg0c, unsigned short wArg0E);	
@@ -361,7 +362,7 @@ typedef struct Mech
 
 
 
-//Needs review - 55 funcs
+//Needs review - 54 funcs
 [[reko::address("0DAB:04F9")]] void Salvage_Mechs_Dialog(); //<--- Has a bug [Bp -2h] https://github.com/uxmal/reko/issues/1188
 [[reko::address("0800:0E4B")]] void Graphical_Operations_0E4B(); //<--- Has a bug [Bp -2h] https://github.com/uxmal/reko/issues/1188
 [[reko::address("1631:1BFE")]] unsigned char Combat_Return_bool_fn1631_1BFE(unsigned short wArg04, unsigned short wArg06, unsigned short wArg08, unsigned short wArg0A); //<-- Recheck after reko reload / added new args. 
@@ -391,7 +392,6 @@ typedef struct Mech
 [[reko::address("0800:35D3")]] void Save_Game(); // fp-4 issues from  DOS_write_memory_to_save_file
 [[reko::address("135D:01E9")]] void StarLeague_Secret_Passageway_Discovered(); //Variable set inside loop needs reviewing
 [[reko::address("0DAB:0B95")]] void Interrupts_And_Retrace(); //Odd loops. Check ASM. Graphics function
-[[reko::address("1E56:01E7")]] void WriteDisplayMemory_ForLoop(unsigned long* ptrArg04, unsigned char wArg08, unsigned short wArg0A, unsigned short wArg0C, unsigned char WriteDisplayCountMax); //removed unused unsigned short wArg0E,
 [[reko::address("1467:0002")]] void Assign_Pilot_and_rider_to_Mechs(int wArg04); //fp - 26 issue
 [[reko::address("0FDC:0629")]] void Mech_Mission_0629(int wArg04); //fp - 0x0E issue. ASM comments in func
 [[reko::address("0800:1732")]] void Select_As_Target_Variable_1732(unsigned char TargetId); //review -- CHECK ASM
