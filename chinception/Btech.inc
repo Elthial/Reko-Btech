@@ -474,7 +474,7 @@ typedef struct Mech
 [[reko::address("207F:1B94")]] void Non_EGA_MemoryCopy_1B94(unsigned short* SourceSegPtr, unsigned short* SourceOffset, unsigned short* DestinationOffsetPtr, unsigned short* DestinationSegPtr, unsigned short Seg246C);
 [[reko::address("207F:1BFC")]] void Non_EGA_MemoryCopy_1BFC(unsigned short* SourceSegPtr, unsigned short* SourceOffset, unsigned short* DestinationOffsetPtr, unsigned short* DestinationSegPtr, unsigned short Seg246C);
 [[reko::address("207F:1B1A")]] void Non_EGA_MemoryCopy_1B1A(unsigned short* SourceSegPtr, unsigned short* SourceOffset, unsigned short* DestinationOffsetPtr, unsigned short* DestinationSegPtr, unsigned short Seg246C);
-[[reko::address("207F:00D1")]] void CGA_Copy_To_Memory(unsigned long * __far Ptr);
+[[reko::address("207F:00D1")]] void CGA_Copy_To_Memory(unsigned long * __far Ptr_CGAMemory);
 [[reko::address("207F:01D7")]] void CGA_Copy_Struct_Operation(int WhileEndCond, int SourceStruct); //Arg are likely single long _far ptr
 [[reko::address("207F:0163")]] void CGA_Struct_Operations_0163(int * __far Ptr1, int * __far Ptr2, int A, int B);
 [[reko::address("207F:22A5")]] void MCGA_Operation_22A5( int A, int * __far Ptr);
