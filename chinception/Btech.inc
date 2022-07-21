@@ -49,6 +49,18 @@ typedef struct Mech
 		unsigned char Unknown_03;
 } Mech;
 
+typedef struct Weapon
+{
+	unsigned char Name[11];
+	unsigned char Damage;
+	unsigned char UnknownValue00;
+	unsigned char Heat;
+	unsigned char UnknownValue01;
+	unsigned char UnknownValue02;
+	unsigned char SkillType;
+} Weapon;
+
+
 //------------------------------------------------------------------
 //Infantry Variables
 //------------------------------------------------------------------
@@ -97,6 +109,43 @@ typedef struct Mech
 [[reko::address("2FE8:05DE")]] Mech Spectator;   //Reference Stats - Arena Floating Camera
 [[reko::address("2FE8:065B")]] Mech URBANMECH;   //Reference Stats
 
+//Weapon Reference Stats
+[[reko::address("3EDB:2ED8")]] Weapon Cludgel;   //Reference Stats
+[[reko::address("3EDB:2EE9")]] Weapon Knife;         //Reference Stats
+[[reko::address("3EDB:2EFA")]] Weapon Sword;         //Reference Stats
+[[reko::address("3EDB:2F0B")]] Weapon Vibroblade;    //Reference Stats
+[[reko::address("3EDB:2F1C")]] Weapon Shortbow;      //Reference Stats
+[[reko::address("3EDB:2F2D")]] Weapon Longbow;       //Reference Stats
+[[reko::address("3EDB:2F3E")]] Weapon Crossbow;      //Reference Stats
+[[reko::address("3EDB:2F4F")]] Weapon Pistol;        //Reference Stats
+[[reko::address("3EDB:2F60")]] Weapon Rifle;         //Reference Stats
+[[reko::address("3EDB:2F71")]] Weapon MachineGun;    //Reference Stats
+[[reko::address("3EDB:2F82")]] Weapon SRMissile;     //Reference Stats
+[[reko::address("3EDB:2F93")]] Weapon Inferno;       //Reference Stats
+[[reko::address("3EDB:2FA4")]] Weapon LaserPistl;    //Reference Stats
+[[reko::address("3EDB:2FB5")]] Weapon LaserRifle;    //Reference Stats
+[[reko::address("3EDB:2FC6")]] Weapon Flamer;        //Reference Stats
+[[reko::address("3EDB:2FD7")]] Weapon SmallLaser;    //Reference Stats
+[[reko::address("3EDB:2FE8")]] Weapon MedLaser;      //Reference Stats
+[[reko::address("3EDB:2FF9")]] Weapon LargeLaser;    //Reference Stats
+[[reko::address("3EDB:300A")]] Weapon PPC;           //Reference Stats
+[[reko::address("3EDB:301B")]] Weapon AutoCann2;     //Reference Stats
+[[reko::address("3EDB:302C")]] Weapon AutoCann5;     //Reference Stats
+[[reko::address("3EDB:303D")]] Weapon AutoCan10;     //Reference Stats
+[[reko::address("3EDB:304E")]] Weapon AutoCan20;     //Reference Stats
+[[reko::address("3EDB:305F")]] Weapon MachineGun;    //Reference Stats
+[[reko::address("3EDB:3070")]] Weapon Flamer;        //Reference Stats
+[[reko::address("3EDB:3081")]] Weapon LRMissile5;    //Reference Stats
+[[reko::address("3EDB:3092")]] Weapon LRMissil10;    //Reference Stats
+[[reko::address("3EDB:30A3")]] Weapon LRMissil15;    //Reference Stats
+[[reko::address("3EDB:30B4")]] Weapon LRMissil20;    //Reference Stats
+[[reko::address("3EDB:30C5")]] Weapon SMRissile2;    //Reference Stats
+[[reko::address("3EDB:30D6")]] Weapon SRMissile4;    //Reference Stats
+[[reko::address("3EDB:30E7")]] Weapon SRMissile6;    //Reference Stats
+[[reko::address("3EDB:30F8")]] Weapon Kick;          //Reference Stats
+
+
+
 //Game Variables
 [[reko::address("3092:CB0C")]] unsigned short Map_FogOfWar_Visibility[2048]; //SAVE_Offset: 0x0F45;    
 [[reko::address("246C:A44B")]] unsigned short CrescentHawk_MapPositionX; //SAVE_Offset: 0x0F45;  //tA44B
@@ -106,6 +155,9 @@ typedef struct Mech
 [[reko::address("3EDB:52E5")]] int DOS_Interrupt;
 [[reko::address("3EDB:52F9")]] int DOS_Version;
 [[reko::address("246C:B764")]] unsigned char Video_Mode;
+
+
+[[reko::address("3EDB:0EAE")]] unsigned long SalvagedComponentsFromSkill[3]; //3EDB:0EAE " and heat sinks."; //3EDB:0EBE ", heat sinks and weapons." //3EDB:0ED7 ", heat sinks, weapons and structure."
 
 //--------------------------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------------------------
