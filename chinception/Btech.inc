@@ -247,7 +247,7 @@ typedef struct Weapon
 [[reko::address("207F:2251")]] void DrawCall_EGA_Text_To_ScreenLocation(unsigned char ScreenOffset, unsigned int* TextPtr);
 [[reko::address("1631:1DAB")]] void Combat_Display_Text_From_Memory_IF_11832(char * __far TextPtr);
 [[reko::address("1631:1FDF")]] void Display_Text_CBill_Balance();
-[[reko::address("1631:1B8F")]] void Combat_Display_Text_From_Memory(unsigned char eqCond);
+[[reko::address("1631:1B8F")]] void Combat_DisplayText_ArmourHitLocation(unsigned char ArmourLocation);
 [[reko::address("1631:02E4")]] void Display_Text_Human_Health(unsigned char Scan_TargetId);
 [[reko::address("1467:0B98")]] void Display_Text_Mech_Names();
 [[reko::address("0800:2A69")]] void Combat_Display_Text_Add_Plural();
@@ -264,7 +264,7 @@ typedef struct Weapon
 [[reko::address("135D:02A8")]] void Display_StarLeague_Cache_Dialog_Window();
 [[reko::address("135D:02D2")]] void StarLeague_HyperPulse_Power_Dialog_Window(unsigned short CharacterPosX_04, unsigned short CharacterPosY_06);
 [[reko::address("207F:3B9E")]] void Loop_Until_TextPtr_Null(unsigned long TextPtr);
-[[reko::address("1E56:07CB")]] void Draw_Text_To_Screen(unsigned long ptrArg04, unsigned short wArg08);
+[[reko::address("1E56:07CB")]] void Display_TextBox(unsigned long ptrArg04, unsigned short wArg08);
 
 
 // Line Drawing Functions
@@ -312,7 +312,7 @@ typedef struct Weapon
 [[reko::address("1431:000A")]] void Heal_Characters(unsigned char MedicalEquipmentLevel);
 [[reko::address("0800:4AA6")]] void CharacterStatsBlock(unsigned char CharacterId, unsigned char wArg06);
 [[reko::address("0800:2A93")]] void CharacterPosition_2A93();
-[[reko::address("0800:051B")]] void Position_And_Map_051B();
+[[reko::address("0800:051B")]] void Draw_Infantry_And_Mechs();
 [[reko::address("207F:1314")]] void PosXY_OffsetGrid(unsigned short PosX, unsigned short PosY); 
 [[reko::address("207F:0971")]] unsigned char Get_Target_Compass_Direction(unsigned char x0, unsigned char y0, unsigned char x1, unsigned char y1);
 [[reko::address("11B8:080A")]] void Mechlube_Modify_Mech();
@@ -329,11 +329,11 @@ typedef struct Weapon
 [[reko::address("11B8:1441")]] void Mech_Mission_Operation_1441();
 [[reko::address("0DAB:094B")]] void Loot_Enemy_Soldiers_Dialog(); 
 [[reko::address("0DAB:18E8")]] void Scan_Human_Teammate_suspicious(unsigned char ScanTargetId, unsigned char wArg06, unsigned char wArg08);
-[[reko::address("135D:0980")]] void Map_Interactable_Menu_And_Sound();
+[[reko::address("135D:0980")]] void Cache_StarMap_CorrectPassword();
 [[reko::address("135D:0AB6")]] void StarLeague_Key_Codes(unsigned short wArg04, unsigned short wArg06, unsigned short wArg08);
 [[reko::address("135D:0913")]] void Map_Interactable_Play_Sound(unsigned short CharacterPos_X, unsigned short CharacterPos_Y);
 [[reko::address("1631:15FA")]] unsigned short MechId_Random_Count_15FA(unsigned char MechId_04, unsigned char LessThanCond);
-[[reko::address("11B8:152F")]] void Building_Operation_152F();
+[[reko::address("11B8:152F")]] void Jail_Mission_Jason_Only_Character();
 [[reko::address("0FDC:0008")]] void Interact_with_BLD(unsigned char Indexed_BLDFile); 
 [[reko::address("0800:186F")]] void Combat_PositionBracketing_186F(unsigned short PosX, unsigned short PosY);
 [[reko::address("0800:191B")]] void Combat_PositionBracketing_191B(unsigned short PosX4, unsigned short PosY);
@@ -410,7 +410,7 @@ typedef struct Weapon
 
 [[reko::address("183B:2835")]] void Combat_Load_9Grid_Map_2835();
 
-[[reko::address("207F:18EF")]] void VGA_CGA_Graphics_Operations_18EF(); //TROUBLE func
+[[reko::address("207F:18EF")]] void Copy_Data_To_GraphicsMemory(); //TROUBLE func
 
 
 
