@@ -245,7 +245,7 @@ typedef struct Weapon
 [[reko::address("1F3D:00D5")]] void Draw_EGA_Text_To_Screen(unsigned int * __far Textptr, unsigned char Horizonal_StatsLine_Offset, unsigned char Vertical_StatsLine_Offset, unsigned char EGAColour_Font, unsigned char EGAColour_Background);
 [[reko::address("207F:2127")]] void Set_EGAColours_Font_And_Background(unsigned char EGAColour_Font, unsigned char EGAColour_Background);
 [[reko::address("207F:2251")]] void DrawCall_EGA_Text_To_ScreenLocation(unsigned char ScreenOffset, unsigned int* TextPtr);
-[[reko::address("1631:1DAB")]] void Combat_Display_Text_From_Memory_IF_11832(char * __far TextPtr);
+[[reko::address("1631:1DAB")]] void Combat_CombatMessageVerbosityFilter(char * __far CombatMessage);
 [[reko::address("1631:1FDF")]] void Display_Text_CBill_Balance();
 [[reko::address("1631:1B8F")]] void Combat_DisplayText_ArmourHitLocation(unsigned char ArmourLocation);
 [[reko::address("1631:02E4")]] void Display_Text_Human_Health(unsigned char Scan_TargetId);
@@ -289,7 +289,7 @@ typedef struct Weapon
 [[reko::address("1543:0A35")]] void Combat_Mech_Eject_0A35(unsigned char MechLanceId);
 [[reko::address("183B:28DB")]] unsigned char Combat_MovementPointsRemaining_28DB();
 [[reko::address("183B:27C9")]] void Draw_TerrainDamage_and_Wrecks(unsigned char Sprite, unsigned char PosX, unsigned char PosY);
-[[reko::address("1631:0F24")]] void Combat_PosBracket_0F24(unsigned char TargetId, unsigned char CharacterId);
+[[reko::address("1631:0F24")]] void Combat_Calculate_RangeBracket(unsigned char TargetId, unsigned char CharacterId);
 [[reko::address("1631:0BB5")]] unsigned short Combat_Operation_0BB5(int wArg04, int wArg06);
 [[reko::address("0800:29F5")]] unsigned int Return_50_CBills();
 [[reko::address("1631:1057")]] void Combat_Weapon_Display_Text_And_Menu_Options(int * __far Ptr);
@@ -299,7 +299,7 @@ typedef struct Weapon
 [[reko::address("1631:11AB")]] void Combat_Case_Statement_11AB(unsigned short wArg04, unsigned short wArg06);
 [[reko::address("1631:163E")]] int Combat_fn1631_163E(int * __far ptr, int wArg08);
 [[reko::address("1631:16AB")]] unsigned char Return_bool_fn1631_16AB(unsigned char TargetId, unsigned char wArg0A);
-[[reko::address("1631:1DCC")]] void Countdown_or_Keyboard_Input();
+[[reko::address("1631:1DCC")]] void GameSpeed_RateControl();
 [[reko::address("1631:1DF8")]] void Combat_AudioVisual_1DF8(unsigned short wArg04, unsigned short wArg06, unsigned short wArg08, unsigned short wArg0A);
 [[reko::address("1631:1EA2")]] void Combat_AudioVisual_1EA2(unsigned short wArg04, unsigned short wArg06);
 [[reko::address("1631:1F09")]] void Combat_AudioVisual_MechPositioning_And_GraphicsMemory_1F09(unsigned int* dwArg04);
