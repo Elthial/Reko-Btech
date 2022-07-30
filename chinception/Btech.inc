@@ -205,7 +205,7 @@ typedef struct Weapon
 [[reko::address("0DAB:1AFE")]] void Examine_Screen_BTSTATS_CMP(unsigned char MechTargetId);
 [[reko::address("183B:24F0")]] unsigned char SettingsMenu_CombatMessages();
 [[reko::address("183B:2556")]] unsigned char SettingsMenu_SeeCombatGraphics_bool();
-[[reko::address("1E56:0D1D")]] char Keyboard_Big_Switch_statement(char keypress);
+[[reko::address("1E56:0D1D")]] char Keyboard_To_MoveCommands(char keypress);
 [[reko::address("1F3D:0259")]] char Keyboard_Get_ASCII_Hex_Input();
 [[reko::address("1E56:0004")]] void Draw_Menu_CGA_VGA_Graphical_Operation(unsigned char wArg04);
 
