@@ -65,39 +65,41 @@ typedef struct Weapon
 //Infantry Variables
 //------------------------------------------------------------------
 //Crescent Hawk Members
-[[reko::address("3092:C614")]] Infantry CrescentHawk00_Jason; //SAVE_Offset: 0x0001;
-[[reko::address("3092:C625")]] Infantry CrescentHawk01_Rex;   //SAVE_Offset: 0x0012;
-[[reko::address("3092:C636")]] Infantry CrescentHawk02;       //SAVE_Offset: 0x0023;
-[[reko::address("3092:C647")]] Infantry CrescentHawk03;       //SAVE_Offset: 0x0034;
-[[reko::address("3092:C658")]] Infantry CrescentHawk04;       //SAVE_Offset: 0x0045;
-[[reko::address("3092:C669")]] Infantry CrescentHawk05;       //SAVE_Offset: 0x0056;
-[[reko::address("3092:C67A")]] Infantry CrescentHawk06;       //SAVE_Offset: 0x0067;
-[[reko::address("3092:C68B")]] Infantry CrescentHawk07;       //SAVE_Offset: 0x0078;
+[[reko::address("3092:C614")]] Infantry AllInfantry[16]; //C614 <-- Whole array
+//[[reko::address("3092:C614")]] Infantry CrescentHawk00_Jason; //SAVE_Offset: 0x0001;
+//[[reko::address("3092:C625")]] Infantry CrescentHawk01_Rex;   //SAVE_Offset: 0x0012;
+//[[reko::address("3092:C636")]] Infantry CrescentHawk02;       //SAVE_Offset: 0x0023;
+//[[reko::address("3092:C647")]] Infantry CrescentHawk03;       //SAVE_Offset: 0x0034;
+//[[reko::address("3092:C658")]] Infantry CrescentHawk04;       //SAVE_Offset: 0x0045;
+//[[reko::address("3092:C669")]] Infantry CrescentHawk05;       //SAVE_Offset: 0x0056;
+//[[reko::address("3092:C67A")]] Infantry CrescentHawk06;       //SAVE_Offset: 0x0067;
+//[[reko::address("3092:C68B")]] Infantry CrescentHawk07;       //SAVE_Offset: 0x0078;
 
 //Enemy Infantry
-[[reko::address("3092:C69C")]] Infantry Enemy00;              //SAVE_Offset: 0x0089;
-[[reko::address("3092:C6AD")]] Infantry Enemy01;              //SAVE_Offset: 0x009A;
-[[reko::address("3092:C6BE")]] Infantry Enemy02;              //SAVE_Offset: 0x00AB;
-[[reko::address("3092:C6CF")]] Infantry Enemy03;              //SAVE_Offset: 0x00BC;
-[[reko::address("3092:C6E0")]] Infantry Enemy04;              //SAVE_Offset: 0x00CD;
-[[reko::address("3092:C6F1")]] Infantry Enemy05;              //SAVE_Offset: 0x00DE;
-[[reko::address("3092:C702")]] Infantry Enemy06;              //SAVE_Offset: 0x00EF;
-[[reko::address("3092:C713")]] Infantry Enemy07;              //SAVE_Offset: 0x0100;
+//[[reko::address("3092:C69C")]] Infantry Enemy00;              //SAVE_Offset: 0x0089;
+//[[reko::address("3092:C6AD")]] Infantry Enemy01;              //SAVE_Offset: 0x009A;
+//[[reko::address("3092:C6BE")]] Infantry Enemy02;              //SAVE_Offset: 0x00AB;
+//[[reko::address("3092:C6CF")]] Infantry Enemy03;              //SAVE_Offset: 0x00BC;
+//[[reko::address("3092:C6E0")]] Infantry Enemy04;              //SAVE_Offset: 0x00CD;
+//[[reko::address("3092:C6F1")]] Infantry Enemy05;              //SAVE_Offset: 0x00DE;
+//[[reko::address("3092:C702")]] Infantry Enemy06;              //SAVE_Offset: 0x00EF;
+//[[reko::address("3092:C713")]] Infantry Enemy07;              //SAVE_Offset: 0x0100;
 
 //------------------------------------------------------------------
 //Mech Variables
 //------------------------------------------------------------------
 //Crescent Hawk
-[[reko::address("3092:C724")]] Mech CrescentHawkMech00; //SAVE_Offset: 0x0111;
-[[reko::address("3092:C7A1")]] Mech CrescentHawkMech01; //SAVE_Offset: 0x018E;
-[[reko::address("3092:C81E")]] Mech CrescentHawkMech02; //SAVE_Offset: 0x020B;
-[[reko::address("3092:C89B")]] Mech CrescentHawkMech03; //SAVE_Offset: 0x0288; 
+[[reko::address("3092:C724")]] Mech Mechs[8]; //C724 <-- whole array
+//[[reko::address("3092:C724")]] Mech CrescentHawkMech00; //SAVE_Offset: 0x0111;
+//[[reko::address("3092:C7A1")]] Mech CrescentHawkMech01; //SAVE_Offset: 0x018E;
+//[[reko::address("3092:C81E")]] Mech CrescentHawkMech02; //SAVE_Offset: 0x020B;
+//[[reko::address("3092:C89B")]] Mech CrescentHawkMech03; //SAVE_Offset: 0x0288; 
 
 //Enemy Mechs
-[[reko::address("3092:C918")]] Mech EnemyMech00; //SAVE_Offset: 0x0305;
-[[reko::address("3092:C995")]] Mech EnemyMech01; //SAVE_Offset: 0x0382;
-[[reko::address("3092:CA12")]] Mech EnemyMech02; //SAVE_Offset: 0x03FF;
-[[reko::address("3092:CA8F")]] Mech EnemyMech03; //SAVE_Offset: 0x047C; 
+//[[reko::address("3092:C918")]] Mech EnemyMech00; //SAVE_Offset: 0x0305;
+//[[reko::address("3092:C995")]] Mech EnemyMech01; //SAVE_Offset: 0x0382;
+//[[reko::address("3092:CA12")]] Mech EnemyMech02; //SAVE_Offset: 0x03FF;
+//[[reko::address("3092:CA8F")]] Mech EnemyMech03; //SAVE_Offset: 0x047C; 
 
 //Mech Reference Stats
 [[reko::address("2FE8:02F0")]] Mech LOCUST;      //Reference Stats
@@ -110,39 +112,40 @@ typedef struct Weapon
 [[reko::address("2FE8:065B")]] Mech URBANMECH;   //Reference Stats
 
 //Weapon Reference Stats
-[[reko::address("3EDB:2ED8")]] Weapon Cludgel;   //Reference Stats
-[[reko::address("3EDB:2EE9")]] Weapon Knife;         //Reference Stats
-[[reko::address("3EDB:2EFA")]] Weapon Sword;         //Reference Stats
-[[reko::address("3EDB:2F0B")]] Weapon Vibroblade;    //Reference Stats
-[[reko::address("3EDB:2F1C")]] Weapon Shortbow;      //Reference Stats
-[[reko::address("3EDB:2F2D")]] Weapon Longbow;       //Reference Stats
-[[reko::address("3EDB:2F3E")]] Weapon Crossbow;      //Reference Stats
-[[reko::address("3EDB:2F4F")]] Weapon Pistol;        //Reference Stats
-[[reko::address("3EDB:2F60")]] Weapon Rifle;         //Reference Stats
-[[reko::address("3EDB:2F71")]] Weapon MachineGun;    //Reference Stats
-[[reko::address("3EDB:2F82")]] Weapon SRMissile;     //Reference Stats
-[[reko::address("3EDB:2F93")]] Weapon Inferno;       //Reference Stats
-[[reko::address("3EDB:2FA4")]] Weapon LaserPistl;    //Reference Stats
-[[reko::address("3EDB:2FB5")]] Weapon LaserRifle;    //Reference Stats
-[[reko::address("3EDB:2FC6")]] Weapon Flamer;        //Reference Stats
-[[reko::address("3EDB:2FD7")]] Weapon SmallLaser;    //Reference Stats
-[[reko::address("3EDB:2FE8")]] Weapon MedLaser;      //Reference Stats
-[[reko::address("3EDB:2FF9")]] Weapon LargeLaser;    //Reference Stats
-[[reko::address("3EDB:300A")]] Weapon PPC;           //Reference Stats
-[[reko::address("3EDB:301B")]] Weapon AutoCann2;     //Reference Stats
-[[reko::address("3EDB:302C")]] Weapon AutoCann5;     //Reference Stats
-[[reko::address("3EDB:303D")]] Weapon AutoCan10;     //Reference Stats
-[[reko::address("3EDB:304E")]] Weapon AutoCan20;     //Reference Stats
-[[reko::address("3EDB:305F")]] Weapon MachineGun;    //Reference Stats
-[[reko::address("3EDB:3070")]] Weapon Flamer;        //Reference Stats
-[[reko::address("3EDB:3081")]] Weapon LRMissile5;    //Reference Stats
-[[reko::address("3EDB:3092")]] Weapon LRMissil10;    //Reference Stats
-[[reko::address("3EDB:30A3")]] Weapon LRMissil15;    //Reference Stats
-[[reko::address("3EDB:30B4")]] Weapon LRMissil20;    //Reference Stats
-[[reko::address("3EDB:30C5")]] Weapon SMRissile2;    //Reference Stats
-[[reko::address("3EDB:30D6")]] Weapon SRMissile4;    //Reference Stats
-[[reko::address("3EDB:30E7")]] Weapon SRMissile6;    //Reference Stats
-[[reko::address("3EDB:30F8")]] Weapon Kick;          //Reference Stats
+[[reko::address("3EDB:2ED8")]] Weapon Weapons[32];   //Reference Stats
+//[[reko::address("3EDB:2ED8")]] Weapon Cludgel;       //Reference Stats
+//[[reko::address("3EDB:2EE9")]] Weapon Knife;         //Reference Stats
+//[[reko::address("3EDB:2EFA")]] Weapon Sword;         //Reference Stats
+//[[reko::address("3EDB:2F0B")]] Weapon Vibroblade;    //Reference Stats
+//[[reko::address("3EDB:2F1C")]] Weapon Shortbow;      //Reference Stats
+//[[reko::address("3EDB:2F2D")]] Weapon Longbow;       //Reference Stats
+//[[reko::address("3EDB:2F3E")]] Weapon Crossbow;      //Reference Stats
+//[[reko::address("3EDB:2F4F")]] Weapon Pistol;        //Reference Stats
+//[[reko::address("3EDB:2F60")]] Weapon Rifle;         //Reference Stats
+//[[reko::address("3EDB:2F71")]] Weapon MachineGun;    //Reference Stats
+//[[reko::address("3EDB:2F82")]] Weapon SRMissile;     //Reference Stats
+//[[reko::address("3EDB:2F93")]] Weapon Inferno;       //Reference Stats
+//[[reko::address("3EDB:2FA4")]] Weapon LaserPistl;    //Reference Stats
+//[[reko::address("3EDB:2FB5")]] Weapon LaserRifle;    //Reference Stats
+//[[reko::address("3EDB:2FC6")]] Weapon Flamer;        //Reference Stats
+//[[reko::address("3EDB:2FD7")]] Weapon SmallLaser;    //Reference Stats
+//[[reko::address("3EDB:2FE8")]] Weapon MedLaser;      //Reference Stats
+//[[reko::address("3EDB:2FF9")]] Weapon LargeLaser;    //Reference Stats
+//[[reko::address("3EDB:300A")]] Weapon PPC;           //Reference Stats
+//[[reko::address("3EDB:301B")]] Weapon AutoCann2;     //Reference Stats
+//[[reko::address("3EDB:302C")]] Weapon AutoCann5;     //Reference Stats
+//[[reko::address("3EDB:303D")]] Weapon AutoCan10;     //Reference Stats
+//[[reko::address("3EDB:304E")]] Weapon AutoCan20;     //Reference Stats
+//[[reko::address("3EDB:305F")]] Weapon MachineGun;    //Reference Stats
+//[[reko::address("3EDB:3070")]] Weapon Flamer;        //Reference Stats
+//[[reko::address("3EDB:3081")]] Weapon LRMissile5;    //Reference Stats
+//[[reko::address("3EDB:3092")]] Weapon LRMissil10;    //Reference Stats
+//[[reko::address("3EDB:30A3")]] Weapon LRMissil15;    //Reference Stats
+//[[reko::address("3EDB:30B4")]] Weapon LRMissil20;    //Reference Stats
+//[[reko::address("3EDB:30C5")]] Weapon SMRissile2;    //Reference Stats
+//[[reko::address("3EDB:30D6")]] Weapon SRMissile4;    //Reference Stats
+//[[reko::address("3EDB:30E7")]] Weapon SRMissile6;    //Reference Stats
+//[[reko::address("3EDB:30F8")]] Weapon Kick;          //Reference Stats
 
 
 
@@ -155,6 +158,31 @@ typedef struct Weapon
 [[reko::address("3EDB:52E5")]] int DOS_Interrupt;
 [[reko::address("3EDB:52F9")]] int DOS_Version;
 [[reko::address("246C:B764")]] unsigned char Video_Mode;
+
+[[reko::address("3092:D30C")]] unsigned char PrimaryBoolList[64]; // D30C
+
+[[reko::address("3092:4004")]] unsigned short CharacterPosX_Mech[8];  
+[[reko::address("3092:400C")]] unsigned short CharacterPosX_OnFoot[8];
+[[reko::address("3092:4014")]] unsigned short EnemyPosX_Mech[8]; 
+//[[reko::address("3092:4020")]] unsigned short CharacterPosX_Mech_UrbanMech01; //w4020 <-- Arena Escape - part of EnemyPosX_Mech[7]
+//[[reko::address("3092:4022")]] unsigned short CharacterPosX_Mech_UrbanMech02; //w4022 <-- Arena Escape - part of EnemyPosX_Mech[8]	
+[[reko::address("3092:CB0C")]] unsigned char MapPosX[12]; 
+
+[[reko::address("3092:4036")]] unsigned short CharacterPosY_Mech[8];	
+[[reko::address("3092:403E")]] unsigned short CharacterPosY_OnFoot[8]; 
+[[reko::address("3092:4046")]] unsigned short EnemyPosY_Mech[8]; 
+//[[reko::address("3092:w4052")]] unsigned short CharacterPosY_Mech_UrbanMech01; // w4052 <-- Arena Escape # - part of EnemyPosY_Mech[7]
+//[[reko::address("3092:w4054")]] unsigned short CharacterPosY_Mech_UrbanMech02; // w4054 <-- Arena Escape # - part of EnemyPosY_Mech[8]	
+[[reko::address("3092:4056")]] unsigned char MapPosY[12]; 
+
+[[reko::address("3092:406A")]] unsigned short Character_OnMap[8];
+[[reko::address("3092:4072")]] unsigned short OnMap_Infantry[8];
+[[reko::address("3092:407A")]] unsigned short OnMap_EnemyCharacter[8]; 
+//[[reko::address("3092:4088")]] unsigned short OnMap_UrbanMech01; //w = Visible / On Map? - part of OnMap_EnemyCharacter[8]
+//[[reko::address("3092:4086")]] unsigned short OnMap_UrbanMech02; //w = Visible / On Map? - part of OnMap_EnemyCharacter[7]
+
+[[reko::address("3092:4564")]] unsigned short MapInteractable_PosX[16];
+[[reko::address("3092:4596")]] unsigned short MapInteractable_PosY[16];
 
 
 [[reko::address("3EDB:0EAE")]] unsigned long SalvagedComponentsFromSkill[3]; //3EDB:0EAE " and heat sinks."; //3EDB:0EBE ", heat sinks and weapons." //3EDB:0ED7 ", heat sinks, weapons and structure."
@@ -294,16 +322,17 @@ typedef struct Weapon
 [[reko::address("0800:29F5")]] unsigned int Return_50_CBills();
 [[reko::address("1631:1057")]] void Combat_Weapon_Display_Text_And_Menu_Options(int * __far Ptr);
 [[reko::address("207F:1ECE")]] void Combat_1ECE(unsigned long * ptr, unsigned char B);
-[[reko::address("1631:10A2")]] unsigned char Combat_fn1631_10A2(unsigned char MechLanceId, unsigned char wArg06);
-[[reko::address("1631:1122")]] unsigned char Combat_fn1631_1122(unsigned short wArg04);
+[[reko::address("1631:10A2")]] unsigned char Combat_GetAmmoForSelectedWeapon_10A2(unsigned char MechLanceId, unsigned char SelectedWeaponId);
+[[reko::address("1631:1122")]] unsigned char Combat_StructureHit_1122(unsigned char HitLocation);
 [[reko::address("1631:11AB")]] void Combat_Case_Statement_11AB(unsigned short wArg04, unsigned short wArg06);
 [[reko::address("1631:163E")]] int Combat_fn1631_163E(int * __far ptr, int wArg08);
 [[reko::address("1631:16AB")]] unsigned char Return_bool_fn1631_16AB(unsigned char TargetId, unsigned char wArg0A);
 [[reko::address("1631:1DCC")]] void GameSpeed_RateControl();
-[[reko::address("1631:1DF8")]] void Combat_AudioVisual_1DF8(unsigned short wArg04, unsigned short wArg06, unsigned short wArg08, unsigned short wArg0A);
-[[reko::address("1631:1EA2")]] void Combat_AudioVisual_1EA2(unsigned short wArg04, unsigned short wArg06);
+[[reko::address("1AE8:1E46")]] void Combat_Random_CreateFire(unsigned short EntityId, unsigned short PosX, unsigned short PosY);
+[[reko::address("1631:1DF8")]] void Combat_CompassPos_1DF8(unsigned short PosX, unsigned short PosY, unsigned short CharacterPosX_Mech, unsigned short CharacterPosY_Mech);
+[[reko::address("1631:1EA2")]] void Combat_AudioVisual_1EA2(unsigned short PosX_04, unsigned short PosY_06);
 [[reko::address("1631:1F09")]] void Combat_AudioVisual_MechPositioning_And_GraphicsMemory_1F09(unsigned int* dwArg04);
-[[reko::address("1631:1F73")]] void Combat_AudioVisual_1F73(unsigned short wArg04, unsigned short wArg06, unsigned short wArg08);
+[[reko::address("1631:1F73")]] void Draw_Combat_Sprites_1F73(unsigned short SpriteId04, unsigned short PosX_06, unsigned short PosY_08);
 [[reko::address("1631:1B44")]] unsigned char Combat_Check_Mech_Actuator_Status(unsigned char MechLanceId, unsigned char MechComponent);
 [[reko::address("1467:0D7E")]] void Combat_Reset_40B4_To_Zero();
 [[reko::address("135D:0288")]] void StarLeague_Cache_PhoenixHawk();
@@ -330,7 +359,7 @@ typedef struct Weapon
 [[reko::address("0DAB:094B")]] void Loot_Enemy_Soldiers_Dialog(); 
 [[reko::address("0DAB:18E8")]] void Scan_Human_Teammate_suspicious(unsigned char ScanTargetId, unsigned char wArg06, unsigned char wArg08);
 [[reko::address("135D:0980")]] void Cache_StarMap_CorrectPassword();
-[[reko::address("135D:0AB6")]] void StarLeague_Key_Codes(unsigned short wArg04, unsigned short wArg06, unsigned short wArg08);
+[[reko::address("135D:0AB6")]] void StarLeague_Key_Codes(unsigned char PosX, unsigned char PosY, unsigned char CacheOpenedId_wArg08);
 [[reko::address("135D:0913")]] void Map_Interactable_Play_Sound(unsigned short CharacterPos_X, unsigned short CharacterPos_Y);
 [[reko::address("1631:15FA")]] unsigned short MechId_Random_Count_15FA(unsigned char MechId_04, unsigned char LessThanCond);
 [[reko::address("11B8:152F")]] void Jail_Mission_Jason_Only_Character();
@@ -354,8 +383,8 @@ typedef struct Weapon
 [[reko::address("183B:14C3")]] unsigned char Combat_UI_Menu_Logic();
 
 //Random funcs
-[[reko::address("0800:19F3")]] unsigned char RandomNumber_GreaterThan5_AND_07_Plus_01();
-[[reko::address("0800:19DD")]] unsigned char Return_Double_RandomNumber_GreaterThan5_AND_07_Plus_01();
+[[reko::address("0800:19F3")]] unsigned char Rand_Dice_D6();
+[[reko::address("0800:19DD")]] unsigned char Rand_Dice_Two_D6();
 
 //Tinyland / overhead map
 [[reko::address("0800:45C2")]] void TinyLand_Graphics_45C2(int wArg04);
@@ -415,6 +444,8 @@ typedef struct Weapon
 
 
 //Needs review - 54 funcs
+[[reko::address("0FDC:19F6")]] unsigned long Increment_ptrArg04_by_1_19F6(unsigned long ptrArg04); //check args after large switch
+
 [[reko::address("0DAB:04F9")]] void Salvage_Mechs_Dialog(); //<--- Has a bug [Bp -2h] https://github.com/uxmal/reko/issues/1188
 [[reko::address("0800:0E4B")]] void Graphical_Operations_0E4B(); //<--- Has a bug [Bp -2h] https://github.com/uxmal/reko/issues/1188
 [[reko::address("1631:1BFE")]] unsigned char Combat_Return_bool_fn1631_1BFE(unsigned short wArg04, unsigned short wArg06, unsigned short wArg08, unsigned short wArg0A); //<-- Recheck after reko reload / added new args. 
@@ -432,7 +463,7 @@ typedef struct Weapon
 [[reko::address("0800:0000")]] void Main_Game_Loop(unsigned char Disable_Input);
 [[reko::address("0800:240B")]] void Combat_MemoryPtr_Copy_240B(); //CHECK ASM variable values incorrect
 [[reko::address("1AE8:12C7")]] void Combat_AudioVisual_Effects(unsigned char ShooterId_04, unsigned char CombatantId, unsigned char WeaponId_Used, unsigned char PosOffset_0A,  unsigned char Bool_NonMissile_0C, unsigned char CombatId_Dead_0E, unsigned char MechIsDestroyed_10, unsigned char Dead_CharacterId_12, word16 Bool_OnFoot_14, unsigned int* MemoryFarPtr_16);
-[[reko::address("1AE8:1E46")]] void Combat_RandomUsage_1E46(unsigned short wArg04, unsigned short wArg06, unsigned short wArg08);
+
 [[reko::address("1AE8:000C")]] void Combat_Mechanics(int IsCombat);
 [[reko::address("135D:079C")]] void Draw_STARLEAG_ICN_Scene(); //CHECK ASM for variables true value
 [[reko::address("207F:0377")]] void DrawCall_EGA_CharacterPos_0377(unsigned short EGA_Mem_Offset_04, unsigned short EGA_Mem_Seg_06, unsigned short OffsetPtr_wArg08, unsigned short SegPtr_wArg0A, unsigned char PosX, unsigned char PosY);
@@ -449,7 +480,7 @@ typedef struct Weapon
 [[reko::address("0800:1732")]] void Select_As_Target_Variable_1732(unsigned char TargetId); //review -- CHECK ASM
 [[reko::address("0800:231D")]] void Cycle_Through_Characters_231D(unsigned KeyPress);  //review
 [[reko::address("0FDC:05F7")]] unsigned ASM_Func_05F7(int *ptrArg04); //Needs ASM CHECK
-[[reko::address("207F:0BC0")]] unsigned char RandomNumberGenerator_RCL(); // CHECK ASM and write to understand
+[[reko::address("207F:0BC0")]] unsigned char Rand_0x00_to_0xFF(); // CHECK ASM and write to understand
 [[reko::address("207F:1F04")]] void Overhead_Map_1F04(int wArg04); //review
 [[reko::address("207F:0D07")]] void Map_Pos_0D07(); //Needs review, check args
 [[reko::address("207F:0D79")]] void Map_Pos_0D79(); //Needs review, check args
@@ -464,10 +495,10 @@ typedef struct Weapon
 [[reko::address("0FDC:17B9")]] void Citadel_Building_Greetings(); //fp -0A issue
 [[reko::address("1CD3:0004")]] void Citadel_Building_Dialogs(unsigned char CaseOption); //Review this and all sub functions	
 [[reko::address("183B:1482")]] void Combat_Computer_Control_1482(unsigned char TargetMechId); //review
-[[reko::address("207F:05BF")]] void EGA_ASM_LODSB_4x_SHL_RCL(); //Inline ASM func? //LODSB instruct = Load byte at address DS:(E)SI into AL 
+[[reko::address("207F:05BF")]] void EGA_Animation_Bitshift(); //Inline ASM func? //LODSB instruct = Load byte at address DS:(E)SI into AL 
 [[reko::address("207F:18D8")]] void Struct_Copy_Operation_18D8(); //No call args but needs si / di? Reko registers?
 [[reko::address("0FDC:01C0")]] void Large_Switch_Statement(unsigned long ptrArg04); //sp and fp problems - memset values missing // broken case statement
-[[reko::address("0FDC:19F6")]] unsigned short Increment_ptrArg04_by_1_19F6(unsigned short ptrArg04); //check args after large switch
+
 [[reko::address("1543:0004")]] void Combat_Weapon_UI_0004(unsigned char TargetId); //fp - issues - 1543:0018 C6 42 E0 00 mov byte ptr [bp+si-20h],0h
 [[reko::address("183B:1774")]] void Combat_MovementTarget_unknown_1774(unsigned char TargetId, unsigned char Bool_06); //fp - issue - Draw_EGA_Text_To_Screen(fp - 16, (uint8) v27_177, (uint8) v28_180, 0x0F, 0x00);
 [[reko::address("207F:1AF4")]] void EGA_ptr_Operations_1AF4();//(unsigned long* ptrArg04, unsigned long* ptrRrg08);
@@ -476,13 +507,14 @@ typedef struct Weapon
 
 
 //ASM
+[[reko::address("207F:3BD2")]] void CBill_Text_Formatting(unsigned long * Money_ptr, unsigned long * StringBuilder_ptr); 		
 [[reko::address("207F:3BB6")]] void A_fn207F_3BB6(unsigned short wArg04, unsigned short wArg06, unsigned short wArg08, unsigned short wArg0A); //ASM function
 //[[reko::address("207F:3C15")]] void ASM_fn207F_3C15(unsigned short ax, unsigned short cx, unsigned short dx, unsigned short bl, unsigned short di, unsigned short * ds); //ASM no call function - Arg hell
 
 //All Same function? //ASM?
 //[[reko::address("207F:3C15")]] void ASM_Function_3C15(); 
 //[[reko::address("207F:3BB6")]] void A_fn207F_3BB6(int wArg04, int * __far ptr, int wArg08);
-//[[reko::address("207F:3BD2")]] void CBill_Function(int A, int B, int * __far ptr); 																																															 
+																																													 
 
 
 //[[reko::address("207F:1DA8")]] void Map_fn207F_1DA8(); //Immediately contains Map_fn207F_1886() 

@@ -19,7 +19,189 @@
         <Address>246C:0252</Address>
         <prim domain="UnsignedInt" size="2" />
         <Name>XORFreq</Name>
-      </global>      
+      </global>
+      <global>
+        <Address>246C:A44B</Address>
+        <prim domain="UnsignedInt" size="2" />
+        <Name>CrescentHawk_MapPositionX</Name>
+      </global>
+      <global>
+        <Address>246C:A44D</Address>
+        <prim domain="UnsignedInt" size="2" />
+        <Name>CrescentHawk_MapPositionY</Name>
+      </global>
+      <global>
+        <Address>246C:B764</Address>
+        <prim domain="UnsignedInt" size="1" />
+        <Name>Video_Mode</Name>
+      </global>
+      <global>
+        <Address>2FE8:02F0</Address>
+        <type>Mech</type>
+        <Name>LOCUST</Name>
+      </global>
+      <global>
+        <Address>2FE8:036D</Address>
+        <type>Mech</type>
+        <Name>WASP</Name>
+      </global>
+      <global>
+        <Address>2FE8:03EA</Address>
+        <type>Mech</type>
+        <Name>STINGER</Name>
+      </global>
+      <global>
+        <Address>2FE8:0467</Address>
+        <type>Mech</type>
+        <Name>COMMANDO</Name>
+      </global>
+      <global>
+        <Address>2FE8:04E4</Address>
+        <type>Mech</type>
+        <Name>CHAMELEON</Name>
+      </global>
+      <global>
+        <Address>2FE8:0561</Address>
+        <type>Mech</type>
+        <Name>JENNER</Name>
+      </global>
+      <global>
+        <Address>2FE8:05DE</Address>
+        <type>Mech</type>
+        <Name>Spectator</Name>
+      </global>
+      <global>
+        <Address>2FE8:065B</Address>
+        <type>Mech</type>
+        <Name>URBANMECH</Name>
+      </global>
+      <global>
+        <Address>3092:C614</Address>
+        <type>Infantry</type>
+        <Name>CrescentHawk00_Jason</Name>
+      </global>
+      <global>
+        <Address>3092:C625</Address>
+        <type>Infantry</type>
+        <Name>CrescentHawk01_Rex</Name>
+      </global>
+      <global>
+        <Address>3092:C636</Address>
+        <type>Infantry</type>
+        <Name>CrescentHawk02</Name>
+      </global>
+      <global>
+        <Address>3092:C647</Address>
+        <type>Infantry</type>
+        <Name>CrescentHawk03</Name>
+      </global>
+      <global>
+        <Address>3092:C658</Address>
+        <type>Infantry</type>
+        <Name>CrescentHawk04</Name>
+      </global>
+      <global>
+        <Address>3092:C669</Address>
+        <type>Infantry</type>
+        <Name>CrescentHawk05</Name>
+      </global>
+      <global>
+        <Address>3092:C67A</Address>
+        <type>Infantry</type>
+        <Name>CrescentHawk06</Name>
+      </global>
+      <global>
+        <Address>3092:C68B</Address>
+        <type>Infantry</type>
+        <Name>CrescentHawk07</Name>
+      </global>
+      <global>
+        <Address>3092:C69C</Address>
+        <type>Infantry</type>
+        <Name>Enemy00</Name>
+      </global>
+      <global>
+        <Address>3092:C6AD</Address>
+        <type>Infantry</type>
+        <Name>Enemy01</Name>
+      </global>
+      <global>
+        <Address>3092:C6BE</Address>
+        <type>Infantry</type>
+        <Name>Enemy02</Name>
+      </global>
+      <global>
+        <Address>3092:C6CF</Address>
+        <type>Infantry</type>
+        <Name>Enemy03</Name>
+      </global>
+      <global>
+        <Address>3092:C6E0</Address>
+        <type>Infantry</type>
+        <Name>Enemy04</Name>
+      </global>
+      <global>
+        <Address>3092:C6F1</Address>
+        <type>Infantry</type>
+        <Name>Enemy05</Name>
+      </global>
+      <global>
+        <Address>3092:C702</Address>
+        <type>Infantry</type>
+        <Name>Enemy06</Name>
+      </global>
+      <global>
+        <Address>3092:C713</Address>
+        <type>Infantry</type>
+        <Name>Enemy07</Name>
+      </global>
+      <global>
+        <Address>3092:C724</Address>
+        <type>Mech</type>
+        <Name>CrescentHawkMech00</Name>
+      </global>
+      <global>
+        <Address>3092:C7A1</Address>
+        <type>Mech</type>
+        <Name>CrescentHawkMech01</Name>
+      </global>
+      <global>
+        <Address>3092:C81E</Address>
+        <type>Mech</type>
+        <Name>CrescentHawkMech02</Name>
+      </global>
+      <global>
+        <Address>3092:C89B</Address>
+        <type>Mech</type>
+        <Name>CrescentHawkMech03</Name>
+      </global>
+      <global>
+        <Address>3092:C918</Address>
+        <type>Mech</type>
+        <Name>EnemyMech00</Name>
+      </global>
+      <global>
+        <Address>3092:C995</Address>
+        <type>Mech</type>
+        <Name>EnemyMech01</Name>
+      </global>
+      <global>
+        <Address>3092:CA12</Address>
+        <type>Mech</type>
+        <Name>EnemyMech02</Name>
+      </global>
+      <global>
+        <Address>3092:CA8F</Address>
+        <type>Mech</type>
+        <Name>EnemyMech03</Name>
+      </global>
+      <global>
+        <Address>3092:CB0C</Address>
+        <arr length="2048">
+          <prim domain="UnsignedInt" size="2" />
+        </arr>
+        <Name>Map_FogOfWar_Visibility</Name>
+      </global>
       <global>
         <Address>3EDB:0042</Address>
         <str term="z">
@@ -311,6 +493,13 @@
         <Name>g_3FC2A</Name>
       </global>
       <global>
+        <Address>3EDB:0EAE</Address>
+        <arr length="3">
+          <prim domain="UnsignedInt" size="4" />
+        </arr>
+        <Name>SalvagedComponentsFromSkill</Name>
+      </global>
+      <global>
         <Address>3EDB:1272</Address>
         <str term="z">
           <prim domain="Character" size="1" />
@@ -410,115 +599,168 @@
       </global>
       <global>
         <Address>3EDB:2ED8</Address>
-        <str term="z">
-          <prim domain="Character" size="1" />
-        </str>
-        <Name>g_41C88</Name>
+        <type>Weapon</type>
+        <Name>Cludgel</Name>
       </global>
       <global>
         <Address>3EDB:2EE9</Address>
-        <str term="z">
-          <prim domain="Character" size="1" />
-        </str>
-        <Name>g_41C99</Name>
+        <type>Weapon</type>
+        <Name>Knife</Name>
       </global>
       <global>
         <Address>3EDB:2EFA</Address>
-        <str term="z">
-          <prim domain="Character" size="1" />
-        </str>
-        <Name>g_41CAA</Name>
+        <type>Weapon</type>
+        <Name>Sword</Name>
       </global>
       <global>
         <Address>3EDB:2F0B</Address>
-        <str term="z">
-          <prim domain="Character" size="1" />
-        </str>
-        <Name>g_41CBB</Name>
+        <type>Weapon</type>
+        <Name>Vibroblade</Name>
       </global>
       <global>
         <Address>3EDB:2F1C</Address>
-        <str term="z">
-          <prim domain="Character" size="1" />
-        </str>
-        <Name>g_41CCC</Name>
+        <type>Weapon</type>
+        <Name>Shortbow</Name>
       </global>
       <global>
         <Address>3EDB:2F2D</Address>
-        <str term="z">
-          <prim domain="Character" size="1" />
-        </str>
-        <Name>g_41CDD</Name>
+        <type>Weapon</type>
+        <Name>Longbow</Name>
       </global>
       <global>
         <Address>3EDB:2F3E</Address>
-        <str term="z">
-          <prim domain="Character" size="1" />
-        </str>
-        <Name>g_41CEE</Name>
+        <type>Weapon</type>
+        <Name>Crossbow</Name>
       </global>
       <global>
         <Address>3EDB:2F4F</Address>
-        <str term="z">
-          <prim domain="Character" size="1" />
-        </str>
-        <Name>g_41CFF</Name>
+        <type>Weapon</type>
+        <Name>Pistol</Name>
       </global>
       <global>
         <Address>3EDB:2F60</Address>
-        <str term="z">
-          <prim domain="Character" size="1" />
-        </str>
-        <Name>g_41D10</Name>
+        <type>Weapon</type>
+        <Name>Rifle</Name>
       </global>
       <global>
         <Address>3EDB:2F71</Address>
-        <str term="z">
-          <prim domain="Character" size="1" />
-        </str>
-        <Name>g_41D21</Name>
+        <type>Weapon</type>
+        <Name>MachineGun</Name>
       </global>
       <global>
         <Address>3EDB:2F82</Address>
-        <str term="z">
-          <prim domain="Character" size="1" />
-        </str>
-        <Name>g_41D32</Name>
+        <type>Weapon</type>
+        <Name>SRMissile</Name>
       </global>
       <global>
         <Address>3EDB:2F93</Address>
-        <str term="z">
-          <prim domain="Character" size="1" />
-        </str>
-        <Name>g_41D43</Name>
+        <type>Weapon</type>
+        <Name>Inferno</Name>
+      </global>
+      <global>
+        <Address>3EDB:2FA4</Address>
+        <type>Weapon</type>
+        <Name>LaserPistl</Name>
+      </global>
+      <global>
+        <Address>3EDB:2FB5</Address>
+        <type>Weapon</type>
+        <Name>LaserRifle</Name>
+      </global>
+      <global>
+        <Address>3EDB:2FC6</Address>
+        <type>Weapon</type>
+        <Name>Flamer</Name>
       </global>
       <global>
         <Address>3EDB:2FD7</Address>
-        <str term="z">
-          <prim domain="Character" size="1" />
-        </str>
-        <Name>g_41D87</Name>
+        <type>Weapon</type>
+        <Name>SmallLaser</Name>
       </global>
       <global>
         <Address>3EDB:2FE8</Address>
-        <str term="z">
-          <prim domain="Character" size="1" />
-        </str>
-        <Name>g_41D98</Name>
+        <type>Weapon</type>
+        <Name>MedLaser</Name>
       </global>
       <global>
         <Address>3EDB:2FF9</Address>
-        <str term="z">
-          <prim domain="Character" size="1" />
-        </str>
-        <Name>g_41DA9</Name>
+        <type>Weapon</type>
+        <Name>LargeLaser</Name>
+      </global>
+      <global>
+        <Address>3EDB:300A</Address>
+        <type>Weapon</type>
+        <Name>PPC</Name>
+      </global>
+      <global>
+        <Address>3EDB:301B</Address>
+        <type>Weapon</type>
+        <Name>AutoCann2</Name>
+      </global>
+      <global>
+        <Address>3EDB:302C</Address>
+        <type>Weapon</type>
+        <Name>AutoCann5</Name>
+      </global>
+      <global>
+        <Address>3EDB:303D</Address>
+        <type>Weapon</type>
+        <Name>AutoCan10</Name>
+      </global>
+      <global>
+        <Address>3EDB:304E</Address>
+        <type>Weapon</type>
+        <Name>AutoCan20</Name>
       </global>
       <global>
         <Address>3EDB:305F</Address>
-        <str term="z">
-          <prim domain="Character" size="1" />
-        </str>
-        <Name>g_41E0F</Name>
+        <type>Weapon</type>
+        <Name>MachineGun</Name>
+      </global>
+      <global>
+        <Address>3EDB:3070</Address>
+        <type>Weapon</type>
+        <Name>Flamer</Name>
+      </global>
+      <global>
+        <Address>3EDB:3081</Address>
+        <type>Weapon</type>
+        <Name>LRMissile5</Name>
+      </global>
+      <global>
+        <Address>3EDB:3092</Address>
+        <type>Weapon</type>
+        <Name>LRMissil10</Name>
+      </global>
+      <global>
+        <Address>3EDB:30A3</Address>
+        <type>Weapon</type>
+        <Name>LRMissil15</Name>
+      </global>
+      <global>
+        <Address>3EDB:30B4</Address>
+        <type>Weapon</type>
+        <Name>LRMissil20</Name>
+      </global>
+      <global>
+        <Address>3EDB:30C5</Address>
+        <type>Weapon</type>
+        <Name>SMRissile2</Name>
+      </global>
+      <global>
+        <Address>3EDB:30D6</Address>
+        <type>Weapon</type>
+        <Name>SRMissile4</Name>
+      </global>
+      <global>
+        <Address>3EDB:30E7</Address>
+        <type>Weapon</type>
+        <Name>SRMissile6</Name>
+      </global>
+      <global>
+        <Address>3EDB:30F8</Address>
+        <type>Weapon</type>
+        <Name>Kick</Name>
       </global>
       <global>
         <Address>3EDB:315F</Address>
@@ -821,9 +1063,23 @@
         </str>
         <Name>g_43B7B</Name>
       </global>
+      <global>
+        <Address>3EDB:4FBA</Address>
+        <prim domain="UnsignedInt" size="1" />
+        <Name>GraphicsAdapter</Name>
+      </global>
+      <global>
+        <Address>3EDB:52E5</Address>
+        <prim domain="SignedInt" size="2" />
+        <Name>DOS_Interrupt</Name>
+      </global>
+      <global>
+        <Address>3EDB:52F9</Address>
+        <prim domain="SignedInt" size="2" />
+        <Name>DOS_Version</Name>
+      </global>
       <heuristic name="shingle" />
       <onLoad Enabled="false" />
-      
       <annotation addr="1CD3:0027">Locust string</annotation>
       <annotation addr="1CD3:0051">Wasp string</annotation>
       <annotation addr="1CD3:0067">Chameleon string</annotation>
